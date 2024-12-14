@@ -1,0 +1,36 @@
+[2024-11-21 15:01:56:031] StartDevNtfThread
+[2024-11-21 15:01:56:031] EnumProc() is started.
+[2024-11-21 15:01:56:031] DevHound is started, ID = 2908
+[2024-11-21 15:01:56:031] HoundThreadProc start!
+[2024-11-21 15:10:06:210] SendToUpLayer port = 32 Removed
+[2024-11-21 15:10:06:210] SendToUpLayer port = 33 Removed
+[2024-11-21 15:10:06:210] SendToUpLayer port = 35 Removed
+[2024-11-21 15:10:06:210] USB port 32 removed out.
+[2024-11-21 15:10:06:210] [hDiagPhone = 0x2750048] Port = 32, Set Remove Event!
+[2024-11-21 15:10:06:210] USB port 33 removed out.
+[2024-11-21 15:10:06:210] [hDiagPhone = 0x2750048] Port = 33, Set Remove Event!
+[2024-11-21 15:10:06:210] USB port 35 removed out.
+[2024-11-21 15:10:06:210] [hDiagPhone = 0x2750048] Port = 35, Set Remove Event!
+[2024-11-21 15:10:06:210] SendToUpLayer port = 36 Removed
+[2024-11-21 15:10:06:276] USB port 36 removed out.
+[2024-11-21 15:10:06:277] [hDiagPhone = 0x2750048] Port = 36, Set Remove Event!
+[2024-11-21 16:12:26:271] RegDiagEvent()
+[2024-11-21 16:12:26:271] UnRegister, hDiagPhone = 0x02750048
+[2024-11-21 16:12:26:271] DiagPhone Found, erased.
+[2024-11-21 16:12:26:271] StopDevNtfThread()
+[2024-11-21 16:12:26:287] HoundThreadProc stopped!
+[2024-11-21 16:12:26:288] DevHound stopped!
+[2024-11-21 16:12:26:288] DevHound is stopped
+[2024-11-21 16:12:26:288] EnumProc() is stopped.
+[2024-11-21 16:29:56:922] StartDevNtfThread
+[2024-11-21 16:29:56:922] EnumProc() is started.
+[2024-11-21 16:29:56:922] DevHound is started, ID = 12312
+[2024-11-21 16:29:56:923] HoundThreadProc start!
+[2024-11-21 16:30:48:922] RegDiagEvent()
+[2024-11-21 16:30:48:922] UnRegister, hDiagPhone = 0x02800048
+[2024-11-21 16:30:48:922] DiagPhone Found, erased.
+[2024-11-21 16:30:48:922] StopDevNtfThread()
+[2024-11-21 16:30:48:923] HoundThreadProc stopped!
+[2024-11-21 16:30:48:923] DevHound stopped!
+[2024-11-21 16:30:48:923] DevHound is stopped
+[2024-11-21 16:30:48:923] EnumProc() is stopped.

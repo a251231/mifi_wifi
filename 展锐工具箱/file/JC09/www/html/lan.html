@@ -1,0 +1,188 @@
+<div id="lan_content" class="settings_content">
+    <div id="lan_left" style="width: 150px;border-right: 1px solid #D9DDE3;position: relative">
+        <div id="lan_menu_dhcp" class="settings_menu_select" style="border-radius: 6px 0px 0px 0px;"
+            onclick="checkLanMenuIcon('lan_menu_dhcp')">
+            <div id="text_menu_lan" class="settings_menu_text_select">
+                Lan
+            </div>
+        </div>
+        <div id="lan_menu_ip_filter" class="settings_menu_normal" onclick="checkLanMenuIcon('lan_menu_ip_filter')" style="display: none;">
+            <div id="text_menu_ip_filter" class="settings_menu_text_normal">
+                IP Filter
+            </div>
+        </div>
+        <div id="lan_menu_VPN" class="settings_menu_normal" onclick="checkLanMenuIcon('lan_menu_VPN')" style="display: none;">
+            <div id="text_menu_vpn" class="settings_menu_text_normal">
+                VPN
+            </div>
+        </div>
+        <div id="lan_menu_qos" class="settings_menu_normal" onclick="checkLanMenuIcon('lan_menu_qos')" style="display: none;">
+            <div id="text_menu_qos" class="settings_menu_text_normal">
+                Qos
+            </div>
+        </div>
+        <div id="lan_menu_port_forward" class="settings_menu_normal" onclick="checkLanMenuIcon('lan_menu_port_forward')" style="display: none;">
+            <div id="text_menu_port_forward" class="settings_menu_text_normal">
+                Port Forward
+            </div>
+        </div>
+        <div id="lan_menu_port_map" class="settings_menu_normal" onclick="checkLanMenuIcon('lan_menu_port_map')" style="display: none;">
+            <div id="text_menu_port_map" class="settings_menu_text_normal">
+                Port Mapping
+            </div>
+        </div>
+    </div>
+
+    <div id="lan_right">
+        <div id="lan_basic" style="display: block">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="sidLAN">LAN</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph3" id="sidLanIntroduce">
+                    After the LAN IP address is modified, the devices connected to the router will reassign the IP
+                    address. When two routers in the same network segment are networking, modifying the LAN IP address
+                    can effectively avoid IP address conflict.
+                </span>
+            </div>
+            <div>
+                <div class="lan_box">
+                    <span class="lan_add" id="sidDhcpIP">DHCP IP</span>
+                    <div class="lan_add_text" id="lanIpaddress">192.168.</div>
+                    <input id="lan_ip_2" class="dhcp_input" type="text" maxlength="3" oninput="value=value.replace(/[^\d]/g,'')" style="width: 40px" onblur="changeLanIp()">
+                    <div class="lan_add_text" style="margin-left: 0px;" id="lanIpaddress">.1</div>
+                </div>
+                <div class="lan_box">
+                    <span class="lan_add" id="sidDhcpStart">DHCP Start</span>
+                    <div class="lan_add_text" id="lanIpStart">192.168.1.</div>
+                    <input id="lan_ip_start" class="dhcp_input" type="text" maxlength="3" oninput="value=value.replace(/[^\d]/g,'')" style="width: 40px">
+                </div>
+                <div class="lan_box">
+                    <span class="lan_add" id="sidDhcpEnd">DHCP End</span>
+                    <div class="lan_add_text" id="lanIpEnd">192.168.1.</div>
+                    <input id="lan_ip_end" class="dhcp_input" type="text" maxlength="3" oninput="value=value.replace(/[^\d]/g,'')" style="width: 40px">
+                </div>
+            </div>
+            <div style="display: flex;margin-left: 10px">
+                <button class="box_cancle flex-col" onclick="dhcpCancle()"><span class="word9" style="color: #3572BB;"
+                        id="sidCancel">Cancel</span></button>
+                <button class="box15 flex-col" onclick="changeDhcpCfg()"><span class="word9"
+                        id="sidSave">Save</span></button>
+            </div>
+        </div>
+        <div id="lan_ip_filter" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="sfiIPFilter">IP Address Filter</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph3" style="height: 98px" id="sfiIPFilterIntroduce">
+                    Allow or disallow client connections by configuring IP address filtering. For example: 192.168.2.35.
+                    <br />
+                    (1)Disable: Disable IP address filtering.
+                    <br />
+                    (2)Deny: If the client's IP address exists in the IP address list, deny the client to use the
+                    device.
+                </span>
+            </div>
+            <div style="display: flex;flex-direction: column;margin-top: 25px">
+                <div class="box_p" style="width: 374px">
+                    <span class="password1" id="sfiIPFiltering">IP filtering</span>
+                    <select id="sfiIPSelect" class="dhcp_input" style="width: 177px">
+                        <option value="off" id="wDisable">Disable</option>
+                        <option value="blacklist" id="wDeny">Deny</option>
+                    </select>
+                </div>
+                <div class="box_p" style="width: 374px">
+                    <input name="sfiIPBlackList" class="dhcp_input" type="text">
+                    <input name="sfiIPBlackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="box_p" style="width: 374px">
+                    <input name="sfiIPBlackList" class="dhcp_input" type="text">
+                    <input name="sfiIPBlackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="box_p" style="width: 374px">
+                    <input name="sfiIPBlackList" class="dhcp_input" type="text">
+                    <input name="sfiIPBlackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="box_p" style="width: 374px">
+                    <input name="sfiIPBlackList" class="dhcp_input" type="text">
+                    <input name="sfiIPBlackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+            </div>
+            <button class="box15 flex-col" onclick="firewallIpFilterSet()"><span class="word9"
+                    id="sfiApply">apply</span></button>
+        </div>
+        <div id="lan_VPN" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="sidVPN">VPN</span>
+                <div class="main6 flex-col"></div>
+            </div>
+        </div>
+        <div id="lan_qos" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="siqQos1">Qos</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph3" id="siqQosIntroduce">
+                    You can configure whether the Qos function is turned on or off.
+                </span>
+            </div>
+            <div style="display: flex;flex-direction: column">
+                <div class="box_position" style="width: 184px">
+                    <span class="auto" id="siqQos2">Enable Qos</span>
+                    <div class="pg_dc" style="margin-left: 30px">
+                        <label class="switch">
+                            <input type="checkbox" id="system_Qos_status" onclick="state()">
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <table id="QosLimitTable"
+                style="width: 740px;background: #FFFFFF;border-radius: 6px;border: 1px solid #D9DDE3;margin-left: 30px;margin-top: 20px"
+                border="1px" cellspacing="0" cellpadding="0">
+                <tr style="background: #F4F4F4;height: 40px">
+                    <th style="color: #3572BB;width: 40px" id="iqOrder">Order</th>
+                    <th style="color: #3572BB;width: 270px" id="iqIPAddress">IP Address</th>
+                    <th style="color: #3572BB;width: 150px" id="iqDownload">下载带宽</th>
+                    <th style="color: #3572BB;width: 150px" id="iqUpload">上传带宽</th>
+                    <th style="color: #3572BB;width: 130px" id="iqOperate">操作</th>
+                </tr>
+                <tr style="background: #FFFFFF; height: 60px">
+                    <td>
+                    </td>
+                    <td>
+                        <input id="QosIPAddress"
+                            style="width: 226px;height: 36px;background: #F9FBFF;border-radius: 6px;border: 1px solid #DFE3ED;margin-left: 20px;padding-left: 10px;">
+                    </td>
+                    <td>
+                        <input id="QosDownload"
+                            style="width: 83px;height: 36px;background: #FFFFFF;border-radius: 6px;border: 1px solid #DFE3ED;margin-left: 10px;margin-right: 10px;padding-left: 10px;">Mb/s
+                    </td>
+                    <td>
+                        <input id="QosUpload"
+                            style="width: 83px;height: 36px;background: #FFFFFF;border-radius: 6px;border: 1px solid #DFE3ED;margin-left: 10px;margin-right: 10px;padding-left: 10px;">Mb/s
+                    </td>
+                    <td style="text-align: center">
+                        <img src="../images/main/icon_add.png" onclick="addNewQos()">
+                    </td>
+                </tr>
+
+            </table>
+
+            <br>
+            <button class="box15 flex-col" onclick="qosLimitSet()"><span class="word9" id="siqSave">Save</span></button>
+            <br>
+            <br>
+        </div>
+        <div id="lan_port_forward" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="sidportf">Port Forward</span>
+                <div class="main6 flex-col"></div>
+            </div>
+        </div>
+        <div id="lan_port_map" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="sidportm">Port Mapping</span>
+                <div class="main6 flex-col"></div>
+            </div>
+        </div>
+    </div>
+</div>

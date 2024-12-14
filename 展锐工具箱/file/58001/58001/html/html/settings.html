@@ -1,0 +1,1539 @@
+<div class="settings_content">
+    <div id="settings_left" style="width: 150px;border-right: 1px solid #D9DDE3;position: relative">
+        <div id="settings_menu_router" class="settings_menu_select" style="border-radius: 6px 0px 0px 0px;"
+            onclick="checkSettingMenuIcon('settings_menu_router')">
+            <div id="text_menu_router" class="settings_menu_text_select">
+                Router
+            </div>
+        </div>
+        <div id="setting_menu_password" class="settings_menu_normal"
+            onclick="checkSettingMenuIcon('setting_menu_password')">
+            <div id="text_menu_password" class="settings_menu_text_normal">
+                Password
+            </div>
+        </div>
+        <div id="setting_menu_imei" class="settings_menu_normal" style="display: none"
+            onclick="checkSettingMenuIcon('setting_menu_imei')">
+            <div id="text_menu_imei" class="settings_menu_text_normal">
+                更改 IMEI
+            </div>
+        </div>
+        <div id="setting_menu_at" class="settings_menu_normal" onclick="checkSettingMenuIcon('setting_menu_at')">
+            <div id="text_menu_at" class="settings_menu_text_normal">
+                AT 调试
+            </div>
+        </div>
+        <div id="setting_menu_band" class="settings_menu_normal" onclick="checkSettingMenuIcon('setting_menu_band')">
+            <div id="text_menu_band" class="settings_menu_text_normal">
+                锁频段
+            </div>
+        </div>
+        <div id="setting_menu_lock" class="settings_menu_normal" onclick="checkSettingMenuIcon('setting_menu_lock')">
+            <div id="text_menu_lock" class="settings_menu_text_normal">
+                锁小区
+            </div>
+        </div>
+        <div id="setting_menu_update" class="settings_menu_normal"
+            onclick="checkSettingMenuIcon('setting_menu_update')">
+            <div id="text_menu_update" class="settings_menu_text_normal">
+                Update
+            </div>
+        </div>
+        <div id="setting_menu_internet_time" class="settings_menu_normal"
+            onclick="checkSettingMenuIcon('setting_menu_internet_time')">
+            <div id="text_menu_internet_time" class="settings_menu_text_normal">
+                Network Time
+            </div>
+        </div>
+        <div id="setting_menu_recovery" class="settings_menu_normal"
+            onclick="checkSettingMenuIcon('setting_menu_recovery')">
+            <div id="text_menu_recovery" class="settings_menu_text_normal">
+                Recovery
+            </div>
+        </div>
+        <div id="setting_menu_internet" class="settings_menu_normal" style="display: none; position: relative"
+            onclick="checkSettingMenuIcon('setting_menu_internet')">
+            <div id="text_menu_internet" class="settings_menu_text_normal">
+                Network
+            </div>
+            <img id="img_menu_internet" src="../images/main/more_nav_arrow_down.png"
+                style="position: absolute;right: 14px;top: 6px">
+        </div>
+        <div id="setting_menu_lan" class="settings_menu_normal" onclick="checkSettingMenuIcon('setting_menu_lan')">
+            <div id="text_menu_lan" class="settings_menu_text_normal">
+                局域网
+            </div>
+        </div>
+        <div id="internet_child_menu" style="display: none">
+            <div id="internet_menu_LAN" class="settings_menu2_normal"
+                onclick="checkSettingMenu2Icon('internet_menu_LAN')">
+                <div id="internet_text_LAN" class="settings_menu2_text_normal">
+                    Dhcp
+                </div>
+            </div>
+            <div id="internet_menu_IPV6" class="settings_menu2_normal"
+                onclick="checkSettingMenu2Icon('internet_menu_IPV6')" style="display: none">
+                <div id="internet_text_IPV6" class="settings_menu2_text_normal">
+                    IPV6
+                </div>
+            </div>
+            <div id="internet_menu_Qos" class="settings_menu2_normal"
+                onclick="checkSettingMenu2Icon('internet_menu_Qos')">
+                <div id="internet_text_Qos" class="settings_menu2_text_normal">
+                    Qos
+                </div>
+            </div>
+        </div>
+        <div id="setting_menu_vpn" class="settings_menu_normal" onclick="checkSettingMenuIcon('setting_menu_vpn')">
+            <div id="text_menu_vpn" class="settings_menu_text_normal">
+                L2TP VPN
+            </div>
+        </div>
+        <div id="setting_menu_port" class="settings_menu_normal" onclick="checkSettingMenuIcon('setting_menu_port')">
+            <div id="text_menu_port" class="settings_menu_text_normal">
+                PORT
+            </div>
+        </div>
+        <!--
+        <div id="setting_menu_wifi" class="settings_menu_normal" style="display: flex; position: relative"
+             onclick="checkSettingMenuIcon('setting_menu_wifi')">
+            <div id="text_menu_wifi" class="settings_menu_text_normal">
+                WLAN
+            </div>
+            <img id="img_menu_wifi" src="../images/main/more_nav_arrow_down.png" style="position: absolute;right: 14px;top: 6px">
+        </div>
+        <div id="wifi_child_menu" style="display: none">
+            <div id="wifi_menu_advanced" class="settings_menu2_select"
+                 onclick="checkSettingMenu2Icon('wifi_menu_advanced')" style="display: none">
+                <div id="wifi_text_advanced" class="settings_menu2_text_select">
+                    Advanced
+                </div>
+            </div>
+            <div id="wifi_menu_access_control" class="settings_menu2_normal"
+                 onclick="checkSettingMenu2Icon('wifi_menu_access_control')">
+                <div id="wifi_text_access_control" class="settings_menu2_text_normal">
+                    Access Control
+                </div>
+            </div>
+            <div id="wifi_menu_WPS" class="settings_menu2_normal"
+                 onclick="checkSettingMenu2Icon('wifi_menu_WPS')">
+                <div id="wifi_text_WPS" class="settings_menu2_text_normal">
+                    WPS
+                </div>
+            </div>
+            <div id="wifi_menu_relay" class="settings_menu2_normal"
+                 onclick="checkSettingMenu2Icon('wifi_menu_relay')" style="display: none">
+                <div id="wifi_text_relay" class="settings_menu2_text_normal">
+                    Relay
+                </div>
+            </div>
+        </div>
+        -->
+        <div id="setting_menu_firewall" class="settings_menu_normal" style="position: relative"
+            onclick="checkSettingMenuIcon('setting_menu_firewall')">
+            <div id="text_menu_firewall" class="settings_menu_text_normal">
+                Firewall
+            </div>
+            <img id="img_menu_firewall" src="../images/main/more_nav_arrow_down.png"
+                style="position: absolute;right: 14px;top: 6px">
+        </div>
+        <div id="firewall_child_menu" style="display: none">
+            <div id="firewall_menu_mac" class="settings_menu2_normal"
+                onclick="checkSettingMenu2Icon('firewall_menu_mac')">
+                <div id="firewall_text_mac" class="settings_menu2_text_normal">
+                    MAC Filter
+                </div>
+            </div>
+            <div style="display: none" id="firewall_menu_ip" class="settings_menu2_normal"
+                onclick="checkSettingMenu2Icon('firewall_menu_ip')">
+                <div id="firewall_text_ip" class="settings_menu2_text_normal">
+                    IP Filter
+                </div>
+            </div>
+            <div style="display: none" id="firewall_menu_url" class="settings_menu2_normal"
+                onclick="checkSettingMenu2Icon('firewall_menu_url')">
+                <div id="firewall_text_url" class="settings_menu2_text_normal">
+                    URL Filter
+                </div>
+            </div>
+            <div style="display: none" id="firewall_menu_advanced" class="settings_menu2_normal"
+                onclick="checkSettingMenu2Icon('firewall_menu_advanced')">
+                <div id="firewall_text_advanced" class="settings_menu2_text_normal">
+                    Advanced
+                </div>
+            </div>
+        </div>
+       <div id="setting_menu_advanced" class="settings_menu_normal"
+         onclick="checkSettingMenuIcon('setting_menu_advanced')">
+         <div id="text_menu_advanced" class="settings_menu_text_normal">
+           Advanced
+         </div>
+       </div>
+        <div id="setting_menu_system" class="settings_menu_normal" style="display: none; position: relative"
+            onclick="checkSettingMenuIcon('setting_menu_system')">
+            <div id="text_menu_system" class="settings_menu_text_normal">
+                System
+            </div>
+            <img id="img_menu_system" src="../images/main/more_nav_arrow_down.png"
+                style="position: absolute;right: 14px;top: 6px">
+        </div>
+        <!-- <div id="system_child_menu" style="display: none">
+            <div id="system_menu_password" class="settings_menu2_select"
+                onclick="checkSettingMenu2Icon('system_menu_password')">
+                <div id="system_text_password" class="settings_menu2_text_select">
+                    Password
+                </div>
+            </div>
+            <div id="system_menu_internet_time" class="settings_menu2_normal"
+                onclick="checkSettingMenu2Icon('system_menu_internet_time')">
+                <div id="system_text_internet_time" class="settings_menu2_text_normal">
+                    Network Time
+                </div>
+            </div>
+            <div id="system_menu_system_log" class="settings_menu2_normal"
+                 onclick="checkSettingMenu2Icon('system_menu_system_log')">
+                <div id="system_text_system_log" class="settings_menu2_text_normal">
+                    System Log
+                </div>
+            </div>
+            <div id="system_menu_recovery" class="settings_menu2_normal"
+                onclick="checkSettingMenu2Icon('system_menu_recovery')">
+                <div id="system_text_recovery" class="settings_menu2_text_normal">
+                    Recovery
+                </div>
+            </div>
+            <div id="system_menu_tr069" class="settings_menu2_normal"
+                 onclick="checkSettingMenu2Icon('system_menu_tr069')">
+                <div id="system_text_tr069" class="settings_menu2_text_normal">
+                    TR069
+                </div>
+            </div>
+        </div> -->
+        <div style="position: absolute;bottom: 28px; left: 0; right: 0 ;text-align: center" onclick="OnRebootOK()">
+            <img src="../images/main/icon_restart_normal.png">
+            <div class="settings_restart_text" id="smReboot">Reboot</div>
+        </div>
+        <div style="position: absolute;bottom: 128px; left: 0; right: 0 ;text-align: center" onclick="PowerOffOK()">
+            <img src="../images/main/icon_close.png">
+            <div class="settings_restart_text" id="smPoweroff">Power Off</div>
+        </div>
+    </div>
+
+    <div id="settings_right">
+        <div id="settings_router" style="display: block">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="srBasic">Basic</span>
+                <div class="main6 flex-col"></div>
+                <table cellspacing="10px" style="margin-top: 20px">
+                    <tr>
+                        <td align="right" width="165px" class="router_basic_text_left" id="srDeviceModel">DeviceModel
+                        </td>
+                        <td width="20px"></td>
+                        <td align="left" class="router_basic_text_right" id="router_deviceModel"></td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="165px" class="router_basic_text_left" id="srDeviceSn">DeviceSn</td>
+                        <td width="20px"></td>
+                        <td align="left" class="router_basic_text_right" id="router_deviceSn"></td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="165px" class="router_basic_text_left" id="srMAC">MAC</td>
+                        <td width="20px"></td>
+                        <td align="left" class="router_basic_text_right" id="ipv4_mac"></td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="165px" class="router_basic_text_left" id="srIMEI">IMEI</td>
+                        <td width="20px"></td>
+                        <td align="left" class="router_basic_text_right" id="router_imei"></td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="165px" class="router_basic_text_left" id="srSwVersion">SwVersion</td>
+                        <td width="20px"></td>
+                        <td align="left" class="router_basic_text_right" id="router_swVersion"></td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="165px" class="router_basic_text_left" id="srHwVersion">HwVersion</td>
+                        <td width="20px"></td>
+                        <td align="left" class="router_basic_text_right" id="router_hwVersion"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="srIPV4">IPV4</span>
+                <div class="main7 flex-col"></div>
+                <table cellspacing="10px" style="margin-top: 20px">
+                    <tr>
+                        <td align="right" width="165px" class="router_basic_text_left" id="srRouterIp1">IP address</td>
+                        <td width="20px"></td>
+                        <td align="left" class="router_basic_text_right" id="ipv4_routerIp"></td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="165px" class="router_basic_text_left" id="srNetMask">NetMask</td>
+                        <td width="20px"></td>
+                        <td align="left" class="router_basic_text_right" id="ipv4_netMask"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="srIPV6">IPV6</span>
+                <div class="main7 flex-col"></div>
+                <table cellspacing="10px" style="margin-top: 20px;margin-bottom: 20px">
+                    <tr>
+                        <td align="right" width="165px" class="router_basic_text_left" id="srLinkLocalAddr">
+                            LinkLocalAddr</td>
+                        <td width="20px"></td>
+                        <td align="left" class="router_basic_text_right" id="ipv6_linkLocalAddr"></td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="165px" class="router_basic_text_left" id="srRouterIp2">IP address</td>
+                        <td width="20px"></td>
+                        <td align="left" class="router_basic_text_right" id="ipv6_routerIp"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="srSystemInfo">System info</span>
+                <div class="main7 flex-col"></div>
+                <table cellspacing="10px" style="margin-top: 20px;margin-bottom: 20px">
+                    <tr>
+                        <td align="right" width="165px" class="router_basic_text_left" id="srSystemUpTIme">System UpTIme
+                        </td>
+                        <td width="20px"></td>
+                        <td align="left" class="router_basic_text_right" id="system_upTIme"></td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="165px" class="router_basic_text_left" id="srBuildTime">Build Time</td>
+                        <td width="20px"></td>
+                        <td align="left" class="router_basic_text_right" id="system_buildTime"></td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="165px" class="router_basic_text_left" id="srCPUUsage">CPU Usage</td>
+                        <td width="20px"></td>
+                        <td align="left" class="router_basic_text_right" id="system_cpuUsage"></td>
+                    </tr>
+                    <tr style="display: none">
+                        <td align="right" width="165px" class="router_basic_text_left" id="srFreeMem">Free Mem</td>
+                        <td width="20px"></td>
+                        <td align="left" class="router_basic_text_right" id="system_freeMem"></td>
+                    </tr>
+                    <tr style="display: none">
+                        <td align="right" width="165px" class="router_basic_text_left" id="srTotalMem">Total Mem</td>
+                        <td width="20px"></td>
+                        <td align="left" class="router_basic_text_right" id="system_totalMem"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="setting_update" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="suOnlineUpgrade">Online upgrade</span>
+                <div class="main7 flex-col"></div>
+                <div style="display: flex;position: relative;margin-top: 20px;height: 73px">
+                    <img src="../images/setting/more_image_cpe.png" style="position: absolute;left: 0">
+                    <div style="position: absolute;left: 95px;width: 500px;height: 72px">
+                        <div style="position: relative; height: 36px;width: 500px">
+                            <div class="update_router_name" style="position: absolute; bottom: 0" id="suDfBuildVersion">
+                                MIFI</div>
+                            <div class="update_status" style="position: absolute; bottom: 0;left: 105px"
+                                id="suLatestVersion">Is the latest version</div>
+                        </div>
+                        <div style="position: relative;height: 36px;width: 500px">
+                            <div class="update_info" style="position: absolute;bottom: 0" id="suUpdateTime">current
+                                version：11.0.5.15 2022-03-09 03:40:44 to update</div>
+                        </div>
+                    </div>
+                    <div style="position: absolute;right: 0;top: 20px;bottom: 13px;">
+                        <button id="button_detectVersion" class="update_button flex-col" onclick="detectVersion()">
+                            <span class="factory_tex" id="suDetectVersion">Detect new version</span>
+                        </button>
+                        <button id="button_onLineUpdate" class="update_button flex-col" onclick="onLineUpdate()"
+                            style="display: none">
+                            <span class="factory_tex" id="suUpgradeVersion">Online upgrade</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="suLocalUpgrade">Local upgrade</span>
+                <div class="main7 flex-col"></div>
+                <div style="display: flex; position: relative;height: 73px;margin-top: 10px;">
+                    <div class="update_file">
+                        <input style="opacity: 0;position: absolute; width: 500px;" type="file" id="btcheckupdateslocal"
+                            accept=".zip" value="BROWSE" onchange="getFileName()">
+                        <span id="update_filename" class="update_filename">Please add upgrade package file</span>
+                    </div>
+                    <button style="position: absolute;right: 0;top: 20px;bottom: 13px;" class="update_button flex-col"
+                        onclick="localupdateStarted()">
+                        <span class="factory_tex" id="suUploadFile">Local upgrade</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="internet_LAN" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="sidLAN">LAN</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph3" id="sidLanIntroduce">
+                    After the LAN IP address is modified, the devices connected to the router will reassign the IP
+                    address. When two routers in the same network segment are networking, modifying the LAN IP address
+                    can effectively avoid IP address conflict.
+                </span>
+            </div>
+            <div>
+                <div class="lan_box">
+                    <span class="lan_add" id="sidDhcpIP">DHCP IP</span>
+                    <div class="lan_add_text" id="lanIpaddress">192.168.</div>
+                    <input id="lan_ip_2" class="dhcp_input" type="text" maxlength="3"
+                        oninput="value=value.replace(/[^\d]/g,'')" style="width: 40px" onblur="changeLanIp()">
+                    <div class="lan_add_text" style="margin-left: 0px;" id="lanIpaddress">.1</div>
+                </div>
+                <div class="lan_box">
+                    <span class="lan_add" id="sidDhcpStart">DHCP Start</span>
+                    <div class="lan_add_text" id="lanIpStart">192.168.1.</div>
+                    <input id="lan_ip_start" class="dhcp_input" type="text" maxlength="3"
+                        oninput="value=value.replace(/[^\d]/g,'')" style="width: 40px">
+                </div>
+                <div class="lan_box">
+                    <span class="lan_add" id="sidDhcpEnd">DHCP End</span>
+                    <div class="lan_add_text" id="lanIpEnd">192.168.1.</div>
+                    <input id="lan_ip_end" class="dhcp_input" type="text" maxlength="3"
+                        oninput="value=value.replace(/[^\d]/g,'')" style="width: 40px">
+                </div>
+            </div>
+            <div style="display: flex;margin-left: 10px">
+                <button class="box_cancle flex-col" onclick="dhcpCancle()"><span class="word9" style="color: #3572BB;"
+                        id="sidCancel">Cancel</span></button>
+                <button class="box15 flex-col" onclick="changeDhcpCfg()"><span class="word9"
+                        id="sidSave">保存</span></button>
+            </div>
+
+        </div>
+        <div id="internet_IPV6" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="siiIPV61">IPV6</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph3" id="siiIPV6Introduce">
+                    You can configure whether the IPv6 function is turned on or off. With IPv6 enabled, you can
+                    configure the Internet access mode on WAN side and the address allocation mode on LAN side.
+                </span>
+            </div>
+            <div style="display: flex;flex-direction: column">
+                <div class="box_position">
+                    <span class="auto" id="siiIPV62">IPV6</span>
+                    <div class="pg_dc" style="margin-left: 30px">
+                        <label class="switch">
+                            <input type="checkbox" id="IPV6_switch" onclick="state()">
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="box15 flex-col" onclick=""><span class="word9" id="siiSave">保存</span></button>
+        </div>
+        <div id="internet_Qos" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="siqQos1">Qos</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph3" id="siqQosIntroduce">
+                    You can configure whether the Qos function is turned on or off.
+                </span>
+            </div>
+            <div style="display: flex;flex-direction: column">
+                <div class="box_position" style="width: 184px">
+                    <span class="auto" id="siqQos2">Enable Qos</span>
+                    <div class="pg_dc" style="margin-left: 30px">
+                        <label class="switch">
+                            <input type="checkbox" id="system_Qos_status" onclick="state()">
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <table id="QosLimitTable"
+                style="width: 740px;background: #FFFFFF;border-radius: 6px;border: 1px solid #D9DDE3;margin-left: 30px;margin-top: 20px"
+                border="1px" cellspacing="0" cellpadding="0">
+                <tr style="background: #F4F4F4;height: 40px">
+                    <th style="color: #3572BB;width: 40px" id="iqOrder">Order</th>
+                    <th style="color: #3572BB;width: 270px" id="iqIPAddress">IP Address</th>
+                    <th style="color: #3572BB;width: 150px" id="iqDownload">下载带宽</th>
+                    <th style="color: #3572BB;width: 150px" id="iqUpload">上传带宽</th>
+                    <th style="color: #3572BB;width: 130px" id="iqOperate">操作</th>
+                </tr>
+                <tr style="background: #FFFFFF; height: 60px">
+                    <td>
+                    </td>
+                    <td>
+                        <input id="QosIPAddress"
+                            style="width: 226px;height: 36px;background: #F9FBFF;border-radius: 6px;border: 1px solid #DFE3ED;margin-left: 20px;padding-left: 10px;">
+                    </td>
+                    <td>
+                        <input id="QosDownload"
+                            style="width: 83px;height: 36px;background: #FFFFFF;border-radius: 6px;border: 1px solid #DFE3ED;margin-left: 10px;margin-right: 10px;padding-left: 10px;">Mb/s
+                    </td>
+                    <td>
+                        <input id="QosUpload"
+                            style="width: 83px;height: 36px;background: #FFFFFF;border-radius: 6px;border: 1px solid #DFE3ED;margin-left: 10px;margin-right: 10px;padding-left: 10px;">Mb/s
+                    </td>
+                    <td style="text-align: center">
+                        <img src="../images/main/icon_add.png" onclick="addNewQos()">
+                    </td>
+                </tr>
+
+            </table>
+
+            <br>
+            <button class="box15 flex-col" onclick="qosLimitSet()"><span class="word9" id="siqSave">保存</span></button>
+            <br>
+            <br>
+        </div>
+        <!--
+        <div id="wifi_advanced" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="swaAdvanced">Advanced</span>
+                <div class="main6 flex-col"></div>
+            </div>
+        </div>
+        <div id="wifi_relay" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="swrRelay">Relay</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph3" id="swrRelayIntroduce">
+                    Wi Fi relay function allows routing to connect to another router at home through Wi Fi. Two routers work at the same time, so that you can enjoy all-round coverage of Wi Fi signals in a big house.
+                </span>
+            </div>
+            <div style="display: flex;flex-direction: column">
+                <div class="box_position">
+                    <span class="auto">WIFI</span>
+                    <div class="pg_dc" style="margin-left: 30px">
+                        <label class="switch">
+                            <input type="checkbox" id="relay_switch" onclick="state()">
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="update_password flex-col justify-between">
+                <span class="paragraph3" style="height: 140px" id="swrSwitchIntroduce">
+                    When the Wi Fi relay button is turned on or off, the router Wi Fi will be disconnected. If you can't reconnect automatically later, try connecting Wi Fi manually.
+                    <br/>
+                    If the guest Wi Fi is turned on, your guest Wi Fi will be turned off after the router switches to Wi Fi relay mode.
+                    <br/>
+                    After the Wi Fi relay is turned on, the router will switch to the relay mode to expand the Wi Fi coverage of another router.
+                    <br/>
+                    When the Wi Fi relay is turned off, the router will return to routing mode.
+                </span>
+            </div>
+            <button class="box15 flex-col" onclick=""><span class="word9" id="swrSave">保存</span></button>
+        </div>
+        -->
+        <div id="firewall_MAC" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="sfmMACFilter">MAC Address Filter</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph3" style="height: 98px" id="sfmMACFilterIntroduce">
+                    Allow or disallow client connections by configuring MAC address filtering. For example:
+                    40:4D:8E:6D:80:7D.
+                    <br />
+                    (1)Disable: Disable MAC address filtering.
+                    <br />
+                    (2)Deny: If the client's MAC address exists in the MAC address list, deny the client to use the
+                    device.
+                </span>
+            </div>
+            <div style="display: flex;flex-direction: column;margin-top: 25px">
+                <div class="box_p" style="width: 374px">
+                    <span class="password1" id="sfmMACFiltering">MAC filtering</span>
+                    <select id="sfmMACSelect" class="dhcp_input" style="width: 177px">
+                        <option value="off">Disable</option>
+                        <option value="blacklist">Deny</option>
+                    </select>
+                </div>
+                <div class="box_p" style="width: 374px">
+                    <input name="sfmMACBlackList" class="dhcp_input" type="text">
+                    <input name="sfmMACBlackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="box_p" style="width: 374px">
+                    <input name="sfmMACBlackList" class="dhcp_input" type="text">
+                    <input name="sfmMACBlackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="box_p" style="width: 374px">
+                    <input name="sfmMACBlackList" class="dhcp_input" type="text">
+                    <input name="sfmMACBlackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="box_p" style="width: 374px">
+                    <input name="sfmMACBlackList" class="dhcp_input" type="text">
+                    <input name="sfmMACBlackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+            </div>
+            <button class="box15 flex-col" onclick="firewallMacFilterSet()"><span class="word9"
+                    id="sfmApply">apply</span></button>
+        </div>
+        <div id="firewall_IP" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="sfiIPFilter">IP Address Filter</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph3" style="height: 98px" id="sfiIPFilterIntroduce">
+                    Allow or disallow client connections by configuring IP address filtering. For example: 192.168.2.35.
+                    <br />
+                    (1)Disable: Disable IP address filtering.
+                    <br />
+                    (2)Deny: If the client's IP address exists in the IP address list, deny the client to use the
+                    device.
+                </span>
+            </div>
+            <div style="display: flex;flex-direction: column;margin-top: 25px">
+                <div class="box_p" style="width: 374px">
+                    <span class="password1" id="sfiIPFiltering">IP filtering</span>
+                    <select id="sfiIPSelect" class="dhcp_input" style="width: 177px" onchange="changeIpFilter()">
+                        <option value=0>Disable</option>
+                        <option value=1>Deny</option>
+                    </select>
+                </div>
+                <div class="box_p" style="width: 374px">
+                    <input name="sfiIPBlackList" class="dhcp_input" type="text">
+                    <input name="sfiIPBlackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="box_p" style="width: 374px">
+                    <input name="sfiIPBlackList" class="dhcp_input" type="text">
+                    <input name="sfiIPBlackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="box_p" style="width: 374px">
+                    <input name="sfiIPBlackList" class="dhcp_input" type="text">
+                    <input name="sfiIPBlackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="box_p" style="width: 374px">
+                    <input name="sfiIPBlackList" class="dhcp_input" type="text">
+                    <input name="sfiIPBlackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+            </div>
+            <button class="box15 flex-col" onclick="firewallIpFilterSet()"><span class="word9"
+                    id="sfiApply">apply</span></button>
+        </div>
+        <div id="firewall_URL" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="sfuURLFilter">URL Address Filter</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph3" style="height: 98px" id="sfuURLFilterIntroduce">
+                    Allow or disallow client connections by configuring URL address filtering. For example:
+                    www.example.com.
+                    <br />
+                    (1)Disable: Disable URL address filtering.
+                    <br />
+                    (2)Deny: If the client's URL address exists in the URL address list, deny the client to use the
+                    device.
+                </span>
+            </div>
+            <div style="display: flex;flex-direction: column;margin-top: 25px">
+                <div class="box_p" style="width: 374px">
+                    <span class="password1" id="sfuURLFiltering">URL filtering</span>
+                    <select id="sfuURLSelect" class="dhcp_input" style="width: 177px">
+                        <option value="off">Disable</option>
+                        <option value="blacklist">Deny</option>
+                    </select>
+                </div>
+                <div class="box_p" style="width: 374px">
+                    <input name="sfuURLBlackList" class="dhcp_input" type="text">
+                    <input name="sfuURLBlackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="box_p" style="width: 374px">
+                    <input name="sfuURLBlackList" class="dhcp_input" type="text">
+                    <input name="sfuURLBlackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="box_p" style="width: 374px">
+                    <input name="sfuURLBlackList" class="dhcp_input" type="text">
+                    <input name="sfuURLBlackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="box_p" style="width: 374px">
+                    <input name="sfuURLBlackList" class="dhcp_input" type="text">
+                    <input name="sfuURLBlackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+            </div>
+            <button class="box15 flex-col" onclick="firewallUrlFilterSet()"><span class="word9"
+                    id="sfuApply">apply</span></button>
+        </div>
+        <div id="firewall_advanced" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="sfaAdvanced">Advanced setting</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph3" style="height: 20px" id="sfaAdvancedIntroduce">
+                </span>
+            </div>
+            <div style="display: flex;flex-direction: column">
+                <div class="box_position">
+                    <span class="auto" id="sfaDefenseDos">Defense DoS attack</span>
+                    <div class="pg_dc" style="margin-left: 30px">
+                        <label class="switch">
+                            <input type="checkbox" id="firewallAdvancedSwitch" onclick="state()">
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="box15 flex-col" onclick="antiDdosSet()"><span class="word9" id="sfaSave">保存</span></button>
+        </div>
+        <div id="system_password" style="display: none;">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="ssmModify">Modify login password</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph1" id="ssmModifyIntroduce">
+                    To access the router web configuration interface, you need to enter the correct password. Frequently
+                    changing the login password can reduce the risk of being attacked and cracked by hackers. After
+                    modifying the login password, the page will automatically exit to the login page.
+                </span>
+            </div>
+            <div style="display: flex;flex-direction: column">
+                <div class="box" style="width: 382px;margin-left: 47px">
+                    <span class="password1" id="ssmNewName" style="width: 185px;text-align: right">New Router
+                        Username</span>
+                    <input id="setting_username" class="dhcp_input" type="text" maxlength="20">
+                </div>
+                <div class="box_ps" style="width: 382px;margin-left: 47px">
+                    <span class="new_password" id="ssmNewPsw" style="width: 185px;text-align: right">New Router
+                        Password</span>
+                    <input id="setting_new_psd" class="dhcp_input" type="password" maxlength="20">
+                </div>
+                <div class="box_p" style="width: 382px;margin-left: 47px">
+                    <span class="by_password" id="ssmRePsw" style="width: 185px;text-align: right">Re-enter
+                        Password</span>
+                    <input id="setting_new_second" class="dhcp_input" type="password" maxlength="20">
+                </div>
+            </div>
+            <button class="box15 flex-col" onclick="setNewPassword()" style="margin-left: 80px"><span class="word9"
+                    id="ssmSave">Save</span></button>
+        </div>
+        <div id="system_imei" style="display: none;">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="imeiModify">更改 IMEI</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph1" id="imeiModifyIntroduce">
+                    IMEI:<span id="oldimei"></span>
+                </span>
+                <!-- <span class="paragraph1" id="imeiModifyIntroduce2">                                                       
+                    本软件不再提供修改IMEI功能
+                </span>  -->
+            </div>
+
+            <div style="flex-direction: column">
+                <div class="box" style="width: 382px;margin-left: 47px">
+                    <span class="password1" id="imei" style="width: 185px;text-align: right">请输入 IMEI</span>
+                    <input id="setting_imei" class="dhcp_input" type="text" maxlength="20">
+                </div>
+            </div>
+            <div style="flex-direction: column">
+                <button class="box15 flex-col" onclick="setIMEI()" style="margin-left: 80px"><span class="word9"
+                        id="imeiSave">确认修改</span></button>
+            </div>
+        </div>
+        <div id="system_at" style="display: none;">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="atinfo">AT调试</span>
+                <div class="main6 flex-col"></div>
+                </span>
+            </div>
+            <div style="display: flex;flex-direction: column">
+                <div class="box" style="width: 382px;margin-left: 47px">
+                    <span class="password1" id="sendat" style="width: 185px;text-align: left">请输入AT指令</span>
+                    <input id="setting_at" class="dhcp_input" type="text" maxlength="50">
+<button class="box5 flex-col" onclick="sendat()" style="margin-left: 60px; display: flex; align-items: center; justify-content: center;"><span class="word9" id="atSave">执行指令</span></button>
+                </div>
+            </div>
+            <div style="display: flex;flex-direction: column">
+                <div class="box" style="width: 382px;margin-left: 47px">
+                    <textarea readonly="readonly" autocomplete="off" rows="10"
+                        style="width: 600px;height:400px;font-size:16px;" id="at_result"></textarea>
+                </div>
+            </div>
+        </div>
+        <div id="system_band" style="display: none;">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="bandModify">锁网络频段</span>
+                <div class="main6 flex-col"></div>
+            </div>
+
+            <div id="child_template" class="update_password flex-col justify-between"
+                style="display: flex;flex-direction: column;">
+                <table cellspacing="0" class="detail">
+                    <tbody>
+                        <!--<tr>
+				<th style="width: 100px; font-size: 16px;">5G锁频段开关：</th>
+				<td style="width: 500px; font-size: 16px;">
+					<div role="switch" class="el-switch is-checked" aria-checked="true">
+						<input type="checkbox" name="radio5g" true-value="true" class="el-switch__input">
+						<span class="el-switch__core" style="width: 40px;"></span>
+					</div>
+				</td>
+			</tr>-->
+                        <tr>
+                            <th style="width: 100px; font-size: 16px;">5G频段</th>
+                            <td style="width: 500px; font-size: 16px;">
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band5g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="1,1">
+                                            </span>
+                                            <span class="el-checkbox__label">Band1</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band5g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="1,4">
+                                            </span>
+                                            <span class="el-checkbox__label">Band3</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band5g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="1,32">
+                                            </span>
+                                            <span class="el-checkbox__label">Band8</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band5g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="1,512">
+                                            </span>
+                                            <span class="el-checkbox__label">Band28</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band5g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="3,16">
+                                            </span>
+                                            <span class="el-checkbox__label">Band41</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band5g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="3,128">
+                                            </span>
+                                            <span class="el-checkbox__label">Band77</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band5g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="3,256">
+                                            </span>
+                                            <span class="el-checkbox__label">Band78</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band5g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="3,512">
+                                            </span>
+                                            <span class="el-checkbox__label">Band79</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <!---->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td></td>
+                        </tr>
+                        <!--	<tr>
+				<th>4G锁频段开关：</th>
+				<td style="width: 500px; font-size: 16px;">
+					<div role="switch" aria-checked="true" class="el-switch is-checked">
+						<input type="checkbox" name="radio4g" true-value="true" class="el-switch__input">
+			
+						<span class="el-switch__core" style="width: 40px;"></span>
+				
+					</div>
+				</td>
+			</tr>-->
+                        <tr>
+                            <th> </th>
+                            <td style="width: 500px; font-size: 16px;">
+                                <div role="switch" aria-checked="true" class="el-switch is-checked">
+                                    <br>
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 100px; font-size: 16px;">4G频段</th>
+                            <td style="width: 500px; font-size: 16px;">
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band4g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="4,1">
+                                            </span>
+                                            <span class="el-checkbox__label">Band1</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band4g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="4,4">
+                                            </span>
+                                            <span class="el-checkbox__label">Band3</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band4g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="4,16">
+                                            </span>
+                                            <span class="el-checkbox__label">Band5</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band4g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="4,64">
+                                            </span>
+                                            <span class="el-checkbox__label">Band7</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band4g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="4,128">
+                                            </span>
+                                            <span class="el-checkbox__label">Band8</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band4g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="3,8">
+                                            </span>
+                                            <span class="el-checkbox__label">Band20</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band4g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="3,2048">
+                                            </span>
+                                            <span class="el-checkbox__label">Band28</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band4g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="2,2">
+                                            </span>
+                                            <span class="el-checkbox__label">Band34</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <!---->
+                                <!---->
+                                <!---->
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band4g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="2,32">
+                                            </span>
+                                            <span class="el-checkbox__label">Band38</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band4g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="2,64">
+                                            </span>
+                                            <span class="el-checkbox__label">Band39</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band4g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="2,128">
+                                            </span>
+                                            <span class="el-checkbox__label">Band40</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="float: left; width: 100px;">
+                                    <div role="group" aria-label="checkbox-group" class="el-checkbox-group">
+                                        <label class="el-checkbox is-checked">
+                                            <span class="el-checkbox__input is-checked">
+                                                <span class="el-checkbox__inner"></span>
+                                                <input type="checkbox" name="band4g" aria-hidden="false"
+                                                    class="el-checkbox__original" value="2,256">
+                                            </span>
+                                            <span class="el-checkbox__label">Band41</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <button class="box15 flex-col" onclick="setband()" style="margin-left: 80px"><span class="word9"
+                    id="lockSave">保存</span></button>
+        </div>
+        <div id="system_lock" style="display: none;">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="lockModify">锁定小区</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph1" id="lockModifyIntroduce">
+                    Earfcn:<span id="now_earfcn"></span>
+                    PCI:<span id="now_pci"></span>
+                    RSRP:<span id="now_rsrp"></span>
+                </span>
+            </div>
+            <div style="display: flex;flex-direction: column">
+                <div class="box" style="width: 382px;margin-left: 47px">
+                    <span class="password1" style="width: 185px;text-align: right">开启短信接收</span>
+                    <input type="radio" name="setting_sms" value="1"><span style="line-height: 36px;">开启</span>
+                    <input type="radio" name="setting_sms" value="0"><span style="line-height: 36px;">关闭</span>
+                </div>
+                <div class="box" style="width: 382px;margin-left: 47px">
+                    <span class="password1" style="width: 185px;text-align: right">TYPE</span>
+                    <input type="radio" name="setting_type" value="12"><span style="line-height: 36px;">4G</span>
+                    <input type="radio" name="setting_type" value="16"><span style="line-height: 36px;">5G</span>
+                    <input type="radio" name="setting_type" value="0" checked="checked"><span
+                        style="line-height: 36px;">unlock</span>
+                </div>
+                <div class="box" style="width: 382px;margin-left: 47px">
+                    <span class="password1" style="width: 185px;text-align: right">Earfcn</span>
+                    <input id="setting_earfcn" class="dhcp_input" type="text" maxlength="20">
+                </div>
+                <div class="box" style="width: 382px;margin-left: 47px">
+                    <span class="password1" style="width: 185px;text-align: right">PCI</span>
+                    <input id="setting_pci" class="dhcp_input" type="text" maxlength="20">
+                </div>
+            </div>
+            <button class="box15 flex-col" onclick="setLOCK()" style="margin-left: 80px"><span class="word9"
+                    id="lockSave">保存</span></button>
+        </div>
+        <div id="system_internet_time" style="display: none;">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="ssnNetTime">Network Time</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph" id="ssnNetTimeIntroduce">
+                    Network time is mainly used to synchronize the system time of the router with the network time to
+                    ensure the accuracy of the system time.
+                </span>
+            </div>
+            <div style="display: flex;flex-direction: column">
+                <div class="box_time">
+                    <span class="time_tex" id="ssnSysTime">System Time</span>
+                    <span class="time_span" id="systemTime">2022-03-11 10:25:25</span>
+                    <span class="time_span" id="systemTimeStatus"
+                        style="font-size:12px;line-height:12px;margin-top:4px"></span>
+                </div>
+                <div class="box_position" style="width: 250px;display: none">
+                    <span class="auto" id="ssnAutomaticTimeZone">Automatic time zone</span>
+                    <div class="pg_dc" style="margin-left: 20px">
+                        <label class="switch">
+                            <input type="checkbox" id="autoTimeZone">
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
+                </div>
+                <div class="box_fire">
+                    <span class="fire" id="ssnTimeZone">time zone</span>
+                    <select class="choiceNum" id="timeZone">
+                        <option id='lselTZGMTEast12' value='GMT+12'>GMT+12 Fiji Auckland</option>
+                        <option id='lselTZGMTEast11' value='GMT+11'>GMT+11 Noumea Magadan</option>
+                        <option id='lselTZGMTEast10' value='GMT+10'>GMT+10 Guam Vladivostok Sydney Hobart Brisbane
+                        </option>
+                        <option id='lselTZGMTEast9' value='GMT+9'>GMT+9 Sapporo Osaka Seoul Tokyo yakutsk</option>
+                        <option id='lselTZGMTEast8' value='GMT+8'>GMT+8 Shanghai Hongkong Kualalumpur Taipei</option>
+                        <option id='lselTZGMTEast7' value='GMT+7'>GMT+7 Jakarta Bangkok Hanoi</option>
+                        <option id='lselTZGMTEast6' value='GMT+6'>GMT+6 Astana Dhaka Ekaterinburg</option>
+                        <option id='lselTZGMTEast5' value='GMT+5'>GMT+5 tashkent islamabad karachi</option>
+                        <option id='lselTZGMTEast4' value='GMT+4'>GMT+4 Moscow Yerevan Tbilisi St.Petersburg Muscat
+                        </option>
+                        <option id='lselTZGMTEast3' value='GMT+3'>GMT+3 Nairobi Kuwait Riyadh</option>
+                        <option id='lselTZGMTEast2' value='GMT+2'>GMT+2 Cairo, Helsinki, kaliningrad, South Africa,
+                            Warsaw</option>
+                        <option id='lselTZGMTEast1' value='GMT+1'> GMT+1 Berlin Brussels Copenhagen Madrid Paris Rome
+                        </option>
+                        <option id='lselTZGMT' value='GMT'> GMT Greenwich</option>
+                        <option id='lselTZGMTWest1' value='GMT-1'>GMT-1 Dublin London Lisbon casablanca</option>
+                        <option id='lselTZGMTWest2' value='GMT-2'>GMT-2 Ascencion Saint Helena</option>
+                        <option id='lselTZGMTWest3' value='GMT-3'>GMT-3 Brasilia Buenos Aires Georgetown
+                            falkland-islands</option>
+                        <option id='lselTZGMTWest4' value='GMT-4'>GMT-4 Atlantic time (Canada) Caracas la-paz4</option>
+                        <option id='lselTZGMTWest5' value='GMT-5'>GMT-5 Eastern time(USA and Canada) Bogota Lima Quito
+                        </option>
+                        <option id='lselTZGMTWest6' value='GMT-6'>GMT-6 Central time(USA and Canada) Mexico City
+                        </option>
+                        <option id='lselTZGMTWest7' value='GMT-7'>GMT-7 mountain time(USA and Canada) Arizona</option>
+                        <option id='lselTZGMTWest8' value='GMT-8'>GMT-8 Pacific time(USA and Canada) Tijuana</option>
+                        <option id='lselTZGMTWest9' value='GMT-9'>GMT-9 Alaska</option>
+                        <option id='lselTZGMTWest10' value='GMT-10'>GMT-10 Hawaii</option>
+                        <option id='lselTZGMTWest11' value='GMT-11'>GMT-11 Midway Islands Samoa islands</option>
+                        <option id='lselTZGMTWest12' value='GMT-12'>GMT-12 Eniwetok Kwajalein</option>
+                    </select>
+                </div>
+            </div>
+            <button class="box15 flex-col" onclick="systemTimeSet()"><span class="word9"
+                    id="ssnSave">保存</span></button>
+        </div>
+        <div id="system_system_log" style="display: none;">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="sslLog1">System logs</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph3" id="sslLogIntroduce">
+                    The router collects debug diagnostic information to resolve your issue. In order to ensure your
+                    personal privacy, the collected debugging diagnostic information will be encrypted and cannot
+                    personally identify you.
+                </span>
+            </div>
+            <div style="display: flex;flex-direction: column">
+                <div class="box_position" style="width: 184px">
+                    <span class="auto" id="sslLog2">System logs</span>
+                    <div class="pg_dc" style="margin-left: 30px">
+                        <label class="switch">
+                            <input type="checkbox" id="system_log_status" onclick="state()">
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="box15 flex-col" onclick="systemLogSet()"><span class="word9"
+                    id="sslSave">Save</span></button>
+        </div>
+        <div id="system_recovery" style="display: none;">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="ssrRecovery">Recovery</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph4" style="height: 56px" id="ssrRecoveryIntroduce">
+                    After recovery, the configuration of the router will be restored to the factory state, so use it
+                    with caution! It is recommended that you back up your current configuration before a factory
+                    restore.
+                </span>
+            </div>
+            <button class="factory flex-col" onclick="confirmRecovery()"><span class="factory_tex"
+                    id="ssrDoRecovery">Recovery</span></button>
+            <div class="update flex-col justify-between" style="display: none">
+                <span class="update_text" id="ssrConfiguration">Backup Configuration</span>
+                <div class="main7 flex-col"></div>
+                <span class="paragraph5" style="height: 60px" id="ssrConfigurationIntroduce">
+                    Export and save the current configuration of the router in your computer. If you need to restore
+                    this configuration in the future, you can simply import the backup file. Tip: The exported profile
+                    encrypts your personal data, so please keep it safe.
+                </span>
+            </div>
+            <button class="copy flex-col" style="width: 250px;display: none"><span class="copy_tex"
+                    id="ssrExport">Export the configuration file</span></button>
+        </div>
+
+        <div id="system_vpn" style="display: none;">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="ssrVpn">L2TP VPN</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph4" style="height: 156px" id="ssrVpnTitle">
+                    A virtual private network (VPN) is a private network established based on an existing public
+                    network. A VPN uses security technigues such as encryption and identity authentication to
+                    ensure confidentiality and security of communication data. For example, to access the company
+                    network from your computer, you can connect your computer to the company's VPN server. By
+                    doing this, you can easily access secure network resources on the company network
+                </span>
+            </div>
+            <div style="margin-top: 30px;margin-left: 62px">
+                <div class="layui-form-item network-form-item">
+                    <label class="layui-form-label-long global_font" id="nConnectionType">Connection type</label>
+                    <div class="layui-input-block">
+                        <label id="vConnectionType" class="layui-form-label-long global_font">L2TP VPN client</label>
+                    </div>
+                </div>
+                <div class="layui-form-item network-form-item">
+                    <label class="layui-form-label-long global_font" id="nConnectionStatus">Connection status</label>
+                    <div class="layui-input-block">
+                        <label id="vConnectionStatus" class="layui-form-label-long global_font">Disconnected</label>
+                    </div>
+                </div>
+                <div class="layui-form-item network-form-item">
+                    <label class="layui-form-label-long global_font" id="nEnableL2TP">Enable L2TP</label>
+                    <div class="layui-input-block">
+                        <label class="switch">
+                            <input type="checkbox" id="n_CC">
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
+                </div>
+                <div class="layui-form-item network-form-item">
+                    <label class="layui-form-label-long global_font" id="nLNSAddress">LNS address</label>
+                    <div class="layui-input-block">
+                        <input id="inputLNSAddress" type="text" name="title" lay-verify="title" autocomplete="off"
+                            maxlength="32" placeholder="" class="global_input">
+                    </div>
+                </div>
+                <div class="layui-form-item network-form-item">
+                    <label class="layui-form-label-long global_font" id="nHostName">Host Name</label>
+                    <div class="layui-input-block">
+                        <input id="inputHostName" type="text" name="title" lay-verify="title" autocomplete="off"
+                            maxlength="32" placeholder="" class="global_input">
+                    </div>
+                </div>
+                <div class="layui-form-item network-form-item">
+                    <label class="layui-form-label-long global_font" id="nTunnelPassword">Tunnel password</label>
+                    <div class="layui-input-block">
+                        <input id="inputTunnelPassword" type="text" name="title" lay-verify="title" autocomplete="off"
+                            maxlength="32" placeholder="" class="global_input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item network-form-item">
+                    <label class="layui-form-label-long global_font" id="nHandshakeInterval">Handshake
+                        interval(s)</label>
+                    <div class="layui-input-block">
+                        <input id="inputHandshakeInterval" type="text" name="title" lay-verify="title"
+                            autocomplete="off" maxlength="32" placeholder="" class="global_input">
+                    </div>
+                </div>
+                <div class="layui-form-item network-form-item">
+                    <label class="layui-form-label-long global_font" id="nPPPUserName">PPP user name</label>
+                    <div class="layui-input-block">
+                        <input id="inputPppUserName" type="text" name="title" lay-verify="title" autocomplete="off"
+                            maxlength="32" placeholder="" class="global_input">
+                    </div>
+                </div>
+                <div class="layui-form-item network-form-item">
+                    <label class="layui-form-label-long global_font" id="nPPPPassword">PPP password</label>
+                    <div class="layui-input-block">
+                        <input id="inputPPPPassword" type="text" name="title" lay-verify="title" autocomplete="off"
+                            maxlength="32" placeholder="" class="global_input">
+                    </div>
+                </div>
+                <div class="layui-form-item network-form-item">
+                    <label class="layui-form-label-long global_font" id="nAuthentication">Authentication</label>
+                    <div class="layui-input-block">
+                        <select id="inputAuthentication" class="wifi_conf_input" style="width: 242px;">
+                            <option value=0>Auto</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item" style="margin-top: 30px">
+                <div style="width: 148px; margin-left: 30px; height: 40px;float:left">
+                    <button style="font-size: 16px;border-radius: 6px;" type="button"
+                        class="layui-btn layui-btn-fluid network-btn-radius"
+                        id="nVpnApply">Apply</button>
+                </div>
+            </div>
+        </div>
+        <div id="system_port" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="sidPort">PORT</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph4" style="height: 100px" id="portIntroduce">
+                    Port Forwarding refers to the access of the external network to the specified port service of the
+                    router,
+                    which is forwarded to the specific port of a networking device in the internal LAN
+                    through the router (the set port number can be the same or different),
+                    so as to realize the normal access of the router's external network to the internal network service.
+                </span>
+                <div class="main6 flex-col"></div>
+            </div>
+            <table id="PortListTable"
+                style="width: 740px;background: #FFFFFF;border-radius: 6px;border: 1px solid #D9DDE3;margin-left: 30px;margin-top: 20px"
+                cellspacing="0" cellpadding="0" onclick="port_table_click()">
+                <thead style="font-size: 14px;">
+                    <tr style="background: #F4F4F4;height: 40px">
+                        <th style="color: #3572BB;width: 50px" id="portOrder">Order</th>
+                        <th style="color: #3572BB;width: 150px" id="externalPort">External Port</th>
+                        <th style="color: #3572BB;width: 150px" id="internalPort">Internal Port</th>
+                        <th style="color: #3572BB;width: 200px" id="internalIP">Internal IP</th>
+                        <th style="color: #3572BB;width: 100px" id="portProtocol">Protocol</th>
+                        <th style="color: #3572BB;width: 150px" id="portOperate">Operate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <br>
+            <div class="update_password flex-col justify-between"
+                style="margin-top: 0;border:1px solid #eee;padding: 10px 0 10px 0;width: 738px;" onclick="addPort()">
+                <p align="center">
+                    <img src="../images/main/icon_add.png" />
+                    <span
+                        style="color: #3572BB;font-family: SourceHanSansCN-Medium, SourceHanSansCN;font-size: 14px;font-weight: 550"
+                        id="wtportAddTiming">Add Profile</span>
+                </p>
+            </div>
+            <br>
+            <br>
+        </div>
+    <div id="system_advanced" style="display: none">
+<img src="../images/login/biaotilan.gif" alt="Login Image" width="800" height="103">
+<br>
+
+
+
+<style>
+    .scrolling-text {
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
+        text-overflow: ellipsis;
+    }
+
+    .scrolling-text span {
+        animation: scroll-left 15s linear infinite;
+        display: inline-block;
+        white-space: nowrap;
+    }
+
+    @keyframes scroll-left {
+        0% {
+            transform: translateX(350%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+</style>
+
+<div class="scrolling-text">
+    <span style="color: red;">随身WiFi助手，最好用的随身WiFi工具</span>
+</div>
+
+
+
+
+<a href="https://www.123pan.com/s/8y49-oBZ0h" target="_blank" style="display: inline-block; background-color: purple; color: white; width: 120px; height: 35px; text-align: center; line-height: 35px; text-decoration: none;">随身WiFi助手</a>
+<a href="../images/login/qq.jpg" target="_blank">
+<button style="display: inline-block; background-color: grey; color: black; width: 110px; height: 35px; text-align: center; line-height: 35px; text-decoration: none; border: none;">扫码进QQ群</button>
+<a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=NnVMtiQDGBWSmYo00RcZNTXtdQcTZRNL&authKey=HMc%2BdyRWXt98BtbTDjqS9seTHQfJ9uNH7%2FAmGvEw2PxgqjY25ijGqN9Ft%2BC6gVzW&noverify=0&group_code=279330634    " target="_blank" style="display: inline-block; background-color: grey; color: black; width: 110px; height: 35px; text-align: center; line-height: 35px; text-decoration: none;">网页进QQ群</a>
+</a>
+<a href="https://myplugin.speedtest.cn/#/" target="_blank" style="display: inline-block; background-color: green; color: black; width: 116px; height: 35px; text-align: center; line-height: 35px; text-decoration: none;">网络测速</a>
+<a href="https://tywl.crm.189.cn/wlw_interface/SelfService/toCardStatus.do?openid=Ehvj0z9lWToYCcXR5XY6p2WqSW95GEdXnOQVp3Q1MPQ=&phone=wP1zxiqFzHs=&from=hkzt" target="_blank" style="display: inline-block; background-color: green; color: black; width: 110px; height: 35px; text-align: center; line-height: 35px; text-decoration: none;">电信ICCID状态</a>
+<a href="http://192.168.1.1:8080/" target="_blank" style="display: inline-block; background-color: darkgoldenrod; color: black; width: 100px; height: 35px; text-align: center; line-height: 35px; text-decoration: none;">8080后台</a>
+
+<a href="https://teachergua.com/ces" target="_blank" style="display: inline-block; background-color: darkgoldenrod; color: black; width: 106px; height: 35px; text-align: center; line-height: 35px; text-decoration: none; margin-right: 0;">瓜老师笔记</a><br>
+
+
+<a href="https://m.tb.cn/h.5iZY7W8?tk=McMEWcqekLP" target="_blank">
+  <img src="../images/login/dibubg.jpg" alt="Login Image" width="800" height="550">
+</a>
+
+
+<br>
+   </div>
+        <div id="add_port" style="display: none">
+            <div class="box" style="width: 382px;margin-left: 47px">
+                <span class="password1" id="addProtocol" style="width: 100px;text-align: right">Protocol</span>
+                <select id="protocolSelect" name="protocol" class="global_input">
+                    <option value=0 selected="">TCP</option>
+                    <option value=1>UDP</option>
+                </select>
+            </div>
+            <div class="box" style="width: 382px;margin-left: 47px">
+                <span class="password1" id="addExter" style="width: 100px;text-align: right">External Port</span>
+                <input id="input_exter" type="text" name="title" lay-verify="title" autocomplete="off" maxlength="32"
+                    placeholder="" class="global_input">
+            </div>
+            <div class="box" style="width: 382px;margin-left: 47px">
+                <span class="password1" id="addInter" style="width: 100px;text-align: right">Internal Port</span>
+                <input id="input_inter" type="text" name="title" lay-verify="title" autocomplete="off" maxlength="32"
+                    placeholder="" class="global_input">
+            </div>
+            <div class="box" style="width: 382px;margin-left: 47px">
+                <span class="password1" id="addIP" style="width: 100px;text-align: right">Internal IP</span>
+                <input id="input_ip" type="text" name="title" lay-verify="title" autocomplete="off" maxlength="32"
+                    placeholder="" class="global_input">
+            </div>
+            <div style="display: flex;margin-left: 40px">
+                <button class="box_cancle flex-col" onclick="cancelPort()"><span class="word9" style="color: #3572BB;"
+                        id="addPortCancel">Cancel</span></button>
+                <button class="box15 flex-col" onclick="okPort()" style="display: flex;margin-left: 40px"><span
+                        class="word9" id="addPortConfirm">Confirm</span></button>
+            </div>
+        </div>
+        <div id="system_tr069" style="display: none;">
+            <div class="config flex-col justify-between">
+                <span class="config_text" id="sstConfigure">Configure ACS parameters</span>
+                <div class="main8 flex-col"></div>
+            </div>
+            <div style="display: flex;flex-direction: column;margin-left: 30px">
+                <div class="tr069" style="width: 200px">
+                    <span class="auto_span" id="sstTr" style="width: 120px">TR069</span>
+                    <div class="pg_dc" style="margin-left: 20px">
+                        <label class="switch">
+                            <input type="checkbox" onclick="state()">
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
+                </div>
+                <div class="acs_box" style="width: 452px">
+                    <span class="acs" id="sstAcs" style="width: 120px">ACS</span>
+                    <input class="tr069_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="acs_box1" style="width: 452px">
+                    <div class="account" style="width: 120px">
+                        <span id="sstAccount" style="width: 120px">Account</span>
+                    </div>
+                    <input class="account_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="acs_box1" style="width: 452px">
+                    <div class="account">
+                        <span id="sstPassword" style="width: 120px">Password</span>
+                    </div>
+                    <input class="acc_pass_input" type="password" style="margin-left: 20px">
+                </div>
+                <div class="peri" style="width: 200px">
+                    <span class="auto_per" id="sstPeriodic" style="width: 120px">Periodic notice</span>
+                    <div class="pg_dc" style="margin-left: 20px">
+                        <label class="switch">
+                            <input type="checkbox" onclick="state()">
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
+                </div>
+                <div class="acs_box2" style="width: 452px">
+                    <div class="account1" style="width: 120px">
+                        <span id="sstInterval">Notice interval</span>
+                    </div>
+                    <input class="acc_pass_input" type="text" style="margin-left: 20px">
+                </div>
+            </div>
+
+            <div class="connection flex-col justify-between">
+                <span class="config_text" id="sstConnection">Connection request</span>
+                <div class="main8 flex-col"></div>
+            </div>
+            <div style="margin-left: 30px">
+                <div class="cert" style="width: 200px">
+                    <span class="auto_cert" id="sstCertifacation" style="width: 120px">Authentication</span>
+                    <div class="pg_dc" style="margin-left: 20px">
+                        <label class="switch">
+                            <input type="checkbox" onclick="state()">
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
+                </div>
+                <div class="acs_box1" style="width: 452px">
+                    <div class="account">
+                        <span id="sstRequestAccount" style="width: 120px">Account</span>
+                    </div>
+                    <input class="account_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="acs_box1" style="width: 452px">
+                    <div class="account">
+                        <span style="width: 120px" id="sstRequestPassword">Password</span>
+                    </div>
+                    <input class="account_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="acs_box1" style="width: 452px">
+                    <div class="account">
+                        <span id="sstPath" style="width: 120px">Path</span>
+                    </div>
+                    <input class="account_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="acs_box1" style="width: 452px">
+                    <div class="account">
+                        <span id="sstPort" style="width: 120px">Port</span>
+                    </div>
+                    <input class="account_input" type="text" style="margin-left: 20px">
+                </div>
+            </div>
+            <div class="flex-row" style="margin-top: 21px">
+                <div class="box16" onclick="systemLogSet()"><span class="reset" id="sstReset">Reset</span></div>
+                <div class="box17" onclick="systemLogSet()"><span class="word9" id="sstSave">Save</span></div>
+            </div>
+
+            <div class="connection flex-col justify-between" style="margin-top: 60px">
+                <span class="config_text" id="sstManagement">Certification management</span>
+                <div class="main8 flex-col"></div>
+            </div>
+            <div class="cert_fire">
+                <select class="choice">
+                    <option>Please select the ca certificate</option>
+                </select>
+                <div class="box18" onclick="systemLogSet()"><span class="upload" id="sstUpload">Upload</span></div>
+            </div>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+
+    <div style="width: 1px;height: 700px;visible:hidden"></div>
+
+</div>

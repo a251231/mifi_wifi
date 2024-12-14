@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>udx710</title>
+  <link rel="stylesheet" href="./layui/css/layui.css" />
+  <link rel="stylesheet" href="./index.css" />
+  <script src="./layui/layui.js"></script>
+  <script src="./index.js"></script>
+</head>
+
+<body>
+  <div class="layui-tab" lay-filter="test-hash">
+    <ul class="layui-tab-title">
+      <li lay-id="00">发短信</li>
+      <li class="layui-this" lay-id="11">收件箱</li>
+      <li lay-id="22">短信转发</li>
+      <li lay-id="33">温度信息</li>
+      <li lay-id="44" id="bat_li">电池信息</li>
+      <li lay-id="55">AT命令</li>
+      <li lay-id="66">信息</li>
+      <li lay-id="77">8080</li>
+ 
+
+    </ul>
+    <div class="layui-tab-content">
+      <div class="layui-tab-item">
+        <div style="margin-bottom: 10px">
+          <label for="ToNumInput">收件人：</label>
+          <br /><br />
+          <input id="ToNumInput" type="text" class="layui-input"
+            style="width: 280px; display: inline-block; margin-right: 10px" />
+          <button id="sendSMSBtn" class="layui-btn">发送</button>
+        </div>
+        <div>
+          <label for="Text_Content">发送内容：</label>
+          <br /><br />
+          <textarea id="Text_Content" class="layui-textarea" style="width: 100%; height: 300px"></textarea>
+        </div>
+      </div>
+
+      <div class="layui-tab-item layui-show">
+        <button class="layui-btn layui-btn-danger" id="deleteSelected">
+          删除
+        </button>
+        <button class="layui-btn layui-btn-danger" id="delete_SMS_DB">
+          清空
+        </button>
+        <button class="layui-btn" id="refreshData">刷新</button>
+
+        <br /><br />
+        <div id="smsInfo" style="margin-bottom: 10px">
+          <span id="smsCount">条数: 0</span>
+          <span id="totalPages" style="margin-left: 20px">页数: 0</span>
+          <span id="itemsPerPage" style="margin-left: 20px">每页: 0</span>
+        </div>
+        <table id="smsTable" class="layui-table"></table>
+        <hr />
+        <div id="paginationContainer" style="margin-top: 10px; display: flex; align-items: center">
+          <button id="prevPage" class="layui-btn" style="margin-right: 10px" disabled>
+            上一页
+          </button>
+          <button id="nextPage" class="layui-btn">下一页</button>
+          <select id="pageSelect" class="layui-select" style="width: 80px; margin-left: 10px"></select>
+          <select id="limitSelect" lay-filter="limitSelect" class="layui-select" style="width: 80px; margin-left: 10px">
+            <option value="10">10条/页</option>
+            <option value="25">25条/页</option>
+            <option value="50">50条/页</option>
+            <option value="100">100条/页</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="layui-tab-item">
+        <form class="layui-form" id="configForm">
+          <div class="layui-form-item">
+            <label class="layui-form-label">PushPlus</label>
+            <div class="layui-input-block">
+              <input type="checkbox" name="pushplus_forward" lay-skin="switch" lay-text="ON|OFF"
+                id="pushplus_forward" />
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label class="layui-form-label">转发令牌</label>
+            <div class="layui-input-block">
+              <input type="text" name="pushplus_token" id="pushplus_token" placeholder="请输入32位数字字母组合的token令牌"
+                class="layui-input" maxlength="32" />
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label class="layui-form-label">转发渠道</label>
+            <div class="layui-input-block">
+              <select name="pushplus_channel" id="pushplus_channel">
+                <option value="wechat">wechat</option>
+                <option value="mail">mail</option>
+                <option value="webhook">webhook</option>
+              </select>
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label class="layui-form-label">渠道编码</label>
+            <div class="layui-input-block">
+              <input type="text" name="pushplus_channel_code" id="pushplus_channel_code"
+                placeholder="选择webhook渠道时需要输入渠道编码" class="layui-input" maxlength="10" />
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label class="layui-form-label">短信转发</label>
+            <div class="layui-input-block">
+              <input type="checkbox" name="sms_forward" lay-skin="switch" lay-text="ON|OFF" id="sms_forward" />
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label class="layui-form-label">转发号码</label>
+            <div class="layui-input-block">
+              <input type="text" name="to_num" id="to_num" placeholder="输入收信人手机号" class="layui-input" maxlength="20" />
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button class="layui-btn" lay-submit lay-filter="saveConfig">
+                保存配置
+              </button>
+              <button type="button" class="layui-btn" id="deleteLogsButton">
+                删除日志
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="layui-form-item" style="margin-top: 20px">
+          <label class="layui-form-label">转发日志</label>
+          <div class="layui-input-block">
+            <textarea id="logTextarea" class="layui-textarea" placeholder="日志信息..." readonly
+              style="height: 280px"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="layui-tab-item">
+        <table id="tempTable" class="layui-table">
+          <colgroup>
+            <col style="width: 50%" />
+            <col style="width: 50%" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>类型</th>
+              <th>温度</th>
+            </tr>
+          </thead>
+          <tbody id="tempTableBody"></tbody>
+        </table>
+      </div>
+      <div class="layui-tab-item">
+        <form class="layui-form" id="chargeForm">
+          <h3>充电控制</h3>
+          <hr />
+          <div class="layui-form-item">
+            <label class="layui-form-label" style="width: 100px; margin-right: 20px">充电状态</label>
+
+            <input type="checkbox" lay-filter="charge_stop" name="charge_stop" id="charge_stop" title="ON|OFF"
+              lay-skin="switch" />
+          </div>
+        </form>
+
+        <h3>电池信息</h3>
+        <hr />
+        <table id="batteryTable" class="layui-table">
+          <colgroup>
+            <col style="width: 50%" />
+            <col style="width: 50%" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>类型</th>
+              <th>状态</th>
+            </tr>
+          </thead>
+          <tbody id="batteryTableBody"></tbody>
+        </table>
+      </div>
+      <div class="layui-tab-item">
+        <div style="margin-bottom: 10px">
+          <div>
+            <label for="atCommandInput">AT命令：</label>
+            
+          </div>
+          <br>
+          <div style="display: flex; align-items: center">
+            
+            <input id="atCommandInput" type="text" class="layui-input" lay-affix="clear"
+              style="width: 280px; display: inline-block; margin-right: 10px" />
+            <button id="sendAtCommandBtn" class="layui-btn" style="margin-right: 0px">
+              发送
+            </button>
+            <button id="other_atcmd" class="layui-btn" style="margin-right: 0px">
+              常用命令
+            </button>
+          </div>
+        </div>
+        <div>
+          <label for="atCommandResponse">响应内容：</label>
+          <br /><br />
+          <textarea id="atCommandResponse" class="layui-textarea" style="width: 100%; height: 450px"
+            readonly></textarea>
+        </div>
+      </div>
+      <div class="layui-tab-item" id="sysinfo">
+      </div>
+      <div class="layui-tab-item">
+          <iframe id="otherweb" src="" width="100%" height="2000px" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" frameborder="0"></iframe>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+const currentIp = window.location.hostname;
+const url_8080 = `http://${currentIp}:8080`;
+ 
+document.getElementById("otherweb").src = url_8080;
+ 
+</script>
+</html>

@@ -1,0 +1,12 @@
+[2016-08-23 03:31:55:000] StartDevNtfThread
+[2016-08-23 03:31:55:000] EnumProc() is started.
+[2016-08-23 03:31:55:000] DevHound is started, ID = 13864
+[2016-08-23 03:31:55:000] HoundThreadProc start!
+[2016-08-23 03:32:14:281] RegDiagEvent()
+[2016-08-23 03:32:14:281] UnRegister, hDiagPhone = 0x00C00048
+[2016-08-23 03:32:14:281] DiagPhone Found, erased.
+[2016-08-23 03:32:14:281] StopDevNtfThread()
+[2016-08-23 03:32:14:281] HoundThreadProc stopped!
+[2016-08-23 03:32:14:281] DevHound stopped!
+[2016-08-23 03:32:14:281] DevHound is stopped
+[2016-08-23 03:32:14:281] EnumProc() is stopped.

@@ -1,0 +1,1258 @@
+body {
+    margin:0px;
+    background-image:none;
+    position:relative;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+}
+
+.menu_normal {
+    width: 150px;
+    height: 60px;
+    background: #F5F6FA;
+    border-radius: 6px;
+    border: 1px solid #D9DDE3;
+}
+
+.menu_select {
+    width: 150px;
+    height: 60px;
+    background: linear-gradient(145deg, #519CE5 0%, #1E4F97 100%);
+    border-radius: 6px;
+}
+
+.title_bar {
+    height: 88px;
+    background: linear-gradient(145deg, #519CE5 0%, #1E4F97 100%);
+}
+
+.title_text {
+    width: 100%;
+    height: 20px;
+    font-size: 20px;
+    font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+    font-weight: bold;
+    color: #FFFFFF;
+    line-height: 30px;
+}
+
+.title_text2 {
+    font-size: 14px;
+    font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 21px;
+}
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+.justify-between {
+    display: flex;
+    justify-content: space-between;
+}
+.menu_img {
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.menu_text_normal{
+    width: 100%;
+    height: 16px;
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+    font-weight: 400;
+    color: #244691;
+    line-height: 24px;
+    margin-top: 20px;
+    margin-left: 6px;
+}
+
+.menu_text_select {
+    width: 100%;
+    height: 16px;
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 24px;
+    margin-top: 20px;
+    margin-left: 6px;
+}
+
+.home_icon_text {
+    height: 16px;
+    font-size: 16px;
+    font-family: SourceHanSansCN-Regular, SourceHanSansCN;
+    font-weight: 400;
+    color: #666666;
+    line-height: 24px;
+    margin-top: 102px;
+}
+
+.home_kbps_text {
+    height: 24px;
+    font-size: 22px;
+    font-family: SourceHanSansCN-Regular, SourceHanSansCN;
+    font-weight: 400;
+    color: #666666;
+    line-height: 36px;
+    text-align: center
+}
+
+.info_title_text {
+    height: 20px;
+    font-size: 20px;
+    font-family: SourceHanSansCN-Medium, SourceHanSansCN;
+    font-weight: 500;
+    color: #161617;
+    line-height: 30px;
+}
+
+.info_data_text {
+    height: 16px;
+    font-size: 16px;
+    font-family: SourceHanSansCN-Regular, SourceHanSansCN;
+    font-weight: 400;
+    color: #666666;
+    line-height: 24px;
+    margin-top: 10px;
+}
+
+.network_content {
+    width: 950px;
+    height: auto;
+    min-height: 700px;
+    margin: auto;
+    background: #F9FBFF;
+    border-radius: 6px;
+    border: 1px solid #D9DDE3;
+    position: relative;
+    display: flex;
+}
+
+.network_menu_normal {
+    height: 40px;
+    background: #F9FBFF;
+    border-bottom: 1px solid #D9DDE3;
+}
+
+.network_menu_select {
+    height: 40px;
+    background: #244691;
+}
+
+.network_menu_text_normal {
+    font-size: 14px;
+    font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+    font-weight: 400;
+    color: #244691;
+    line-height: 40px;
+    margin-left: 20px;
+    height: 14px;
+}
+
+.network_menu_text_select {
+    font-size: 14px;
+    font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 40px;
+    margin-left: 20px;
+    height: 14px;
+}
+
+
+.form_sketch {
+    border-color:transparent;
+    background-color:transparent;
+}
+#base {
+    position:absolute;
+    z-index:0;
+}
+.group1 {
+    height: 36px;
+    background: url(../images/wizard/arrow01_highlight.png)
+    100% no-repeat;
+    width: 123px;
+}
+
+.word3 {
+    width: 64px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(255, 255, 255, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 16px;
+    display: block;
+    margin: 10px 0 0 30px;
+}
+
+.group2 {
+    background: url(../images/wizard/arrow02.png)
+    100% no-repeat;
+    height: 36px;
+    width: 121px;
+}
+
+.word4 {
+    width: 64px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(181, 189, 201, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 16px;
+    display: block;
+    margin: 10px 0 0 28px;
+}
+
+.group3 {
+    background: url(../images/wizard/arrow03.png)
+    100% no-repeat;
+    height: 36px;
+    width: 121px;
+}
+
+.word5 {
+    width: 76px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(181, 189, 201, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 16px;
+    display: block;
+    margin: 10px 0 0 22px;
+}
+
+.group4 {
+    background: url(../images/wizard/arrow04.png)
+    100% no-repeat;
+    /*background-color: rgba(245, 246, 250, 1);*/
+    height: 36px;
+    /*border: 1px solid rgba(217, 221, 227, 1);*/
+    width: 141px;
+}
+
+.word {
+    width: 96px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(181, 189, 201, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 16px;
+    display: block;
+    margin: 10px 0 0 22px;
+}
+
+.group5 {
+    background: url(../images/wizard/arrow05.png)
+    100% no-repeat;
+    height: 36px;
+    /*border: 1px solid rgba(217, 221, 227, 1);*/
+    width: 79px;
+}
+
+.word7 {
+    width: 32px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(181, 189, 201, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 16px;
+    display: block;
+    margin: 10px 0 0 28px;
+}
+.mod5 {
+    width: 644px;
+    height: 36px;
+    margin: 20px 0 0 190px;
+    justify-content: space-between;
+    display: flex;
+}
+.mod6 {
+    width: 390px;
+    height: 36px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info1 {
+    width: 180px;
+    height: 36px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: right;
+    white-space: nowrap;
+    line-height: 36px;
+    display: block;
+}
+
+.block1 {
+    background-color: rgba(249, 251, 255, 1);
+    border-radius: 6px;
+    height: 36px;
+    border: 1px solid rgba(223, 227, 237, 1);
+    width: 180px;
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.txt2 {
+    width: 68px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 16px;
+    display: block;
+    margin: 10px 0 0 5px;
+}
+.mod7 {
+    width: 390px;
+    height: 36px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.word8 {
+    width: 96px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 16px;
+    display: block;
+}
+.section4 {
+    background-color: rgba(249, 251, 255, 1);
+    border-radius: 6px;
+    height: 36px;
+    border: 1px solid rgba(223, 227, 237, 1);
+    width: 180px;
+    padding-left: 10px;
+}
+
+.word9 {
+    width: 46px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 16px;
+    display: block;
+    margin: 10px 0 0 6px;
+}
+
+.mod8 {
+    width: 390px;
+    height: 36px;
+    margin: auto;
+    /*margin-top: 10px;*/
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.work {
+    width: 180px;
+    height: 36px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: right;
+    white-space: nowrap;
+    line-height: 36px;
+    margin-top: auto;
+    display: block;
+}
+
+.main1 {
+    background-color: rgba(249, 251, 255, 1);
+    border-radius: 6px;
+    height: 36px;
+    border: 1px solid rgba(223, 227, 237, 1);
+    width: 180px;
+    padding-left: 10px;
+}
+.choiceNum {
+    background-color: rgba(249, 251, 255, 1);
+    border-radius: 6px;
+    height: 36px;
+    border: 1px solid rgba(223, 227, 237, 1);
+    width: 180px;
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.txt4 {
+    width: 46px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 16px;
+    display: block;
+    margin: 10px 0 0 6px;
+}
+
+.mod9 {
+    width: 430px;
+    height: 40px;
+    margin: 60px 0 0 297px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bd1 {
+    background-color: rgba(245, 246, 250, 1);
+    border-radius: 6px;
+    height: 40px;
+    border: 1px solid rgba(217, 221, 227, 1);
+    width: 120px;
+}
+
+.info2 {
+    width: 74px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(53, 114, 187, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 16px;
+    display: block;
+    margin: 12px 0 0 23px;
+}
+
+.bd2 {
+    background-color: rgba(245, 246, 250, 1);
+    border-radius: 6px;
+    height: 40px;
+    border: 1px solid rgba(217, 221, 227, 1);
+    margin-left: 60px;
+    width: 120px;
+}
+
+.word10 {
+    width: 53px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(53, 114, 187, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 16px;
+    display: block;
+    margin: 12px 0 0 33px;
+}
+
+.bd3 {
+    box-shadow: 0px 4px 6px 0px rgba(145, 157, 194, 0.16);
+    background-color: rgba(36, 70, 145, 1);
+    border-radius: 6px;
+    height: 40px;
+    margin-left: 10px;
+    width: 120px;
+}
+
+.info3 {
+    width: 120px;
+    height: 40px;
+    overflow-wrap: break-word;
+    color: rgba(255, 255, 255, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 40px;
+    display: block;
+    margin: auto;
+}
+
+.layer3 {
+    width: 390px;
+    height: 36px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.word {
+    width: 64px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: right;
+    white-space: nowrap;
+    line-height: 16px;
+    margin-top: 10px;
+    display: block;
+}
+
+.word6 {
+    width: 96px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(181, 189, 201, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 16px;
+    display: block;
+    margin: 10px 0 0 22px;
+}
+
+.group {
+    width: 160px;
+    height: 16px;
+    margin: 10px 0 0 9px;
+}
+
+.net {
+    width: 180px;
+    height: 36px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: right;
+    white-space: nowrap;
+    line-height: 36px;
+    margin-top: auto;
+    display: block;
+}
+
+.section2 {
+    width: 12px;
+    height: 9px;
+    background: url(./img/SketchPngd7b2c06b36ae365522347e4b7d05d49aba6f707af1ad2adb78aacde3bff180ba.png)
+    100% no-repeat;
+    margin-top: 5px;
+}
+
+.txt {
+    width: 53px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(53, 114, 187, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 16px;
+    display: block;
+    margin: 12px 0 0 33px;
+}
+
+.layer8 {
+    box-shadow: 0px 4px 6px 0px rgba(145, 157, 194, 0.16);
+    background-color: rgba(36, 70, 145, 1);
+    border-radius: 6px;
+    height: 40px;
+    margin-left: 10px;
+    width: 120px;
+}
+
+.info4 {
+    width: 53px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(255, 255, 255, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 16px;
+    display: block;
+    margin: 12px 0 0 33px;
+}
+
+.layer4 {
+    width: 390px;
+    height: 36px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.txt3 {
+    width: 180px;
+    height: 36px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: right;
+    white-space: nowrap;
+    line-height: 36px;
+    display: block;
+}
+
+.bd4 {
+    background-color: rgba(199, 199, 199, 1);
+    border-radius: 15px;
+    height: 30px;
+    width: 60px;
+}
+
+.pg_dc {
+    width: 60px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+.mod4 {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    margin: 3px 0 0 3px;
+}
+
+.outer8 {
+    width: 186px;
+    height: 30px;
+    margin: 60px 0 0 359px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wifi {
+    width: 106px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: right;
+    white-space: nowrap;
+    line-height: 16px;
+    margin-top: 7px;
+    display: block;
+}
+
+.section1 {
+    width: 60px;
+    height: 30px;
+    background: url(../images/wizard/selected.png)
+    100% no-repeat;
+}
+
+.outer9 {
+    width: 269px;
+    height: 36px;
+    margin: 20px 0 0 396px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.word2 {
+    width: 69px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: right;
+    white-space: nowrap;
+    line-height: 16px;
+    margin-top: 10px;
+    display: block;
+}
+
+.layer1 {
+    background-color: rgba(249, 251, 255, 1);
+    border-radius: 6px;
+    height: 36px;
+    border: 1px solid rgba(223, 227, 237, 1);
+    width: 180px;
+    font-size: 16px;
+}
+
+.name {
+    width: 49px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 16px;
+    display: block;
+    margin: 10px 0 0 6px;
+}
+
+.outer10 {
+    width: 264px;
+    height: 36px;
+    margin: 10px 0 0 401px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.safe {
+    width: 64px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: right;
+    white-space: nowrap;
+    line-height: 16px;
+    margin-top: 10px;
+    display: block;
+}
+
+.box1 {
+    background-color: rgba(249, 251, 255, 1);
+    border-radius: 6px;
+    height: 36px;
+    border: 1px solid rgba(223, 227, 237, 1);
+    width: 180px;
+}
+
+.mod1 {
+    width: 162px;
+    height: 16px;
+    margin: 10px 0 0 7px;
+}
+
+.rsk {
+    width: 78px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 16px;
+    display: block;
+}
+
+.main2 {
+    width: 12px;
+    height: 9px;
+    background: url(./img/SketchPngd7b2c06b36ae365522347e4b7d05d49aba6f707af1ad2adb78aacde3bff180ba.png)
+    100% no-repeat;
+    margin-top: 5px;
+}
+
+.outer11 {
+    width: 269px;
+    height: 36px;
+    margin: 10px 0 0 396px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pwd {
+    height: 40px;
+    width: 276px;
+    position: relative;
+}
+
+.password {
+    width: 69px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: right;
+    white-space: nowrap;
+    line-height: 16px;
+    margin-top: 10px;
+    display: block;
+}
+
+.eye {
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    right: 6px;
+    top: 5px;
+    opacity: 0.7;
+}
+
+.eye:hover {
+    opacity: 1;
+}
+
+.wrap1 {
+    background-color: rgba(249, 251, 255, 1);
+    border-radius: 6px;
+    height: 36px;
+    border: 1px solid rgba(223, 227, 237, 1);
+    width: 180px;
+}
+
+.password_rel {
+    width: 43px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 16px;
+    display: block;
+    margin: 10px 0 0 6px;
+}
+
+.ImageText1 {
+    height: 242px;
+    width: 214px;
+    margin: 47px 0 0 407px;
+}
+
+.bd6 {
+    width: 214px;
+    height: 242px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main {
+    width: 189px;
+    height: 136px;
+    background: url(../images/wizard/device.png)
+    100% no-repeat;
+    margin-left: 25px;
+}
+
+.TextGroup1 {
+    height: 80px;
+    margin-top: 16px;
+    width: 211px;
+    display: flex;
+}
+
+.set {
+    width: 211px;
+    height: 80px;
+    overflow-wrap: break-word;
+    color: rgba(181, 189, 201, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.lay {
+    box-shadow: 0px 4px 6px 0px rgba(145, 157, 194, 0.16);
+    background-color: rgba(36, 70, 145, 1);
+    border-radius: 6px;
+    height: 40px;
+    width: 150px;
+    margin: 30px 0 0 437px;
+    display: flex;
+}
+
+.sure {
+    width: 67px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(255, 255, 255, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 16px;
+    display: block;
+    margin: 12px 0 0 42px;
+}
+
+.advice {
+    width: 644px;
+    height: 70px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    margin: 20px 0 0 190px;
+}
+
+.outer {
+    background-color: rgba(249, 251, 255, 1);
+    border-radius: 6px;
+    height: 180px;
+    border: 1px solid rgba(217, 221, 227, 1);
+    width: 426px;
+    justify-content: flex-center;
+    margin: 30px 0 0 299px;
+}
+
+.group11 {
+    width: 304px;
+    height: 30px;
+    margin: 13px 0 0 24px;
+}
+
+.ImageText11 {
+    height: 29px;
+    margin-top: 1px;
+    width: 97px;
+}
+
+.section14 {
+    width: 97px;
+    height: 29px;
+}
+
+.section5 {
+    width: 42px;
+    height: 29px;
+    background: url(../images/wizard/furance.png)
+    100% no-repeat;
+}
+
+.TextGroup11 {
+    height: 14px;
+    margin-top: 8px;
+    width: 42px;
+}
+
+.word17 {
+    width: 42px;
+    height: 14px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 14px;
+    display: block;
+}
+
+.ImageText12 {
+    height: 29px;
+    width: 102px;
+}
+
+.layer11 {
+    width: 102px;
+    height: 29px;
+}
+
+.section6 {
+    width: 29px;
+    height: 29px;
+    background: url(../images/wizard/blue.png)
+    100% no-repeat;
+}
+
+.TextGroup2 {
+    height: 14px;
+    margin-top: 9px;
+    width: 56px;
+}
+
+.word18 {
+    width: 56px;
+    height: 14px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 14px;
+    display: block;
+}
+
+.group12 {
+    width: 351px;
+    height: 41px;
+    margin: 26px 0 0 33px;
+}
+
+.ImageText3 {
+    height: 41px;
+    width: 102px;
+}
+
+.mod11 {
+    width: 102px;
+    height: 41px;
+}
+
+.block11 {
+    width: 25px;
+    height: 41px;
+    background: url(../images/wizard/phone.png)
+    100% no-repeat;
+}
+
+.TextGroup3 {
+    height: 14px;
+    margin-top: 13px;
+    width: 56px;
+}
+
+.info12 {
+    width: 56px;
+    height: 14px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 14px;
+    display: block;
+}
+
+.ImageText4 {
+    height: 40px;
+    width: 154px;
+}
+
+.outer4 {
+    width: 154px;
+    height: 40px;
+}
+
+.main4 {
+    width: 25px;
+    height: 40px;
+    background: url(../images/wizard/wireless.png)
+    100% no-repeat;
+}
+
+.TextGroup4 {
+    height: 14px;
+    margin-top: 13px;
+    width: 112px;
+}
+
+.info14 {
+    width: 112px;
+    height: 14px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 14px;
+    display: block;
+}
+
+.group13 {
+    width: 119px;
+    height: 35px;
+    margin: 22px 0 13px 30px;
+}
+
+.ImageText5 {
+    height: 35px;
+    width: 119px;
+}
+
+.group14 {
+    width: 119px;
+    height: 35px;
+}
+
+.block2 {
+    width: 30px;
+    height: 35px;
+    background: url(../images/wizard/baby.png)
+    100% no-repeat;
+}
+
+.TextGroup5 {
+    height: 14px;
+    margin-top: 11px;
+    width: 70px;
+}
+
+.info14 {
+    width: 70px;
+    height: 14px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 14px;
+    display: block;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    margin-top: 3px;
+}
+
+.switch input {
+    display:none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #519CE5;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #519CE5;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+    transform: translateX(30px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 15px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.wifi_switch {
+    height: 30px;
+    margin-top: 20px;
+}
+
+.switch_txt {
+    width: 89px;
+    height: 16px;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: right;
+    line-height: 16px;
+    display: block;
+    margin: 7px 20px 0 0;
+}
+
+.confs {
+    margin-top: 10px;
+}
+
+.mywifi_txt {
+    width: 90px;
+    height: 16px;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: right;
+    line-height: 16px;
+    display: block;
+    margin: 10px 20px 0 0;
+}
+
+.wifi_conf_input {
+    background-color: rgba(249, 251, 255, 1);
+    border-radius: 6px;
+    height: 36px;
+    border: 1px solid rgba(223, 227, 237, 1);
+    width: 260px;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.wifi_pass_input {
+    background-color: rgba(249, 251, 255, 1);
+    border-radius: 6px;
+    height: 36px;
+    border: 1px solid rgba(223, 227, 237, 1);
+    width: 200px;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 60px;
+}

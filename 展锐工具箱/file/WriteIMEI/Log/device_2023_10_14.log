@@ -1,0 +1,48 @@
+[2023-10-14 20:10:11:267] StartDevNtfThread
+[2023-10-14 20:10:11:267] EnumProc() is started.
+[2023-10-14 20:10:11:267] DevHound is started, ID = 14828
+[2023-10-14 20:10:11:267] HoundThreadProc start!
+[2023-10-14 20:10:33:235] RegDiagEvent()
+[2023-10-14 20:10:33:235] UnRegister, hDiagPhone = 0x02A40048
+[2023-10-14 20:10:33:235] DiagPhone Found, erased.
+[2023-10-14 20:10:33:235] StopDevNtfThread()
+[2023-10-14 20:10:33:236] HoundThreadProc stopped!
+[2023-10-14 20:10:33:239] DevHound stopped!
+[2023-10-14 20:10:33:239] DevHound is stopped
+[2023-10-14 20:10:33:239] EnumProc() is stopped.
+[2023-10-14 20:10:40:811] StartDevNtfThread
+[2023-10-14 20:10:40:811] EnumProc() is started.
+[2023-10-14 20:10:40:811] DevHound is started, ID = 3664
+[2023-10-14 20:10:40:811] HoundThreadProc start!
+[2023-10-14 20:13:05:103] RegDiagEvent()
+[2023-10-14 20:13:05:103] UnRegister, hDiagPhone = 0x02950048
+[2023-10-14 20:13:05:103] DiagPhone Found, erased.
+[2023-10-14 20:13:05:103] StopDevNtfThread()
+[2023-10-14 20:13:05:110] HoundThreadProc stopped!
+[2023-10-14 20:13:05:110] DevHound stopped!
+[2023-10-14 20:13:05:110] DevHound is stopped
+[2023-10-14 20:13:05:110] EnumProc() is stopped.
+[2023-10-14 20:13:05:925] StartDevNtfThread
+[2023-10-14 20:13:05:925] EnumProc() is started.
+[2023-10-14 20:13:05:925] DevHound is started, ID = 7896
+[2023-10-14 20:13:05:925] HoundThreadProc start!
+[2023-10-14 20:13:16:650] RegDiagEvent()
+[2023-10-14 20:13:16:650] UnRegister, hDiagPhone = 0x029F0048
+[2023-10-14 20:13:16:650] DiagPhone Found, erased.
+[2023-10-14 20:13:16:650] StopDevNtfThread()
+[2023-10-14 20:13:16:672] HoundThreadProc stopped!
+[2023-10-14 20:13:16:672] DevHound stopped!
+[2023-10-14 20:13:16:672] DevHound is stopped
+[2023-10-14 20:13:16:672] EnumProc() is stopped.
+[2023-10-14 20:13:17:893] StartDevNtfThread
+[2023-10-14 20:13:17:893] EnumProc() is started.
+[2023-10-14 20:13:17:893] DevHound is started, ID = 14188
+[2023-10-14 20:13:17:893] HoundThreadProc start!
+[2023-10-14 21:08:20:975] RegDiagEvent()
+[2023-10-14 21:08:20:975] UnRegister, hDiagPhone = 0x02A40048
+[2023-10-14 21:08:20:975] DiagPhone Found, erased.
+[2023-10-14 21:08:20:975] StopDevNtfThread()
+[2023-10-14 21:08:20:984] HoundThreadProc stopped!
+[2023-10-14 21:08:20:984] DevHound stopped!
+[2023-10-14 21:08:20:984] DevHound is stopped
+[2023-10-14 21:08:20:984] EnumProc() is stopped.

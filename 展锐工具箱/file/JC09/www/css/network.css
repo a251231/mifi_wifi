@@ -1,0 +1,109 @@
+.global_font{
+    font-size: 16px;
+    font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+    color: #363739;
+}
+
+.global_input{
+    padding-left: 10px;
+    width: 230px;
+    height: 34px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid #DFE3ED;
+}
+.network-msg-input{
+    margin-top: 20px;
+    padding-left: 10px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid #DFE3ED;
+}
+
+.network-msg-textarea{
+    width: 740px;
+    height: 278px;
+    margin-top: 20px;
+    padding-left: 10px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid #DFE3ED;
+}
+.network_switch{
+    width: 950px;
+    height: 550px;
+}
+.network-btn-radius{
+    border-radius: 6px
+}
+.network-form-item{
+    margin-bottom: 10px
+}
+.network-msg-font{
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-family: SourceHanSansCN-Medium, SourceHanSansCN;
+    font-weight: 500;
+}
+.network_content {
+    width: 950px;
+    height: auto;
+    min-height: 578px;
+    margin: auto;
+    background: #F9FBFF;
+    border-radius: 6px;
+    border: 1px solid #D9DDE3;
+    position: relative;
+    display: flex;
+}
+
+.network_menu_normal {
+    height: 40px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #D9DDE3;
+}
+
+.network_menu_normal2 {
+    height: 40px;
+    background: #F9FBFF;
+    border-bottom: 1px solid #D9DDE3;
+}
+
+.network_menu_select {
+    height: 40px;
+    background: #519CE5;
+}
+
+.network_menu_text_normal {
+    font-size: 14px;
+    font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+    font-weight: 400;
+    color: #3572BB;
+    line-height: 40px;
+    margin-left: 20px;
+    height: 14px;
+}
+
+.network_menu_text_select {
+    font-size: 14px;
+    font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 40px;
+    margin-left: 20px;
+    height: 14px;
+}
+
+/*英文适配*/
+#basic .layui-form-label{
+    width: 160px;
+}
+#apn .layui-form-label{
+    width: 160px;
+}
+#pin .layui-form-label{
+    width: 160px;
+}
+#sum .layui-form-label{
+    width: 160px;
+}

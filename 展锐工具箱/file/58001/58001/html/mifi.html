@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CPEINFO</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="/js/jquery.js"></script>
+        <script type="text/javascript" src="/js/md5.js"></script>
+        <style>
+            xmp {     
+    whitewhite-space: pre-wrap; /* css-3 */
+    whitewhite-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    whitewhite-space: -pre-wrap; /* Opera 4-6 */
+    whitewhite-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+    white-space: pre-wrap; /* Firefox */
+}
+        </style>
+        <script>
+var AuthQop, username = "admin",
+    passwd = "snoopy",
+    GnCount = 1,
+    Authrealm, Gnonce, nonce;
+var _resetTimeOut = 3600000;
+var authHeaderIntervalID = 0;
+function hex(d) {
+    // alert("d" + d );
+    var hD = "0123456789ABCDEF";
+    var h = hD.substr(d & 15, 1);
+    while (d > 15) {
+        d >>= 4;
+        h = hD.substr(d & 15, 1) + h;
+    }
+    return h;
+    //alert("h" + h);
+    //    return parseInt(str.toString(), 16);
+}
+function getAuthHeader(requestType, file) {
+    // return getCookie("Authheader");
+    var rand, date, salt, strAuthHeader;
+    var tmp, DigestRes, AuthCnonce_f;
+    var HA1, HA2;
+
+
+
+    HA1 = hex_md5(username + ":" + Authrealm + ":" + passwd);
+    HA2 = hex_md5(requestType + ":" + "/cgi/xml_action.cgi");
+
+    rand = Math.floor(Math.random() * 100001);
+    date = new Date().getTime();
+
+    salt = rand + "" + date;
+    tmp = hex_md5(salt);
+    AuthCnonce_f = tmp.substring(0, 16);
+    //AuthCnonce_f = tmp;
+
+    var strhex = hex(GnCount);
+    var temp = "0000000000" + strhex;
+    var Authcount = temp.substring(temp.length - 8);
+    DigestRes = hex_md5(HA1 + ":" + nonce + ":" + Authcount + ":" + AuthCnonce_f + ":" + AuthQop + ":" + HA2);
+
+
+    GnCount++;
+    strAuthHeader = "Digest " + "username=\"" + username + "\", realm=\"" + Authrealm + "\", nonce=\"" + nonce + "\", uri=\"" + "/cgi/xml_action.cgi" + "\", response=\"" + DigestRes + "\", qop=" + AuthQop + ", nc=" + Authcount + ", cnonce=\"" + AuthCnonce_f + "\"";
+    DigestHeader = strAuthHeader;
+    return strAuthHeader;
+}
+function stone_getXMLCfg(xmlName, callback) {
+
+    var url = "";
+    url = '/jsonp_' + xmlName;
+
+    $.ajax({
+        type: "GET",
+        'beforeSend': function (xhr) {
+            xhr.setRequestHeader("Authorization", getAuthHeader("GET"));
+        },
+        url: url,
+        dataType: "jsonp",
+        async: false,
+        success: function (data) {
+            // console.log("stone_callProductXML:", data);
+            callback(data);
+        },
+        error: function() {
+            console.log("stone_getXMLCfg error");
+            doLogin(username,passwd,loginSuccess);
+        }
+    });
+}
+function getCookie(c_name) {
+    if (document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(c_name + "=");
+        if (c_start != -1) {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) c_end = document.cookie.length;
+            return unescape(document.cookie.substring(c_start, c_end));
+        }
+    }
+    return "";
+}
+/*
+ * set cookie of browser it has expiry days after which it expires
+ */
+function setCookie(c_name, value, expiredays) {
+    var exdate = new Date();
+    exdate.setDate(exdate.getDate() + expiredays);
+    document.cookie = c_name + "=" + escape(value) +
+        ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString());
+
+    //console.log("setCookie c_name "+c_name+" value "+value+" expiredays "+expiredays);
+}
+
+function loginSuccess(login_done) {
+            console.log("loginSuccess login_done = ", login_done);
+            if (login_done != 0) {
+                
+            } else {
+                
+            }
+}
+function doLogin(username1, passwd1, callback) {
+
+    var param = {
+        "username": username1,
+        "password": passwd1
+    };
+
+    var url = "/adminLogin";
+    $.ajax({
+        type: "GET",
+        url: url,
+        dataType: "jsonp",
+        data: {
+            loginparam: JSON.stringify(param)
+        },
+        async: false,
+        cache: false,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", getAuthHeader("GET"));
+            xhr.setRequestHeader("Expires", "-1");
+            xhr.setRequestHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+            xhr.setRequestHeader("Pragma", "no-cache");
+        },
+        success: function (data) {
+            // callback(data.status);
+            var loginkey = $(data).find("loginkey").text()
+            var token = $(data).find("token").text();
+            console.log("loginkey = ", loginkey);
+            console.log("localkey = ", hex_md5(username1 + passwd1));
+            console.log("login_token = ", token);
+            if (hex_md5(username1 + passwd1) == loginkey) {
+                setCookie("token", token, 365);
+                callback(1);
+            } else {
+                callback(0);
+            }
+        }
+    }); //.responseText;
+}
+function refreshBattery(content) {
+    var xml = content;
+    $("#Battery").html("<xmp>"+content+"</xmp>");
+    //console.log("refreshBattery xml:", xml);
+    var _percent = $(xml).find("batteryPercent").text();
+    //console.log(_percent);
+}
+function refreshInternet(content) {
+    var xml = content;
+    $("#Internet").html("<xmp>"+content+"</xmp>");
+    //console.log("refreshInternet xml:", xml);
+    var _rsrp = $(xml).find("rsrp").text();
+   //console.log(_rsrp);
+}
+function refreshSysinfo(content) {
+    var xml = content;
+    $("#Sysinfo").html("<xmp>"+content+"</xmp>");
+    //console.log("refreshSysinfo xml:", xml);
+}
+function refreshHomeinfo(content) {
+    var xml = content;
+    $("#Homeinfo").html("<xmp>"+content+"</xmp>");
+    //console.log("refreshHomeinfo xml:", xml);
+}
+function refreshStatistics(content) {
+    var xml = content;
+    $("#Statistics").html("<xmp>"+content+"</xmp>");
+    //console.log("refreshStatistics xml:", xml);
+}
+
+        </script>
+    </head>
+    <body>
+        <div id="Battery">Battery</div>
+        <div id="Internet">Internet</div>
+        <div id="Sysinfo">Sysinfo</div>
+        <div id="Homeinfo">Homeinfo</div>
+        <div id="Statistics">Statistics</div>
+        <script>
+var is_cookie =  getCookie("token")
+if(is_cookie == ""){
+        doLogin(username,passwd,loginSuccess);
+}
+stone_getXMLCfg('battery_level', refreshBattery);
+stone_getXMLCfg('sysinfo', refreshSysinfo);
+stone_getXMLCfg('home_info', refreshHomeinfo);
+stone_getXMLCfg('internet_info', refreshInternet);
+stone_getXMLCfg('statistics', refreshStatistics);
+setInterval('setTimeout("stone_getXMLCfg(\'battery_level\', refreshBattery)",0)', 1000 * 10);
+setInterval('setTimeout("stone_getXMLCfg(\'sysinfo\', refreshSysinfo)",0)', 1000 * 10);
+setInterval('setTimeout("stone_getXMLCfg(\'home_info\', refreshHomeinfo)",0)', 1000 * 10);
+setInterval('setTimeout("stone_getXMLCfg(\'internet_info\', refreshInternet)",0)', 1000 * 5);
+setInterval('setTimeout("stone_getXMLCfg(\'statistics\', refreshStatistics)",0)', 1000 * 3);
+        </script>
+    </body>
+</html>

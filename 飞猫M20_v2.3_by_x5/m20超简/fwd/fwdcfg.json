@@ -1,0 +1,8 @@
+{
+	"sms_forward":	{
+		"fwd_switch":	0,
+		"fwd_token":	"",
+		"fwd_channel":	1,
+		"fwd_channel_code":	""
+	}
+}

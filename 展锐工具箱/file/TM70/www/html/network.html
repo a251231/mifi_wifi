@@ -1,0 +1,520 @@
+<head>
+	<meta charset="utf-8">
+	<title>Clients</title>
+	<style type="text/css">
+		.page {
+			text-align: center;
+			margin-top: 50px;
+		}
+
+		.page a {
+			text-decoration: none;
+			border: 1px solid rgba(217, 221, 227, 1);
+			padding: 5px 7px;
+			color: rgba(53, 114, 187, 1);
+			cursor: pointer;
+		}
+
+		.page span {
+			text-decoration: none;
+			border: 1px solid rgba(217, 221, 227, 1);
+			border-radius: 6px;
+			padding: 5px 7px;
+			color: rgba(53, 114, 187, 1);
+			cursor: pointer;
+		}
+
+		.page a:hover,.page span:hover{
+			color: red;
+		}
+
+			.phonebook_table,.phonebook_table th,.phonebook_table td{
+			font-size: 12px;
+			border: 1px solid rgba(217, 221, 227, 1);
+			background-color: rgba(255, 255, 255, 1);
+			background-color: rgba(249, 251, 255, 1);
+			border-collapse: collapse;
+			font-size: 14px;
+			font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+			color: #3B4046;
+			border-spacing: 0px;
+			border-radius: 10px;
+			width: 653px;
+			height: 30px;
+			margin: auto;
+		}
+
+	.pop_win_2input {
+	display: none;
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	width: 25%;
+	height: 15%;
+	padding: 20px;
+	border: 10px solid white;
+	background-color: white;
+	z-index:1002;
+	overflow: auto;
+	width: 400px;
+	height: 250px;
+	}
+
+	</style>
+</head>
+<div class="network_content">
+    <div id="network_left" style="width: 150px;border-right: 1px solid #D9DDE3;">
+        <div id="network_basic" onclick="checkNetworkMenu('#basic')" class="network_menu_select"
+            style="border-radius: 6px 0px 0px 0px;">
+            <div class="network_menu_text_select" id="nmBasic">
+                Basic Setup
+            </div>
+        </div>
+        <div id="network_apn" onclick="checkNetworkMenu('#apn')" class="network_menu_normal">
+            <div class="network_menu_text_normal" id="nmAPN">
+                APN
+            </div>
+        </div>
+        <div id="network_pin" onclick="checkNetworkMenu('#pin')" class="network_menu_normal" style="display:none">
+            <div class="network_menu_text_normal" id="nmPinManage">
+                Pin Manage
+            </div>
+        </div>
+        <div id="sms" onclick="checkNetworkMenu('#msg')" class="network_menu_normal"
+            style="display: flex; position: relative">
+            <div class="network_menu_text_normal" id="nmSMS">
+                SMS
+            </div>
+            <img id="network-msg-img" src="../images/main/more_nav_arrow_down.png"
+                style="position: absolute;right: 14px;top: 6px">
+        </div>
+        <div id="smsChildren" style="display: none">
+            <div id="msg-sm" onclick="checkNetworkMenu('#sm')" class="network_menu_normal2">
+                <div class="network_menu_text_normal" id="nmSendMsg" style="margin-left: 40px">
+                    &nbsp;&nbsp;&nbsp;&nbsp;Texting
+                </div>
+            </div>
+            <div id="msg-inbox" onclick="checkNetworkMenu('#inbox')" class="network_menu_normal2">
+                <div class="network_menu_text_normal" id="nmInbox" style="margin-left: 40px">
+                    &nbsp;&nbsp;&nbsp;&nbsp;Inbox
+                </div>
+            </div>
+            <!-- <div id="msg-outbox" onclick="checkNetworkMenu('#outbox')" class="network_menu_normal2">
+                <div class="network_menu_text_normal" id="nmOutbox" style="margin-left: 40px">
+                    &nbsp;&nbsp;&nbsp;&nbsp;Outbox
+                </div>
+            </div> -->
+        </div>
+        <div id="network_esim" onclick="checkNetworkMenu('#esim')" class="network_menu_normal">
+            <div class="network_menu_text_normal" id="nmESIM">
+                ESIM
+            </div>
+        </div>
+        <div id="network_ussd" onclick="checkNetworkMenu('#ussd')" class="network_menu_normal" style="display:none">
+            <div class="network_menu_text_normal" id="nmUSSD">
+                USSD
+            </div>
+        </div>
+        <div id="network_sum" onclick="checkNetworkMenu('#sum')" class="network_menu_normal">
+            <div class="network_menu_text_normal" id="nmMobileCounter">
+                Mobile Counter
+            </div>
+        </div>
+        <div id="network_ping" onclick="checkNetworkMenu('#ping')" class="network_menu_normal" style="display:none">
+            <div class="network_menu_text_normal" id="nmPing">
+                Ping Check
+            </div>
+        </div>
+        <div id="network_simid" onclick="checkNetworkMenu('#sim_id')" class="network_menu_normal" style="display:none">
+            <div class="network_menu_text_normal" id="nmSimid">
+                Sim id
+            </div>
+        </div>
+        <div id="wifi_menu_phonebook" class="network_menu_normal" style="display: none"
+            onclick="checkNetworkMenu('#wifi_menu_phonebook')">
+            <div id="wifi_text_phonebook" class="network_menu_text_normal">
+                Phonebook
+            </div>
+        </div>
+    </div>
+
+    <div id="network_right">
+        <div id="basic" style="display: block">
+            <div style="margin-top: 60px;margin-left: 30px">
+                <form class="layui-form" action="">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label global_font" id="nDataNetwork">Data Network</label>
+                        <div class="layui-input-block" style="display: flex">
+                            <input id="network_mobileEnable" type="checkbox" name="close" lay-skin="switch"
+                                lay-text="ON|OFF">
+                            <div id="networkStatus" class="global_font"
+                                style="line-height: 36px;margin-left: 20px;font-size: 12px;color: #868686"></div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item" style="width: 400px" id="network_mode">
+                        <label class="layui-form-label global_font" id="nNetworkMode">Network Mode</label>
+                        <div class="layui-input-block" style="margin-left: 200px" id="networkNetType">
+                            <select id="network_netType" name="interest" lay-filter="aihao">
+                                <option value=0 selected>5G/4G/3G</option>
+                                <option value=1>5G NSA/SA</option>
+                                <option value=2>5G SA only</option>
+                                <option value=3>4G/3G</option>
+                                <option value=4>4G only</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="width: 180px; margin: 30px; height: 40px">
+                        <button style="font-size: 16px; border-radius: 6px;" type="button"
+                            class="layui-btn layui-btn-fluid network-btn-radius" onclick="changeMobileCfg()"
+                            id="nSave1">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+     <!-- phonebook start -->
+    <div id="phonebook_page" class="phonebook_pages" style="display: none;flex-direction: column;margin-left:75px" >
+    <div id="phonebook_head" class="phonebook_pages" >
+    <div id="phonebook_title" class="phonebook_pages" style="float: left;margin-top: 25px">Phonebook</div>
+    <img onclick="pbOneAdd()" src="../images/mobile/icon_add.png" style="float: right;margin-top: 20px"><img>
+    <div id="phonebook_title2" class="phonebook_pages" style="float: right;margin-top: 25px;margin-right:5px">Add</div>
+    </div>
+	<div class="page" style="margin-top: 20px">
+		<table class="phonebook_table" id="tableConnectedDevice" onclick="pb_table_click()">
+			<thead>
+				<tr>
+					<th style="color: #244691;" id="mltOrder">Order</th>
+					<th style="color: #244691;" id="mltName">name</th>
+					<th style="color: #244691;" id="mltNumber">number</th>
+					<th style="color: #244691;" id="mltAction">action</th>
+				</tr>
+
+				<!--					<tr>-->
+				<!--						<th style="width: 10px;">1</th>-->
+				<!--						<th style="font-family: SourceHanSansCN-Medium, SourceHanSansCN;">IPHONE</th>-->
+				<!--						<th>192.168.1.8</th>-->
+				<!--						<th>E2:A4:40:D6:19:4E</th>-->
+				<!--					</tr>-->
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+	<div class="page">
+		<span style="background-color:rgba(245, 246, 250, 1);" id="ltPrev" onclick="switchPhonebookPage(0)">Prev</span>
+		<a id="clientIndex" href="#">1</a>
+		<span style="background-color:rgba(245, 246, 250, 1);" id="ltNext" onclick="switchPhonebookPage(1)">Next</span>
+	</div>
+	</div>
+      <!-- phonebook end-->
+        <div id="apn" style="display: none">
+            <div style="margin-top: 30px;margin-left: 62px">
+                <form class="layui-form" action="">
+                    <div class="layui-form-item network-form-item">
+                        <label class="layui-form-label global_font" id="nAPN">APN</label>
+                        <div class="layui-input-block">
+                            <input id="apn_apn" type="text" name="title" lay-verify="title" autocomplete="off"
+                                maxlength="32" placeholder="" class="global_input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item network-form-item">
+                        <label class="layui-form-label global_font" id="nAPNType">APN Type</label>
+                        <div class="layui-input-block">
+                            <input id="apn_type" type="text" name="title" lay-verify="title" autocomplete="off"
+                                maxlength="32" placeholder="" class="global_input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item network-form-item">
+                        <label class="layui-form-label global_font" id="nUsername">Username</label>
+                        <div class="layui-input-block">
+                            <input id="apn_username" type="text" name="title" lay-verify="title" autocomplete="off"
+                                maxlength="32" placeholder="" class="global_input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item network-form-item">
+                        <label class="layui-form-label global_font" id="nPassword">Password</label>
+                        <div class="layui-input-block">
+                            <input id="apn_password" type="password" name="title" lay-verify="title" autocomplete="off"
+                                maxlength="32" placeholder="" class="global_input">
+                        </div>
+                    </div>
+            </div>
+            <div class="layui-form-item network-form-item" style="margin-left: 62px">
+                <label class="layui-form-label global_font" id="nAuthType">Authentication Type</label>
+                <!-- <input id="apn_authType" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="" class="global_input"> -->
+                <select id="apn_authType" class="wifi_conf_input" style="width: 242px;margin-left: 10px;">
+                    <option value=0>NONE</option>
+                    <option value=1>PAP</option>
+                    <option value=2>CHAP</option>
+                    <option value=3>PAP/CHAP</option>
+                </select>
+            </div>
+            <div class="layui-form-item network-form-item" style="margin-left: 62px">
+                <label class="layui-form-label global_font" id="nAgreement">Agreement</label>
+                <!-- <input id="apn_normalProtocal" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="" class="global_input"> -->
+                <select id="apn_normalProtocal" class="wifi_conf_input" style="width: 242px;margin-left: 10px;">
+                    <option value=0>IPV4</option>
+                    <option value=1>IPV6</option>
+                    <option value=2>IPV4/IPV6</option>
+                </select>
+            </div>
+            <div class="layui-form-item network-form-item" style="margin-left: 62px">
+                <label class="layui-form-label global_font" id="nRoamingAgreement">Roaming Agreement</label>
+                <!-- <input id="apn_roamingProtocal" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="" class="global_input"> -->
+                <select id="apn_roamingProtocal" class="wifi_conf_input" style="width: 242px;margin-left: 10px;">
+                    <option value=0>IPV4</option>
+                    <option value=1>IPV6</option>
+                    <option value=2>IPV4/IPV6</option>
+                </select>
+            </div>
+            <div class="layui-form-item" style="margin-top: 30px">
+                <div style="width: 148px; margin-left: 30px; height: 40px;float:left">
+                    <button style="font-size: 16px; color: #244691;border-radius: 6px;" type="button"
+                        class="layui-btn layui-btn-primary layui-btn-fluid network-btn-radius" onclick="chancleApn()"
+                        id="nCancel2">Cancel</button>
+                </div>
+                <div style="width: 148px; margin-left: 30px; height: 40px;float:left">
+                    <button style="font-size: 16px;border-radius: 6px;" type="button"
+                        class="layui-btn layui-btn-fluid network-btn-radius" onclick="sendApn()"
+                        id="nSave2">Save</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <div id="pin" style="display: none">
+        <div style="margin-top: 67px;margin-left: 10px">
+            <form class="layui-form" action="">
+                <!--<div class="layui-form-item">
+                    <label class="layui-form-label global_font" id="nLock">Lock The SIM</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" name="close" lay-skin="switch" lay-text="ON|OFF" id="pinLock">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label global_font" id="nPINNum">PIN</label>
+                    <div class="layui-input-block">
+                        <input id="pin_num" type="text" name="title" lay-verify="title" autocomplete="off"
+                            placeholder="" class="global_input">
+                    </div>
+                </div>-->
+                <div class="confs flex-row">
+                    <span class="mywifi_txt" id="nPINNum">PIN</span>
+                    <input id="pin_num" type="text" class="wifi_conf_input" placeholder="" maxlength="32">
+                </div>
+                <div class="layui-form-item" style="margin-top: 30px">
+                    <!--<div style="width: 148px; margin-left: 30px; height: 40px;float:left">
+                        <button style="font-size: 16px; color: #244691;border-radius: 6px;" type="button"
+                            class="layui-btn layui-btn-primary layui-btn-fluid network-btn-radius"
+                            onclick="chanclePin()" id="nCancel3">Cancel</button>
+                    </div>-->
+                    <div style="width: 148px; margin-left: 30px; height: 40px;float:left">
+                        <button style="font-size: 16px;border-radius: 6px;" type="button"
+                            class="layui-btn layui-btn-fluid network-btn-radius" onclick="unlockPin()"
+                            id="nSave3">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="sm" style="display: none">
+        <div style="margin-top: 20px;margin-left: 30px;margin-right: 30px;width: 740px">
+            <div class="network-msg-font" id="nTexting">Texting</div>
+            <hr style="margin-top: 15px" />
+            <input id="nFillRecipient" type="text" name="title" autocomplete="off"
+                placeholder="Please fill in the recipient" class="layui-input network-msg-input"
+                oninput="value=value.replace(/[^\d]/g,'')" />
+            <textarea id="nEnterMsg" placeholder="Please enter text message"
+                class="layui-textarea network-msg-textarea"></textarea>
+            <div style="width: 180px; margin-top: 30px; height: 40px ;float: right">
+                <button style="font-size: 16px;border-radius: 6px;" type="button"
+                    class="layui-btn layui-btn-fluid network-btn-radius" id="nSend" onclick="smsSend()">Send</button>
+            </div>
+        </div>
+    </div>
+    <div id="inbox" style="display: none">
+        <div style="margin-top: 20px;margin-left: 30px;margin-right: 30px;width: 740px">
+            <div class="network-msg-font" style="display: flex;">
+                <div id="nInbox">Inbox</div>
+                <button
+                    style="font-size: 18px;border-radius: 4px;scale: 50%;width: 10%;margin-right: 8px; right: 0px; position:absolute;"
+                    type="button" class="layui-btn layui-btn-fluid network-btn-radius" onclick="deleteSms()"
+                    id="nDelete">Delete</button>
+            </div>
+            <table class="layui-hide" id="inbox-table" lay-filter="inbox"></table>
+            <div id="inboxLimit" style="text-align:center"></div>
+        </div>
+    </div>
+    <div id="outbox" style="display: none">
+        <div style="margin-top: 20px;margin-left: 30px;margin-right: 30px;width: 740px">
+            <div class="network-msg-font" id="nOutbox">Outbox</div>
+            <table class="layui-hide" id="outbox-table" lay-filter="outbox"></table>
+            <div id="outboxLimit" style="text-align:center"></div>
+        </div>
+    </div>
+    <div id="esim" style="display: none">
+        <div style="margin-top: 60px;margin-left: 30px">
+            <div class="box_position" style="width: 184px">
+                <span class="auto" id="nEnableESIM">Enable ESIM</span>
+                <div class="pg_dc" style="margin-left: 30px">
+                    <label class="switch">
+                        <input type="checkbox" id="esimStatus" onclick="esim_changed()">
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ussd" style="display: none">
+        <div style="margin-top: 60px;margin-left: 30px">
+            <form class="layui-form" action="">
+                <!--<div class="layui-form-item">
+                    <div class="layui-input-block" style="margin-left: 30px">
+                        <input id="nUssdCode" type="text" name="title" lay-verify="title" autocomplete="off"
+                            class="global_input">
+                    </div>-->
+                <div class="confs flex-row">
+                    <span class="mywifi_txt" id="nmUSSD">USSD</span>
+                    <input id="nUssdCode" type="text" class="wifi_conf_input" placeholder="" maxlength="32">
+                </div>
+                <div class="layui-form-item">
+                    <div id="ussdReply" class="layui-input-block" style="margin-left: 30px;line-height: 36px">
+                    </div>
+                </div>
+                <div style="width: 180px; margin: 30px; height: 40px">
+                    <button style="font-size: 16px; border-radius: 6px;" type="button"
+                        class="layui-btn layui-btn-fluid network-btn-radius" onclick="sendUssd()"
+                        id="nSave5">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="sum" style="display: none">
+        <div style="margin-top: 60px;margin-left: 30px">
+            <form class="layui-form" action="">
+                    <div class="layui-form-item" style="display: flex">
+                        <label class="layui-form-label global_font" id="nUsedTraffic">Used Traffic</label>
+                        <div class="layui-form-label" style="padding-left: 0px;text-align: left;margin-left: 10px;width: 80px">
+                            <span class="global_font" id="nDataUsed">120.00MB</span>
+                        </div>
+                        <button style="font-size: 16px;border-radius: 6px;width: 80px" type="button"
+                                class="layui-btn layui-btn-fluid network-btn-radius" id="nClean" onclick="dataClear()">Clean</button>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label global_font" id="nTrafficLimit">Traffic Limit</label>
+                    <div class="layui-input-block">
+                        <input id="nDataLimitEnabled" type="checkbox" name="close" lay-skin="switch" lay-text="ON|OFF">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label global_font" id="nTrafficUpperLimit">Traffic Upper Limit</label>
+                    <div class="layui-input-block">
+                        <input style="width: 157px; float: left" type="text" name="title" lay-verify="title"
+                            autocomplete="off" placeholder="please enter a number" class="global_input" id="nDataLimit">
+                        <div style="margin-left:10px;width: 70px ;float: left;line-height: 36px;margin-left: 10px">
+                            MB
+                            <!--                                <select name="interest" lay-filter="aihao">-->
+                            <!--                                    <option value="0" selected="">MB</option>-->
+                            <!--                                    <option value="1">GB</option>-->
+                            <!--                                </select>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item" style="margin-top: 30px">
+                    <div style="width: 148px; margin-left: 30px; height: 40px;float:left">
+                        <button style="font-size: 16px; color: #244691;border-radius: 6px;" type="button"
+                            class="layui-btn layui-btn-primary layui-btn-fluid network-btn-radius" id="nCancel6"
+                            onclick="mm_getXMLCfg('datausagestatus', dataLimitGet)">Cancel</button>
+                    </div>
+                    <div style="width: 148px; margin-left: 30px; height: 40px;float:left">
+                        <button style="font-size: 16px;border-radius: 6px;" type="button"
+                            class="layui-btn layui-btn-fluid network-btn-radius" id="nSave6"
+                            onclick="dataLimitSet()">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="ping" style="display: none">
+        <div style="margin-top: 60px;margin-left: 30px">
+            <div class="box_position" style="width: 184px">
+                <span class="auto" id="nPingCheck">Intelligent Network</span>
+                <div style="margin-left: 30px">
+                    <button style="font-size: 16px;border-radius: 6px;" type="button"
+                    class="layui-btn layui-btn-fluid network-btn-radius" id="pingCheck" onclick="pingCheck()">Start</button>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 60px;margin-left: 30px">
+            <span class="auto" id="npingTitle">If you need to exit intelligent network, please restart device</span>
+        </div>
+    </div>
+
+    <div id="simid" style="display: none">
+        <div style="margin-top: 30px;margin-left: 62px">
+        <form class="layui-form" action="">
+         </div>
+            <div class="layui-form-item network-form-item" style="margin-left: 62px">
+                <label class="layui-form-label global_font" id="nNetworkSimname">Sim Card</label>
+                <select id="net_simid" class="wifi_conf_input" style="width: 242px;margin-left: 10px;">
+                    <option value=0>Sim</option>
+                    <option value=1>5G esim</option>
+                    <option value=2>4G esim</option>
+                </select>
+            </div>
+            <div class="layui-form-item" style="margin-top: 30px">
+                <div style="width: 148px; margin-left: 30px; height: 40px;float:left">
+                    <button style="font-size: 16px;border-radius: 6px;" type="button"
+                        class="layui-btn layui-btn-fluid network-btn-radius" onclick="setSimId()"
+                        id="nSave4">Save</button>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+
+</div>
+</div>
+
+     <div id ="add_pb" class="pop_win_2input" style="display:none;">
+        <div class="password1" id="add_title">
+            add
+        </div>
+        <div id="add_name_line" class="flex-row" style="margin-left: 2px;margin-top: 6px">
+            <span class="password1" id="add_name_tv" style="width:60px;margin-right: 10px;">name</span>
+            <input name="name" type="text" id="add_name" lay-verify="title" autocomplete="off" maxlength="32" placeholder="" class="global_input">
+        </div>
+        <div id="add_number_line" class="flex-row" style="margin-left: 2px;margin-top: 6px">
+            <span class="password1" id="add_number_tv"style="width:60px;margin-right: 10px;">number</span>
+            <input name="pass" type="text" id="add_number" maxlength="32" placeholder="" class="global_input">
+        </div>
+        <button class="layui-btn box_save" onclick="saveAdd()" id="add_save" style="margin-top: 6px">save<button>
+        <button class="box_cancle" onclick="cancelAdd()" id="add_cancel" style="margin-top: 6px">cancel</button>
+    </div>
+
+    <div id ="update_pb" class="pop_win_2input" style="display:none;">
+        <div class="password1" id="update_title">
+            update
+        </div>
+        <div id="update_name_line" class="flex-row" style="margin-left: 2px;margin-top: 6px">
+            <span class="password1" id="update_name_tv" style="width:60px;margin-right: 10px;">name</span>
+            <input id="update_name" type="text" name="name" lay-verify="title" autocomplete="off" maxlength="32" placeholder="" class="global_input">
+        </div>
+        <div id="update_number_line" class="flex-row" style="margin-left: 2px;margin-top: 6px">
+            <span class="password1" id="update_number_tv"style="width:60px;margin-right: 10px;">number</span>
+            <input id="update_number" type="text" name="pass" lay-verify="title" autocomplete="off" maxlength="32" placeholder="" class="global_input">
+        </div>
+        <button class="layui-btn box_save" onclick="saveUpdate()" id="update_save" style="margin-top: 6px">save<button>
+        <button class="box_cancle" onclick="cancelUpdate()" id="update_cancel" style="margin-top: 6px">cancel</button>
+    </div>
+
+    <div id ="delete_pb" class="pop_win_2input" style="display:none;">
+        <div class="password1" id="delete_title">
+            delete this one?
+        </div>
+        <button class="layui-btn box_save" onclick="saveDelete()" id="delete_save" style="margin-top: 6px">save<button>
+        <button class="box_cancle" onclick="cancelDelete()" id="delete_cancel" style="margin-top: 6px">cancel</button>
+    </div>
+<script type="text/javascript" src="../js/layui.js"></script>
+<script type="text/javascript" src="../js/network.js"></script>

@@ -1,0 +1,15 @@
+[2023-10-07 18:11:47:703] StartDevNtfThread
+[2023-10-07 18:11:47:703] EnumProc() is started.
+[2023-10-07 18:11:47:703] DevHound is started, ID = 5660
+[2023-10-07 18:11:47:703] HoundThreadProc start!
+[2023-10-07 18:12:27:792] SendToUpLayer port = 166 PlugIn
+[2023-10-07 18:12:27:792] USB port 166 plugged in.
+[2023-10-07 18:12:27:792] [hDiagPhone = 0x2990048] Port = 166, Set PlugIn Event!
+[2023-10-07 18:13:15:846] RegDiagEvent()
+[2023-10-07 18:13:15:846] UnRegister, hDiagPhone = 0x02990048
+[2023-10-07 18:13:15:846] DiagPhone Found, erased.
+[2023-10-07 18:13:15:846] StopDevNtfThread()
+[2023-10-07 18:13:15:857] HoundThreadProc stopped!
+[2023-10-07 18:13:15:858] DevHound stopped!
+[2023-10-07 18:13:15:858] DevHound is stopped
+[2023-10-07 18:13:15:858] EnumProc() is stopped.

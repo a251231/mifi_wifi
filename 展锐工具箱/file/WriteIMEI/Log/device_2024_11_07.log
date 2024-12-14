@@ -1,0 +1,36 @@
+[2024-11-07 15:01:09:274] StartDevNtfThread
+[2024-11-07 15:01:09:275] EnumProc() is started.
+[2024-11-07 15:01:09:275] DevHound is started, ID = 4472
+[2024-11-07 15:01:09:275] HoundThreadProc start!
+[2024-11-07 15:04:16:156] SendToUpLayer port = 97 Removed
+[2024-11-07 15:04:16:156] SendToUpLayer port = 98 Removed
+[2024-11-07 15:04:16:156] USB port 97 removed out.
+[2024-11-07 15:04:16:156] [hDiagPhone = 0x2580048] Port = 97, Set Remove Event!
+[2024-11-07 15:04:16:156] USB port 98 removed out.
+[2024-11-07 15:04:16:156] [hDiagPhone = 0x2580048] Port = 98, Set Remove Event!
+[2024-11-07 15:44:42:507] SendToUpLayer port = 24 PlugIn
+[2024-11-07 15:44:42:508] USB port 24 plugged in.
+[2024-11-07 15:44:42:508] [hDiagPhone = 0x2580048] Port = 24, Set PlugIn Event!
+[2024-11-07 15:44:42:512] SendToUpLayer port = 25 PlugIn
+[2024-11-07 15:44:42:531] USB port 25 plugged in.
+[2024-11-07 15:44:42:531] [hDiagPhone = 0x2580048] Port = 25, Set PlugIn Event!
+[2024-11-07 15:45:16:825] SendToUpLayer port = 24 Removed
+[2024-11-07 15:45:16:825] USB port 24 removed out.
+[2024-11-07 15:45:16:825] [hDiagPhone = 0x2580048] Port = 24, Set Remove Event!
+[2024-11-07 15:45:16:872] SendToUpLayer port = 25 Removed
+[2024-11-07 15:45:16:872] USB port 25 removed out.
+[2024-11-07 15:45:16:872] [hDiagPhone = 0x2580048] Port = 25, Set Remove Event!
+[2024-11-07 16:07:10:189] SendToUpLayer port = 24 PlugIn
+[2024-11-07 16:07:10:189] USB port 24 plugged in.
+[2024-11-07 16:07:10:189] [hDiagPhone = 0x2580048] Port = 24, Set PlugIn Event!
+[2024-11-07 16:07:10:193] SendToUpLayer port = 25 PlugIn
+[2024-11-07 16:07:10:193] USB port 25 plugged in.
+[2024-11-07 16:07:10:193] [hDiagPhone = 0x2580048] Port = 25, Set PlugIn Event!
+[2024-11-07 16:07:40:392] RegDiagEvent()
+[2024-11-07 16:07:40:392] UnRegister, hDiagPhone = 0x02580048
+[2024-11-07 16:07:40:392] DiagPhone Found, erased.
+[2024-11-07 16:07:40:392] StopDevNtfThread()
+[2024-11-07 16:07:40:394] HoundThreadProc stopped!
+[2024-11-07 16:07:40:394] DevHound stopped!
+[2024-11-07 16:07:40:394] DevHound is stopped
+[2024-11-07 16:07:40:394] EnumProc() is stopped.

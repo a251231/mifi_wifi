@@ -1,0 +1,310 @@
+.page {
+  position: relative;
+  width: 1024px;
+  height: 768px;
+  overflow: hidden;
+  margin: auto;
+}
+
+.app {
+  height: 768px;
+  background: #FFFFFF;
+  width: 1024px;
+}
+
+.header {
+  width: 364px;
+  height: 39px;
+  margin: 37px 0 0 55px;
+}
+
+.logo {
+  width: 181px;
+  height: 36px;
+  background: url(../images/login/logo1.png)
+    100% no-repeat;
+}
+
+.verifyPin {
+  width: 500px;
+  height: 360px;
+  margin: 143px 0 0 262px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 4px 0px rgba(45, 52, 68, 0.5);
+  border-radius: 6px;
+  text-align: center;
+}
+
+.verifyPinTitle {
+  text-align: center;
+  width: 100%;
+  height: 24px;
+  font-size: 24px;
+  font-family: SourceHanSansCN-Medium, SourceHanSansCN;
+  font-weight: 500;
+  color: #363739;
+  line-height: 36px;
+  margin-top: 25px;
+}
+
+.verifyPinNum {
+  width: 420px;
+  height: 38px;
+  background: #F9FBFF;
+  border-radius: 6px;
+  border: 1px solid #D9DDE3;
+  padding-left: 10px;
+  margin-top: 35px;
+}
+
+.closePinLock {
+  height: 20px;
+  font-size: 16px;
+  font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+  font-weight: 400;
+  color: #363739;
+  line-height: 20px;
+}
+
+.verifyPinContent {
+  margin-left: 40px;
+  margin-top: 15px;
+  width: 420px;
+  height: 60px;
+  font-size: 14px;
+  font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+  font-weight: 400;
+  color: #DB4234;
+  line-height: 20px;
+  text-align: left;
+  overflow-wrap: break-word;
+  white-space:normal;
+  word-break:normal;
+  overflow:hidden;
+}
+
+.verifyPinCheckbox {
+
+}
+
+.verifyPinBack {
+  width: 120px;
+  height: 40px;
+  background: #F5F6FA;
+  border-radius: 6px;
+  border: 1px solid #D9DDE3;
+  margin-left: 150px;
+  font-size: 16px;
+  font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+  font-weight: 400;
+  color: #244691;
+  line-height: 40px;
+}
+
+.verifyPinApply {
+  width: 120px;
+  height: 40px;
+  background: #519CE5;
+  box-shadow: 0px 4px 6px 0px rgba(145, 157, 194, 0.16);
+  border-radius: 6px;
+  margin-left: 30px;
+  font-size: 16px;
+  font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 40px;
+}
+
+.product {
+  width: 178px;
+  height: 26px;
+  overflow-wrap: break-word;
+  color: rgba(255, 255, 255, 1);
+  font-size: 26px;
+  font-family: SourceHanSansCN-Bold;
+  text-align: left;
+  white-space: nowrap;
+  line-height: 26px;
+  margin-top: 13px;
+  display: block;
+}
+
+.menu {
+  width: 161px;
+  height: 32px;
+  margin: 96px 0 0 652px;
+}
+
+.logo2 {
+  width: 161px;
+  height: 32px;
+  background: url(../images/login/logo2.png)
+    100% no-repeat;
+}
+
+.appbody {
+  width: 851px;
+  height: 376px;
+  margin: 15px 0 173px 56px;
+}
+
+.bd_left {
+  width: 350px;
+  height: 324px;
+  background: url(../images/login/login_image.png)
+    0px 0px no-repeat;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.bd_right {
+  background-color: #F6FAFF;
+  border-radius: 6px;
+  height: 376px;
+  width: 350px;
+}
+
+.box_input {
+  width: 276px;
+  height: 286px;
+  margin: 30px 0 0 40px;
+}
+
+.box_langu {
+  height: 38px;
+  margin-left: 167px;
+  width: 103px;
+}
+
+.langu_select {
+  background-color: rgba(246, 246, 246, 1);
+  border-radius: 6px;
+  border: 1px solid #DEDEDE;;
+  width: 104px;
+  height: 38px;
+  font-size: 16px;
+  font-family: SourceHanSansCN-Normal;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.langu_opt_ {
+  height: 100%;
+  width: 81px;
+  margin: 11px 0 0 15px;
+}
+
+.username {
+  overflow-wrap: break-word;
+  font-size: 16px;
+  font-family: SourceHanSansCN-Normal;
+  white-space: nowrap;
+  line-height: 16px;
+  background-color: rgba(249, 251, 255, 1);
+  border-radius: 6px;
+  height: 38px;
+  border: 1px solid rgba(217, 221, 227, 1);
+  margin-top: 30px;
+  width: 270px;
+  padding-left: 20px;
+}
+
+.username::placeholder {
+  color: rgba(217, 221, 227, 1);
+  text-align: left;
+}
+
+.pwd {
+  height: 60px;
+  margin-top: 34px;
+  width: 276px;
+  position: relative;
+}
+
+.password {
+  overflow-wrap: break-word;
+  font-size: 16px;
+  font-family: SourceHanSansCN-Normal;
+  white-space: nowrap;
+  line-height: 16px;
+  background-color: rgba(249, 251, 255, 1);
+  border-radius: 6px;
+  height: 38px;
+  border: 1px solid rgba(217, 221, 227, 1);
+  width: 270px;
+  padding-left: 20px;
+  padding-right: 45px;
+}
+
+.password::placeholder {
+  color: rgba(217, 221, 227, 1);
+  text-align: left;
+}
+
+.eye {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  right: 16px;
+  top: 5px;
+  opacity: 0.7;
+}
+
+.eye:hover {
+  opacity: 1;
+}
+
+.pwd_forget {
+  height: 16px;
+  width: 270px;
+  margin: 10px 0 0 0px;
+  position: relative;
+}
+
+.forget_txt {
+  position: absolute;
+  width: 270px;
+  height: 16px;
+  overflow-wrap: break-word;
+  color: rgba(63, 129, 202, 1);
+  font-size: 16px;
+  font-family: SourceHanSansCN-Normal;
+  text-align: right;
+  white-space: nowrap;
+  line-height: 16px;
+  display: block;
+  text-decoration:none;
+  right: 0;
+}
+
+.button_login {
+  background-color: rgba(63, 129, 202, 1);
+  border-radius: 6px;
+  height: 48px;
+  margin-top: 34px;
+  width: 270px;
+}
+
+.button_login:hover {
+  cursor: pointer;
+}
+
+.button_login:focus{
+  border: 2px solid #000000;
+  border-radius: 6px;
+}
+
+.login_txt {
+  width: 48px;
+  height: 20px;
+  overflow-wrap: break-word;
+  color: rgba(255, 255, 255, 1);
+  font-size: 20px;
+  font-family: SourceHanSansCN-Medium;
+  text-align: center;
+  white-space: nowrap;
+  line-height: 20px;
+  display: block;
+  margin: 14px 0 0 111px;
+}
+

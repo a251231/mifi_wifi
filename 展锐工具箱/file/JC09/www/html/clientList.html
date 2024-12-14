@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Clients</title>
+	<style type="text/css">
+		.page {
+			text-align: center;
+			margin-top: 50px;
+		}
+
+		.page a {
+			text-decoration: none;
+			border: 1px solid rgba(217, 221, 227, 1);
+			padding: 5px 7px;
+			color: rgba(53, 114, 187, 1);
+			cursor: pointer;
+		}
+
+		.page span {
+			text-decoration: none;
+			border: 1px solid rgba(217, 221, 227, 1);
+			border-radius: 6px;
+			padding: 5px 7px;
+			color: rgba(53, 114, 187, 1);
+			cursor: pointer;
+		}
+
+		.page a:hover,.page span:hover{
+			color: red;
+		}
+
+		.page1 {
+			text-align: center;
+			margin-top: 50px;
+			height: 350px;
+		}
+
+		.page1 span {
+			text-decoration: none;
+			border: 1px solid rgba(217, 221, 227, 1);
+			border-radius: 6px;
+			padding: 5px 7px;
+			color: rgba(53, 114, 187, 1);
+			cursor: pointer;
+		}
+
+		.page1 a:hover,.page1 span:hover{
+			color: red;
+		}
+
+			table,th,td{
+			font-size: 12px;
+			border: 1px solid rgba(217, 221, 227, 1);
+			background-color: rgba(255, 255, 255, 1);
+			background-color: rgba(249, 251, 255, 1);
+			border-collapse: collapse;
+			font-size: 14px;
+			font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+			color: #3B4046;
+			border-spacing: 0px;
+			border-radius: 10px;
+			width: 653px;
+			height: 30px;
+			margin: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="page">
+		<table id="tableConnectedDevice">
+			<thead>
+				<tr>
+					<th style="color: #3572BB;" id="ltOrder">Order</th>
+					<th style="color: #3572BB;" id="ltDeviceStatus">DeviceStatus</th>
+					<th style="color: #3572BB;" id="ltIpAddress">IpAddress</th>
+					<th style="color: #3572BB;" id="ltMac">MAC</th>
+				</tr>
+
+				<!--					<tr>-->
+				<!--						<th style="width: 10px;">1</th>-->
+				<!--						<th style="font-family: SourceHanSansCN-Medium, SourceHanSansCN;">IPHONE</th>-->
+				<!--						<th>192.168.1.8</th>-->
+				<!--						<th>E2:A4:40:D6:19:4E</th>-->
+				<!--					</tr>-->
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+	<div class="page1">
+		<span style="background-color:rgba(245, 246, 250, 1);" id="ltPrev" onclick="switchPage(0)">Prev</span>
+		<a id="clientIndex" href="#">1</a>
+		<span style="background-color:rgba(245, 246, 250, 1);" id="ltNext" onclick="switchPage(1)">Next</span>
+	</div>
+</body>
+
+</html>

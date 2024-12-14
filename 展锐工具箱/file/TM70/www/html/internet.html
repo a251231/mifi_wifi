@@ -1,0 +1,67 @@
+<div id="internet_content" class="internet_content" >
+    <div class="update_password flex-col justify-between" style="width: 890px">
+        <span class="update_text" id="internetSetting">Internet Setting</span>
+        <br>
+        <div style="width: 890px;height: 1px;background: #D8D8D8;"></div>
+        <span class="paragraph3" id="internetIntroduce" style="width: 890px">
+            After setting to DHCP. At this time, your personal device can only operate the configuration page and access the network through WiFi or connect to other LAN interfaces.
+        </span>
+    </div>
+
+    <div id="preferedNone" style="width: 950px;height: 300px; margin: auto; display: none;">
+        <div id="preferedNoneText" style="text-align: center;font-size: 30px;line-height: 300px">
+
+        </div>
+    </div>
+    <div class="internet_method flex-row justify-between" id="internetSelect" style="margin-left: 255px">
+        <label class="internet_txt" id="iAccType">Access Type</label>
+        <select id="access_type" class="internet_input" onchange="change(this.value)">
+            <option class="internet_option" value=0>LAN</option>
+            <!-- <option class="internet_option" value="AUTO">AUTO</option> -->
+            <option class="internet_option" value=1>WAN</option>
+            <!-- <option class="internet_option" value="STATIC">STATIC</option>
+            <option class="internet_option" value="PPPoE">PPPoE</option> -->
+        </select>
+    </div>
+    <br>
+    <div id="static_method">
+        <div class="setting flex-row justify-between">
+            <label class="internet_txt" id="iIPAdds">IP Address</label>
+            <input id="static_wan_ipaddr" class="internet_input" type="text"/>
+        </div>
+        <div class="setting flex-row justify-between">
+            <label class="internet_txt" id="iMask">Mask</label>
+            <input id="static_wan_netmask" class="internet_input" type="text"/>
+        </div>
+        <div class="setting flex-row justify-between">
+            <label class="internet_txt" id="iGateway">Gateway</label>
+            <input id="static_wan_gateway" class="internet_input" type="text"/>
+        </div>
+        <div class="setting flex-row justify-between">
+            <label class="internet_txt">DNS1</label>
+            <input id="static_wan_primary_dns" class="internet_input" type="text"/>
+        </div>
+        <div class="setting flex-row justify-between">
+            <label class="internet_txt">DNS2</label>
+            <input id="static_wan_secondary_dns" class="internet_input" type="text"/>
+        </div>
+    </div>
+    <div id="PPPoE">
+        <div class="setting flex-row justify-between">
+            <label class="internet_txt" id="iPPPoEUser">PPPoE User</label>
+            <input id="PPPoE_user" class="internet_input" type="text"/>
+        </div>
+        <div class="setting flex-row justify-between" style="position: relative;">
+            <label class="internet_txt" id="iPPPoEPassword">PPPoE Password</label>
+            <div >
+                <input id="PPPoE_password" class="internet_input" type="password" style="width:268px"/>
+                <img style="display: block" id="showPPPoEPassword" class="eye" onclick="showPPPoEPassword()" src="../images/login/login_password_no.png">
+            </div>
+        </div>
+
+    </div>
+    <div id="iLAN" style="display: none">
+        The Router uses SIM card data network to connect to the Internet
+    </div>
+    <button class="button_save" style="margin-left: 355px; " type="button" id="internetSave" onclick="changeWanCfg()"><span class="save_txt" id="iSave">Save</span></button>
+</div>

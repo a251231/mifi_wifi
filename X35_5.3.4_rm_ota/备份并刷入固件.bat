@@ -1,0 +1,1 @@
+spd_dump --wait 600 exec_addr 0x3f28 fdl .\data\udx710_fdl1 0x28007000 fdl .\data\udx710_fdl2 0x9efffe00 exec read_part ubipac 0 200M .\dump\ubipac w system .\data\x35-system-changesim-qukong-5.3.4 reset

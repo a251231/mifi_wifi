@@ -1,0 +1,24 @@
+[2024-10-16 14:10:44:350] StartDevNtfThread
+[2024-10-16 14:10:44:350] EnumProc() is started.
+[2024-10-16 14:10:44:350] DevHound is started, ID = 11516
+[2024-10-16 14:10:44:350] HoundThreadProc start!
+[2024-10-17 12:48:51:660] SendToUpLayer port = 48 PlugIn
+[2024-10-17 12:48:51:676] USB port 48 plugged in.
+[2024-10-17 12:48:51:676] [hDiagPhone = 0x25F0048] Port = 48, Set PlugIn Event!
+[2024-10-17 12:48:51:676] SendToUpLayer port = 49 PlugIn
+[2024-10-17 12:48:51:676] USB port 49 plugged in.
+[2024-10-17 12:48:51:676] [hDiagPhone = 0x25F0048] Port = 49, Set PlugIn Event!
+[2024-10-17 12:49:57:127] SendToUpLayer port = 48 Removed
+[2024-10-17 12:49:57:127] USB port 48 removed out.
+[2024-10-17 12:49:57:127] [hDiagPhone = 0x25F0048] Port = 48, Set Remove Event!
+[2024-10-17 12:49:57:127] SendToUpLayer port = 49 Removed
+[2024-10-17 12:49:57:161] USB port 49 removed out.
+[2024-10-17 12:49:57:161] [hDiagPhone = 0x25F0048] Port = 49, Set Remove Event!
+[2024-10-17 12:57:29:023] RegDiagEvent()
+[2024-10-17 12:57:29:023] UnRegister, hDiagPhone = 0x025F0048
+[2024-10-17 12:57:29:023] DiagPhone Found, erased.
+[2024-10-17 12:57:29:023] StopDevNtfThread()
+[2024-10-17 12:57:29:038] HoundThreadProc stopped!
+[2024-10-17 12:57:29:038] DevHound stopped!
+[2024-10-17 12:57:29:038] DevHound is stopped
+[2024-10-17 12:57:29:038] EnumProc() is stopped.

@@ -1,0 +1,866 @@
+<script>
+    if (DISPLAY_WIFI_2G == "block" && document.getElementById("wifi_max_connect2G").options.length == 0) {
+        for (let i = 1; i <= MAX_CONNECT_WIFI_2G; i++) {
+            let option = document.createElement("option");
+            option.text = i;
+            option.value = i;
+            document.getElementById("wifi_max_connect2G").appendChild(option);
+        }
+    }
+    if (DISPLAY_WIFI_5G == "block" && document.getElementById("wifi_max_connect5G").options.length == 0) {
+        for (let i = 1; i <= MAX_CONNECT_WIFI_5G; i++) {
+            let option = document.createElement("option");
+            option.text = i;
+            option.value = i;
+            document.getElementById("wifi_max_connect5G").appendChild(option);
+        }
+    }
+</script>
+<div id="wifi_content" class="settings_content">
+    <div id="wifi_left" style="width: 150px;border-right: 1px solid #D9DDE3;position: relative">
+        <div id="wifi_menu_basic" class="settings_menu_select" style="border-radius: 6px 0px 0px 0px;"
+            onclick="checkWifiMenuIcon('wifi_menu_basic')">
+            <div id="wifi_text_basic" class="settings_menu_text_select">
+                Basic
+            </div>
+        </div>
+        <div id="wifi_menu_access_control" class="settings_menu_normal"
+            onclick="checkWifiMenuIcon('wifi_menu_access_control')">
+            <div id="wifi_text_access_control" class="settings_menu_text_normal">
+                Access Control
+            </div>
+        </div>
+        <div id="wifi_menu_WPS" class="settings_menu_normal" style="display: none"
+             onclick="checkWifiMenuIcon('wifi_menu_WPS')">
+            <div id="wifi_text_WPS" class="settings_menu_text_normal">
+                WPS
+            </div>
+        </div>
+        <!-- <div id="wifi_menu_time_off" class="settings_menu_normal"
+             onclick="checkWifiMenuIcon('wifi_menu_time_off')">
+            <div id="wifi_text_time_off" class="settings_menu_text_normal">
+                Time Off
+            </div>
+        </div> -->
+        <div id="wifi_menu_visitor" class="settings_menu_normal" style="display: none"
+            onclick="checkWifiMenuIcon('wifi_menu_visitor')">
+            <div id="wifi_text_visitor" class="settings_menu_text_normal">
+                Visitor
+            </div>
+        </div>
+    </div>
+
+    <div id="wifi_right">
+        <div class="wifi_hidden_input"> <input type="text" class="wifi_form_control"></div>
+        <div class="wifi_hidden_input"> <input type="password" class="wifi_form_control"></div>
+
+        <div id="wifi_basic" style="display: block">
+            <div id="w2Gwifi" class="update_password flex-col justify-between" style="display: none">
+                <span id="w2Gtitle" class="update_text"></span>
+                <div class="main6 flex-col"></div>
+                <div class="wifi_switch flex-row">
+                    <span class="switch_txt" id="wSwitch1">Switch</span>
+                    <label class="form-switch checkfreq">
+                        <input id="wifi_status2G" type="checkbox">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="wifi_switch flex-row" id="wifi_hide_2G">
+                    <span class="switch_txt" id="wHide1">Hide</span>
+                    <label class="form-switch checkfreq">
+                        <input id="wifi_hide2G" type="checkbox">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="confs">
+                    <div class="confs flex-row">
+                        <span class="mywifi_txt" id="wSSID1">SSID</span>
+                        <input id="wifi_ssid2G" type="text" class="wifi_conf_input" maxlength="32" placeholder="">
+                    </div>
+                    <div class="confs flex-row">
+                        <span class="mywifi_txt" id="wSecurity1">Security</span>
+                        <select id="wifi_safety_strategy2G" class="wifi_conf_input" style="width: 272px" onchange="securityChange(1)">
+                            <option value=0> NONE </option>
+                            <!--<option value=1> WPA-PSK </option>-->
+                            <option value=2> WPA2-PSK </option>
+                        </select>
+                    </div>
+                    <div class="confs flex-row" style="width: 380px;position: relative;">
+                        <span class="mywifi_txt" id="wPassword1">Password</span>
+                        <div class="pwd" style="width: 260px">
+                            <input id="wifi_psd2G" type="password" class="wifi_pass_input" maxlength="32" placeholder="">
+                            <img style="display: block" id="show2GPassword" class="eye" onclick="show2GPassword()"
+                                src="../images/login/login_password_no.png">
+                        </div>
+                    </div>
+                    <div class="confs flex-row" id="wifi_channel_2G">
+                        <span class="mywifi_txt" id="wChannel1">Channel</span>
+                        <select id="wifi_Channel2G" class="wifi_conf_input" style="width: 272px">
+                        </select>
+                    </div>
+                    <div class="confs flex-row">
+                        <span class="mywifi_txt" id="wConnected1">Maximum Connected</span>
+                        <select id="wifi_max_connect2G" class="wifi_conf_input" style="width: 272px">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div id="w5Gwifi" class="update_password flex-col justify-between" style="display: none">
+                <span id="w5Gtitle" class="update_text"></span>
+                <div class="main6 flex-col"></div>
+                <div class="wifi_switch flex-row">
+                    <span class="switch_txt" id="wSwitch2">2.4G/5G Switch</span>
+                    <label class="form-switch checkfreq">
+                        <input id="wifi_status5G" type="checkbox">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="wifi_switch flex-row" id="wifi_hide_5G">
+                    <span class="switch_txt" id="wHide2">Hide</span>
+                    <label class="form-switch checkfreq">
+                        <input id="wifi_hide5G" type="checkbox">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="confs">
+                    <div class="confs flex-row">
+                        <span class="mywifi_txt" id="wSSID2">SSID</span>
+                        <input id="wifi_ssid5G" type="text" class="wifi_conf_input" maxlength="32" placeholder="">
+                    </div>
+                    <div class="confs flex-row">
+                        <span class="mywifi_txt" id="wSecurity2">Security</span>
+                        <select id="wifi_safety_strategy5G" class="wifi_conf_input" style="width: 272px" onchange="securityChange(2)">
+                            <option value=0> NONE </option>
+                            <!--<option value=1> WPA-PSK </option>-->
+                            <option value=2> WPA2-PSK </option>
+                        </select>
+                    </div>
+                    <div class="confs flex-row" style="width: 380px;position: relative;">
+                        <span class="mywifi_txt" id="wPassword2">Password</span>
+                        <div class="pwd" style="width: 260px">
+                            <input id="wifi_psd5G" type="password" class="wifi_pass_input" maxlength="32" placeholder="">
+                            <img style="display: block" id="show5GPassword" class="eye" onclick="show5GPassword()"
+                                src="../images/login/login_password_no.png">
+                        </div>
+                    </div>
+                    <div class="confs flex-row" id="wifi_channel_5G">
+                        <span class="mywifi_txt" id="wChannel2">Channel</span>
+                        <select id="wifi_Channel5G" class="wifi_conf_input" style="width: 272px">
+                        </select>
+                    </div>
+                    <div class="confs flex-row">
+                        <span class="mywifi_txt" id="wConnected2">Maximum Connected</span>
+                        <select id="wifi_max_connect5G" class="wifi_conf_input" style="width: 272px">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="box15 flex-col" onclick="changeWifiCfg()"><span class="word9"
+                    id="wSave">Save</span></button>
+            <br>
+            <br>
+        </div>
+        <div id="wifi_access_control" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="swaAccessControl">Access Control</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph3" style="height: 98px" id="swaControlIntroduce">
+                    Allow or disallow WLAN connections by configuring WLAN MAC address filtering. For example:
+                    40:4D:8E:6D:80:7D.
+                    <br />
+                    (1)Disable: Disable WLAN MAC address filtering.
+                    <br />
+                    (2)Deny: If the client's MAC address exists in the MAC address list, deny the client to use the
+                    device's WLAN.
+                </span>
+            </div>
+            <div style="display: flex;flex-direction: column;margin-top: 25px">
+                <div class="box_p" style="width: 374px">
+                    <span class="password1" id="swaMACFiltering">MAC filtering</span>
+                    <select id="MACSelect" class="dhcp_input" style="width: 177px" onchange="changeFilter()">
+                        <option value=0 id="wDisable">Disable</option>
+                        <option value=1 id="wBlack">BlackList</option>
+                        <option value=2 id="wWhite">WhiteList</option>
+                    </select>
+                </div>
+                <div class="box_p" style="width: 340px">
+                    <input name="blackList" class="dhcp_input" type="text">
+                    <input name="blackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="box_p" style="width: 340px">
+                    <input name="blackList" class="dhcp_input" type="text">
+                    <input name="blackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="box_p" style="width: 340px">
+                    <input name="blackList" class="dhcp_input" type="text">
+                    <input name="blackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+                <div class="box_p" style="width: 340px">
+                    <input name="blackList" class="dhcp_input" type="text">
+                    <input name="blackList" class="dhcp_input" type="text" style="margin-left: 20px">
+                </div>
+            </div>
+            <button class="box15 flex-col" onclick="macFilterSet()"><span class="word9"
+                    id="swaApply">apply</span></button>
+        </div>
+        <div id="wifi_WPS" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="swwWPS">WPS</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph3" style="height: 98px" id="swwWPSIntroduce">
+                    This page allows you to change the setting for WPS (Wi-Fi Protected Setup). Using this feature could
+                    let your wireless client automaticlly synchronize its setting and connect to the Access Point in a
+                    minute without any hassle.
+                </span>
+            </div>
+            <div style="display: flex;flex-direction: column">
+                <div class="box_position" style="width: 184px">
+                    <span class="auto" id="swwEnableWPS">Enable WPS</span>
+                    <div class="pg_dc" style="margin-left: 30px">
+                        <label class="switch">
+                            <input type="checkbox" id="wps_switch">
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div style="display: flex; margin-left: 30px;height: 25px;width: 160px">
+                <span class="wifi_select_text">2.4G</span>
+                <input class="wifi_select" type="radio" name="wifiSelect" id="wifiSelect1" value=1 checked>
+                <span style="margin-left: 30px" class="wifi_select_text">5G</span>
+                <input class="wifi_select" type="radio" name="wifiSelect" id="wifiSelect2" value=2>
+            </div>
+            <button class="box15 flex-col" onclick="changeWpsConfig()"><span class="word9"
+                    id="swwSave">Save</span></button>
+        </div>
+        <!--  定时关机   -->
+        <div id="wifi_time_off" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <span class="update_text" id="stime_off" style="font-weight: 550">Wifi定时</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph3" style="height: 140px" id="stime_offIntroduce">
+                    开启Wi-Fi定时关闭功能后，您可以让路由器的Wi-Fi在每天的任意时段自动关闭。例如，你可以设置周一到周五晚上22：00至早上07:00，周六周日晚上23:00至早上8:00自动关闭，改持睡前玩到深夜的坏习惯，让全家人都早睡早起。
+                    <br>注意:使用此功能前，请确认路由器的系统时间是否正确。
+                </span>
+            </div>
+            <div class="update_password flex-col justify-between" style="margin-top: 0">
+                <table id="time_off_table" lay-filter="time_off_table" lay-skin="line"></table>
+                <script type="text/html" id="operate">
+                    <!--                    <img lay-event="operateEdit" src="../images/wifi/icon_edit.png"/>-->
+                <!--                    &nbsp;&nbsp;-->
+                <img lay-event="operateDel" src="../images/main/icon_delete.png" />
+                </script>
+            </div>
+            <br>
+            <div class="update_password flex-col justify-between"
+                style="margin-top: 0;border:1px solid #eee;padding: 10px 0 10px 0">
+                <p id="add" align="center">
+                    <img src="../images/main/icon_add.png" />&nbsp;
+                    <span
+                        style="color: #3572BB;font-family: SourceHanSansCN-Medium, SourceHanSansCN;font-size: 14px;font-weight: 550"
+                        id="wtAddTiming">添加定时关闭</span>
+                </p>
+            </div>
+            <br>
+            <button id="wifiSave" class="box15 flex-col"><span class="word9" id="wtSave">Save</span></button>
+            <br>
+            <br>
+        </div>
+        <div id="wifi_visitor" style="display: none">
+            <div class="update_password flex-col justify-between">
+                <!-- <span class="info6">Wi-Fi访客模式</span> -->
+                <span class="info6" id="wvVisitorMode">Wi-Fi Visitor Mode</span>
+                <div class="main6 flex-col"></div>
+                <span class="paragraph3" id="wvVisitorIntroduce">
+                    Turn on guest Wi-Fi when you have guests in your home. In this way, your home will have two separate
+                    Wi-Fi networks: master Wi-Fi and guest Wi-Fi. Guests can access the Internet through their own
+                    Wi-Fi, but they can't manage your router or access devices on your home network. Guest Wi-Fi
+                    effectively ensures your network security.
+                    <!-- 当您家里来客人时，可以开启客人Wi-Fi功能。这样，您家将同时拥有主Wi-Fi和客人Wi-Fi这两个独立的Wi-Fi
+                    网络。客人虽然可以通过专属Wi-Fi上网，但不能管理您的路由器，也不能访问您家庭网络中的设备。客人Wi-Fi有效保证了您的网络隐私安全。 -->
+                </span>
+                <div class="main6 flex-col"></div>
+            </div>
+            <div class="mod8 flex-col justify-between">
+                <div class="section9 flex-row justify-between">
+                    <div class="info8">
+                        <!-- <span >访客Wi-Fi</span> -->
+                        <span id="wvVisitorWifi">Visitor Wi-Fi</span>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="" onclick="visitorOpen(this)">
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+            </div>
+            <div id="wifi_visitor_open" style="display: none">
+                <div class="bd5 flex-row justify-between">
+                    <div class="txt3">
+                        <!-- <span>访客Wi-Fi名称</span> -->
+                        <span id="wvVisitorWifiName">Visitor Wi-Fi Name</span>
+                    </div>
+                    <div class="layer8 flex-col">
+                        <span class="info8" style="margin: 10px 0 0 10px;">Visitor&nbsp;Wifi</span>
+                    </div>
+                </div>
+                <div class="bd6 flex-row justify-between">
+                    <div class="txt4">
+                        <!-- <span >开启时长</span> -->
+                        <span>Open Time</span>
+                    </div>
+                    <div class="bd15 flex-col">
+                        <div class="box4 flex-row justify-between">
+                            <!-- <span class="word28">3 hours</span> -->
+                            <span class="word28">3小时</span>
+                            <div class="box6 flex-col"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bd8 flex-row justify-between">
+                    <div class="info4">
+                        <!-- <span>安全</span> -->
+                        <span>Safety</span>
+                    </div>
+                    <div class="group6 flex-col">
+                        <div class="box4 flex-row justify-between">
+                            <!-- <span class="word28">No Encryption</span> -->
+                            <span class="word28">不加密</span>
+                            <div class="main13 flex-col"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bd9 flex-row justify-between">
+                    <div class="word16">
+                        <!-- <span>网络限速</span> -->
+                        <span>Speed Limit</span>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="visitor_switch" onclick="">
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+                <button class="box15 flex-col" style="margin-left: 132px;" onclick="">
+                    <span class="word9" id="visitorSave">Save</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--弹出层表单-->
+<div id="wifi-test" style="display: none">
+    <form class="layui-form" action="" lay-filter="wifi-from">
+        <div style="margin-left: 20px">
+            <br>
+            <div style="margin: 15px 0; font-weight: 550;font-size: 18px" id="wtlTime">时间</div>
+            <br>
+            <div class="layui-form-item">
+                <div class="wifi-input-inline">
+                    <select name="beginHour">
+                        <option value=0 selected="">00</option>
+                        <option value=1>01</option>
+                        <option value=2>02</option>
+                        <option value=3>03</option>
+                        <option value=4>04</option>
+                        <option value=5>05</option>
+                        <option value=6>06</option>
+                        <option value=7>07</option>
+                        <option value=8>08</option>
+                        <option value=9>09</option>
+                        <option value=10>10</option>
+                        <option value=11>11</option>
+                        <option value=12>12</option>
+                        <option value=13>13</option>
+                        <option value=14>14</option>
+                        <option value=15>15</option>
+                        <option value=16>16</option>
+                        <option value=17>17</option>
+                        <option value=18>18</option>
+                        <option value=19>19</option>
+                        <option value=20>20</option>
+                        <option value=21>21</option>
+                        <option value=22>22</option>
+                        <option value=23>23</option>
+                    </select>
+                </div>
+                <div class="wifi-input-date">
+                    :
+                </div>
+                <div class="wifi-input-inline">
+                    <select name="beginMinute">
+                        <option value=0 selected="">00</option>
+                        <option value=1>01</option>
+                        <option value=2>02</option>
+                        <option value=3>03</option>
+                        <option value=4>04</option>
+                        <option value=5>05</option>
+                        <option value=6>06</option>
+                        <option value=7>07</option>
+                        <option value=8>08</option>
+                        <option value=9>09</option>
+                        <option value=10>10</option>
+                        <option value=11>11</option>
+                        <option value=12>12</option>
+                        <option value=13>13</option>
+                        <option value=14>14</option>
+                        <option value=15>15</option>
+                        <option value=16>16</option>
+                        <option value=17>17</option>
+                        <option value=18>18</option>
+                        <option value=19>19</option>
+                        <option value=20>20</option>
+                        <option value=21>21</option>
+                        <option value=22>22</option>
+                        <option value=23>23</option>
+                        <option value=24>24</option>
+                        <option value=25>25</option>
+                        <option value=26>26</option>
+                        <option value=27>27</option>
+                        <option value=28>28</option>
+                        <option value=29>29</option>
+                        <option value=30>30</option>
+                        <option value=31>31</option>
+                        <option value=32>32</option>
+                        <option value=33>33</option>
+                        <option value=34>34</option>
+                        <option value=35>35</option>
+                        <option value=36>36</option>
+                        <option value=37>37</option>
+                        <option value=38>38</option>
+                        <option value=39>39</option>
+                        <option value=40>40</option>
+                        <option value=41>41</option>
+                        <option value=42>42</option>
+                        <option value=43>43</option>
+                        <option value=44>44</option>
+                        <option value=45>45</option>
+                        <option value=46>46</option>
+                        <option value=47>47</option>
+                        <option value=48>48</option>
+                        <option value=49>49</option>
+                        <option value=50>50</option>
+                        <option value=51>51</option>
+                        <option value=52>52</option>
+                        <option value=53>53</option>
+                        <option value=54>54</option>
+                        <option value=55>55</option>
+                        <option value=56>56</option>
+                        <option value=57>57</option>
+                        <option value=58>58</option>
+                        <option value=59>59</option>
+                    </select>
+                </div>
+                <div class="wifi-input-contract" id="wtlTo">
+                    至
+                </div>
+                <div class="wifi-input-inline">
+                    <select name="endHour">
+                        <option value=0 selected="">00</option>
+                        <option value=1>01</option>
+                        <option value=2>02</option>
+                        <option value=3>03</option>
+                        <option value=4>04</option>
+                        <option value=5>05</option>
+                        <option value=6>06</option>
+                        <option value=7>07</option>
+                        <option value=8>08</option>
+                        <option value=9>09</option>
+                        <option value=10>10</option>
+                        <option value=11>11</option>
+                        <option value=12>12</option>
+                        <option value=13>13</option>
+                        <option value=14>14</option>
+                        <option value=15>15</option>
+                        <option value=16>16</option>
+                        <option value=17>17</option>
+                        <option value=18>18</option>
+                        <option value=19>19</option>
+                        <option value=20>20</option>
+                        <option value=21>21</option>
+                        <option value=22>22</option>
+                        <option value=23>23</option>
+                    </select>
+                </div>
+                <div class="wifi-input-date">
+                    :
+                </div>
+                <div class="wifi-input-inline">
+                    <select name="endMinute">
+                        <option value=0 selected="">00</option>
+                        <option value=1>01</option>
+                        <option value=2>02</option>
+                        <option value=3>03</option>
+                        <option value=4>04</option>
+                        <option value=5>05</option>
+                        <option value=6>06</option>
+                        <option value=7>07</option>
+                        <option value=8>08</option>
+                        <option value=9>09</option>
+                        <option value=10>10</option>
+                        <option value=11>11</option>
+                        <option value=12>12</option>
+                        <option value=13>13</option>
+                        <option value=14>14</option>
+                        <option value=15>15</option>
+                        <option value=16>16</option>
+                        <option value=17>17</option>
+                        <option value=18>18</option>
+                        <option value=19>19</option>
+                        <option value=20>20</option>
+                        <option value=21>21</option>
+                        <option value=22>22</option>
+                        <option value=23>23</option>
+                        <option value=24>24</option>
+                        <option value=25>25</option>
+                        <option value=26>26</option>
+                        <option value=27>27</option>
+                        <option value=28>28</option>
+                        <option value=29>29</option>
+                        <option value=30>30</option>
+                        <option value=31">31</option>
+                        <option value=32>32</option>
+                        <option value=33>33</option>
+                        <option value=34>34</option>
+                        <option value=35>35</option>
+                        <option value=36>36</option>
+                        <option value=37>37</option>
+                        <option value=38>38</option>
+                        <option value=39>39</option>
+                        <option value=40>40</option>
+                        <option value=41>41</option>
+                        <option value=42>42</option>
+                        <option value=43>43</option>
+                        <option value=44>44</option>
+                        <option value=45>45</option>
+                        <option value=46>46</option>
+                        <option value=47>47</option>
+                        <option value=48>48</option>
+                        <option value=49>49</option>
+                        <option value=50>50</option>
+                        <option value=51>51</option>
+                        <option value=52>52</option>
+                        <option value=53>53</option>
+                        <option value=54>54</option>
+                        <option value=55>55</option>
+                        <option value=56>56</option>
+                        <option value=57>57</option>
+                        <option value=58>58</option>
+                        <option value=59>59</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div style="margin-left: 20px">
+            <div style="margin: 15px 0; font-weight: 550;font-size: 18px" id="wtlRepeat">重复</div>
+            <br>
+            <div class="layui-form-item">
+                <input type="checkbox" name="monday" title="周一" id="wtiMonday">
+                <input type="checkbox" name="tuesday" title="周二" id="wtiTuesday">
+                <input type="checkbox" name="wednesday" title="周三" id="wtiWednesday">
+                <input type="checkbox" name="thursday" title="周四" id="wtiThursday">
+                <input type="checkbox" name="friday" title="周五" id="wtiFriday">
+                <input type="checkbox" name="saturday" title="周六" id="wtiSaturday">
+                <input type="checkbox" name="sunday" title="周日" id="wtiSunday">
+            </div>
+        </div>
+
+        <br>
+        <div style="margin-left: 20px;display: none ">
+            <div style="margin: 20px 0; font-weight: 550;font-size: 18px">系统时间</div>
+        </div>
+
+        <div style="margin-left: 20px;display: none">
+            <span>2022.05.31 14:43</span>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <div class="layui-form-item">
+            <div class="layui-input-block" style="width: 320px;text-align: center;display: flex;margin-left: 170px">
+                <button type="button" class="layui-btn layui-btn-normal" id="cancel"
+                    style="width: 150px;height: 40px;background: #F5F6FA;border-radius: 6px;border: 1px solid #D9DDE3;color: #3572BB">取消</button>
+                <button type="submit" class="layui-btn" lay-submit="" lay-filter="sure" id="wtlConfirm"
+                    style="width: 150px;height: 40px;background: #519CE5;box-shadow: 0px 4px 6px 0px rgba(145, 157, 194, 0.16);border-radius: 6px; margin-left: 20px">确定</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/html" id="switchState">
+    <input type="checkbox" value="{{d.enable}}" lay-skin="switch" lay-filter="switchState" {{ d.enable == 'on' ? 'checked' : '' }}>
+</script>
+
+<script>
+    layui.use('table', function () {
+        var table = layui.table
+            , layer = layui.layer
+            , form = layui.form;
+        //第一个实例
+        //wifiTableInit()
+
+        function wifiTableInit(tableData) {
+            let inboxUrl = LOCAL_HOST_IP + "wifiScheduleGet" + "&cur_time=" + new Date().getTime();
+            table.render({
+                elem: '#time_off_table'
+                , url: inboxUrl //数据接口
+                , text: { none: " " }
+                , cols: [[ //表头
+                    { field: 'parseRepeat', title: I18N("j", "wtAddTimingTitle"), align: 'center', width: "50%", unresize: true, style: "height:60px;" }
+                    , { field: 'enable', title: I18N("j", "wtStatus"), align: 'center', templet: '#switchState', width: "25%", unresize: true }
+                    , { field: 'operate', title: I18N("j", "wtOperate"), align: 'center', toolbar: '#operate', width: "25%", unresize: true }
+                ]]
+                , parseData: function (res) { //将原始数据解析成 table 组件所规定的数据
+                    // 解析数据
+                    if (tableData) res = tableData
+
+                    console.log("data:" + JSON.stringify(table.cache["time_off_table"]))
+
+                    if (res.schList) {
+
+                        for (let i = 0; i < res.schList.length; i++) {
+                            // alert(JSON.stringify(res.schList[i]))
+                            if (JSON.stringify(res.schList[i]) == "[]") continue
+                            let repeat = "";
+
+                            // 时间段解析
+                            repeat += (res.schList[i].beginHour < 10 ? "0" + res.schList[i].beginHour + ":" : res.schList[i].beginHour + ":")
+                            repeat += (res.schList[i].beginMinute < 10 ? "0" + res.schList[i].beginMinute + "-" : res.schList[i].beginMinute + "-")
+                            repeat += (res.schList[i].endHour < 10 ? "0" + res.schList[i].endHour + ":" : res.schList[i].endHour + ":")
+                            repeat += (res.schList[i].endMinute < 10 ? "0" + res.schList[i].endMinute + "<br>" : res.schList[i].endMinute + "<br>")
+
+                            // 日期解析
+                            if (res.schList[i].repeat.indexOf("1") != -1) {
+                                repeat += (" " + I18N("j", "tMon"))
+                            }
+                            if (res.schList[i].repeat.indexOf("2") != -1) {
+                                repeat += (" " + I18N("j", "tTue"))
+                            }
+                            if (res.schList[i].repeat.indexOf("3") != -1) {
+                                repeat += (" " + I18N("j", "tWed"))
+                            }
+                            if (res.schList[i].repeat.indexOf("4") != -1) {
+                                repeat += (" " + I18N("j", "tThu"))
+                            }
+                            if (res.schList[i].repeat.indexOf("5") != -1) {
+                                repeat += (" " + I18N("j", "tFri"))
+                            }
+                            if (res.schList[i].repeat.indexOf("6") != -1) {
+                                repeat += (" " + I18N("j", "tSat"))
+                            }
+                            if (res.schList[i].repeat.indexOf("0") != -1) {
+                                repeat += (" " + I18N("j", "tSun"))
+                            }
+
+                            res.schList[i].parseRepeat = repeat
+                        }
+                    }
+
+                    return {
+                        "code": 0, //解析接口状态
+                        "data": res.schList
+                    };
+                }
+                // 数据渲染完的回调
+                , done: function (res, curr, count) {
+                    //解决操作栏因为内容过多换行问题
+                    $(".layui-table-cell").css("height", "auto")
+                    // 标题栏颜色修改
+                    $(".layui-table-cell:eq(0)").children("span").eq(0).css({ "color": "#3572BB", "font-weight": "550" })
+                    $(".layui-table-cell:eq(1)").children("span").eq(0).css({ "color": "#3572BB", "font-weight": "550" })
+                    $(".layui-table-cell:eq(2)").children("span").eq(0).css({ "color": "#3572BB", "font-weight": "550" })
+                }
+            });
+        }
+
+        let indexOpen;
+        // 弹窗操作
+        function popup() {
+            //页面层
+            indexOpen = layer.open({
+                type: 1,
+                title: ['' + I18N("j", "wtAddTimingTitle2"), 'font-size: 21px;font-weight:550'],
+                area: ['660px', '478px'], //宽高
+                content: $('#wifi-test') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+            });
+        }
+
+        // 监听开关状态操作
+        form.on('switch(switchState)', function (obj) {
+            if (obj.elem.checked) this.value = 'on'
+            else this.value = 'off'
+            // layer.tips(this.value + ' ' + '：'+ obj.elem.checked, obj.othis);
+        });
+
+        //监听行工具事件
+        table.on('tool(time_off_table)', function (obj) { //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
+            var data = obj.data //获得当前行数据
+                , layEvent = obj.event; //获得 lay-event 对应的值
+
+            // 编辑操作
+            if (layEvent === 'operateEdit') {
+                // layer.alert('编辑行：<br>'+ JSON.stringify(data))
+                //页面层
+                // popup()
+                // 数据解析
+
+                // 回显
+                // form.val('wifi-from', {
+                //     "beginHour": data.beginHour
+                //     ,"beginMinute": data.beginMinute
+                //     ,"endHour": data.endHour
+                //     ,"endMinute": data.endMinute
+                //     ,"monday": data.repeat.indexOf("1")!=-1
+                //     ,"tuesday": data.repeat.indexOf("2")!=-1
+                //     ,"wednesday": data.repeat.indexOf("3")!=-1
+                //     ,"thursday": data.repeat.indexOf("4")!=-1
+                //     ,"friday": data.repeat.indexOf("5")!=-1
+                //     ,"saturday": data.repeat.indexOf("6")!=-1
+                //     ,"sunday": data.repeat.indexOf("0")!=-1
+                // });
+
+            } else if (layEvent === 'operateDel') {   // 删除操作
+                layer.confirm(I18N("j", "wtConfirmDel"), function (index) {
+                    obj.del();
+                    layer.close(index);
+                })
+            }
+        });
+
+        // 添加操作
+        $("#add").click(function () {
+            popup()
+            form.val('wifi-from', {
+                "beginHour": "22"
+                , "beginMinute": "0"
+                , "endHour": "6"
+                , "endMinute": "0"
+                , "enable": "on"
+            });
+        })
+
+        // 数据添加操作
+        function wifiAdd(data) {
+            let tableData = table.cache["time_off_table"];
+
+            // 对象解析
+            let addData = data
+
+            // 开关默认开启状态
+            addData["enable"] = 'on'
+
+            // 重复数据解析
+            let repeat = ""
+            if (addData["sunday"]) repeat += ",0"
+            if (addData["monday"]) repeat += ",1"
+            if (addData["tuesday"]) repeat += ",2"
+            if (addData["wednesday"]) repeat += ",3"
+            if (addData["thursday"]) repeat += ",4"
+            if (addData["friday"]) repeat += ",5"
+            if (addData["saturday"]) repeat += ",6"
+            repeat = repeat.substr(1);
+
+            addData["repeat"] = repeat;
+            tableData.push(addData)
+
+            wifiTableInit({ "schList": tableData })
+        }
+
+        //监听提交
+        $("#wtlConfirm").click(function () {
+            let i = true;
+            form.on('submit(sure)', function (data) {
+                // 强制只执行一次
+                if (i) {
+                    wifiAdd(data.field)
+                    i = !i;
+
+                }
+                // layer.alert(JSON.stringify(data.field), {
+                //     title: '最终的提交信息'
+                // })
+                layer.close(indexOpen);
+                return false;
+
+            });
+        })
+
+        // 保存数据，发送后端请求
+        $("#wifiSave").click(function () {
+
+            // 渲染前的数据
+            let oldData = table.cache["time_off_table"]
+
+            let newData = [];
+            let j = 0
+            // 取按钮数组
+            for (let i = 0; i < oldData.length; i++) {
+                if (null != oldData[i] && 0 != oldData[i].length) {
+                    newData[j] = oldData[i]
+                    j++
+                }
+            }
+
+            let length = $(".layui-table-cell").size();
+            let index = 0;
+            for (let i = 4; i < length; i = i + 3) {
+                newData[index].enable = $(".layui-table-cell").children("input")[index].value
+                // alert(newData[index].enable)
+                // console.log();
+                // alert($(".layui-table-cell").children("input")[index].value)
+                index++;
+            }
+
+            wifiScheduleSet(newData)
+        })
+
+        //弹窗取消
+        $("#cancel").click(function () {
+            layer.close(indexOpen);
+        })
+
+        function wifiScheduleSet(data) {
+            let schList = new Array();
+            for (let i = 0; i < data.length; i++) {
+                schList.push({
+                    "enable": data[i].enable,
+                    "beginHour": parseInt(data[i].beginHour),
+                    "beginMinute": parseInt(data[i].beginMinute),
+                    "endHour": parseInt(data[i].endHour),
+                    "endMinute": parseInt(data[i].endMinute),
+                    "repeat": data[i].repeat
+                });
+            }
+
+            var wifiSch =
+            {
+                "schList": schList,
+            }
+            var url = LOCAL_HOST_IP + "wifiScheduleSet";
+            $.ajax({
+                url: url,
+                dataType: "jsonp",
+                data: { wifiSch: JSON.stringify(wifiSch) },
+                async: false,
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", getAuthHeader("GET"));
+                    xhr.setRequestHeader("Expires", "-1");
+                    xhr.setRequestHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+                    xhr.setRequestHeader("Pragma", "no-cache");
+                },
+                success: function (content) {
+                    var state = content.state;
+                    if (state === 1) {
+                        alert(I18N("j", "setSuccess"));
+                    } else {
+                        alert(I18N("j", "setFail"));
+                    }
+                }
+            });
+        }
+    });
+</script>

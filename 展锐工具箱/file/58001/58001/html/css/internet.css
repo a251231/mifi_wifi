@@ -1,0 +1,90 @@
+.internet_method {
+    width: 440px;
+    height: 36px;
+    margin: 60px 0 0 255px;
+}
+
+.internet_txt {
+    width: 160px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(54, 55, 57, 1);
+    font-size: 16px;
+    text-align: right;
+    line-height: 16px;
+    margin-top: 12px;
+    display: block;
+}
+
+.internet_input {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 6px;
+    height: 36px;
+    border: 1px solid rgba(223, 227, 237, 1);
+    width: 300px;
+    margin-left: 20px;
+    padding-left: 10px;
+    padding-right: 45px;
+}
+
+#iLAN {
+    width: 950px;
+    height: 40px;
+    overflow-wrap: break-word;
+    color: rgba(134, 134, 134, 1);
+    font-size: 16px;
+    line-height: 20px;
+    font-family: SourceHanSansCN-Normal;
+    text-align: center;
+    margin-top: 10px;
+    display: block;
+    white-space:normal;
+    word-break:normal;
+    overflow:hidden;
+}
+
+#static_method {
+    width: 440px;
+    margin-left: 255px;
+    display: none;
+}
+
+#PPPoE {
+    width: 440px;
+    margin-left: 255px;
+    display: none;
+}
+
+.setting{
+    margin-top: 10px;
+}
+
+#method_select {
+    cursor: pointer;
+}
+
+#button_save {
+    background-color: rgba(81, 156, 229, 1);
+    border-radius: 6px;
+    height: 40px;
+    width: 200px;
+    margin: 30px 0 0 412px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 1);
+    font-size: 16px;
+    text-align: center;
+    vertical-align: auto;
+    outline:none;
+    border:none;
+}
+
+.button_save {
+    background-color: rgba(81, 156, 229, 1);
+    border-radius: 6px;
+    height: 40px;
+    width: 240px;
+    margin: 30px 0 0 392px;
+    cursor: pointer;
+    outline: none;
+    border:none;
+}

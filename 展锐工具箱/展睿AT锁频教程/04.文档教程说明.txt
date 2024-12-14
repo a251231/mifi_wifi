@@ -1,0 +1,64 @@
+展睿随身WiFi--锁频教程
+
+一、安装驱动
+	打开文件夹--01.驱动--xxx.exe
+二、更新端口
+	（如出现四个感叹号）看.doc文件解决
+三、打开AT软件
+	打开文件夹--02.AT软件--MobileTester.exe
+四、选择端口
+	COMXX--Open--Misc Information--AT Command
+	
+五、AT指令--锁频
+查询当前频段：
+AT+SPLBAND=0
+锁b1：
+AT+SPLBAND=1,0,0,0,1,0
+锁b3：
+AT+SPLBAND=1,0,0,0,4,0
+锁b5：
+AT+SPLBAND=1,0,0,0,16,0
+锁b1-b5(1+4+16=21)：
+AT+SPLBAND=1,0,0,0,21,0
+锁b：
+AT+SPLBAND=1,0,0,0,64,0
+锁b8：
+AT+SPLBAND=1,0,0,0,128,0
+锁b1、3、5、8(1+4+16+128=149)：
+AT+SPLBAND=1,0,0,0,149,0
+锁b20
+AT+SPLBAND=1,0,0,0,524288,0
+
+锁b28：
+AT+SPLBAND=1,0,1,0,0,0
+锁b34：
+AT+SPLBAND=1,0,2,0,0,0
+锁b38：
+AT+SPLBAND=1,0,32,0,0,0
+锁b39：
+AT+SPLBAND=1,0,64,0,0,0
+锁b40：
+AT+SPLBAND=1,0,128,0,0,0
+锁b41：
+AT+SPLBAND=1,0,256,0,0,0
+锁b34-b41(2+32+64+128+256=482)
+AT+SPLBAND=1,0,482,0,0,0
+
+举个例子：同时锁b38&b40&b1&b3 
+//b38+b40：32+128=160
+//b1+b3:1+4=5 
+AT+SPLBAND=1,0,160,0,5,0
+
+六、重启设备 查看生效
+
+七、其他AT指令：
+//改串
+查询串号：AT+SPIMEI?
+修改串号1：AT+SPIMEI=0,"864405029438054"
+修改串号2：AT+SPIMEI=1,"864405029438054"
+
+关联 EQ310 QU310 展锐 展睿 WiFi6 棒子 UNISOC
+4G随身WiFi AT指令 AT锁频
+感觉有用的话 点赞投币收藏转发 支持下噗
+酷安@kaicheatao
+https://www.coolapk.com/feed/51491650?shareKey=YzIwMTk4OTBlZTM3NjU2MWYzMDA~&shareUid=13739337&shareFrom=com.coolapk.market_13.3.6

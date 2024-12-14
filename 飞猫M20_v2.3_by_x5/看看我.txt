@@ -1,0 +1,5 @@
+
+1. 加adbd
+2. 开AT COM,用于改串
+3. 去third_app
+4. 去fota

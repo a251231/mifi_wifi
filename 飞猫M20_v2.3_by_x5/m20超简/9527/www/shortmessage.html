@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>短信转发 - timeToRestart</title>
+</head>
+
+<body>
+        <div class="layui-form">
+          <table style="width: 100%">
+            <tr style="height: 50px">
+              <td>开启转发</td>
+              <td>
+                <input type="checkbox" name="fwd_sw" id="fwd_sw" lay-skin="switch" lay-filter="fwd_sw_chk" />
+              </td>
+              <td>
+                <i id="pushplus_url_i" class="layui-icon layui-icon-about" style="font-size: 25px; color: #009688"></i>
+              </td>
+            </tr>
+            <tr style="height: 50px">
+              <td>转发令牌</td>
+              <td colspan="2">
+                <input type="text" name="fwd_tk" id="fwd_tk" placeholder="32位数字字母组合的token令牌" maxlength="32"
+                  class="layui-input" />
+              </td>
+            </tr>
+            <tr style="height: 50px">
+              <td>转发渠道</td>
+              <td colspan="2">
+                <div class="layui-col-md6" style="width: 100%">
+                  <select name="fwd_ch" id="fwd_ch" lay-filter="fwd_ch_sel">
+                    <option value="1" selected>微信</option>
+                    <option value="2">邮箱</option>
+                    <option value="3">webhook</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr style="height: 50px">
+              <td>渠道编码</td>
+              <td colspan="2">
+                <input type="text" name="fwd_ch_id" id="fwd_ch_id" placeholder="仅选择webhook时填写此项" maxlength="32"
+                  class="layui-input" />
+              </td>
+            </tr>
+            <tr style="height: 50px">
+              <td></td>
+              <td colspan="2">
+                <div class="layui-btn-container">
+                  <button type="button" id="saveConfigBtn" class="layui-btn layui-btn-radius" style="margin-top: 5px">
+                    <span> 保存配置 </span>
+                  </button>
+                  <button type="button" id="deleteLogsBtn" class="layui-btn layui-btn-radius" style="margin-top: 5px"
+                    onclick="delFwdLogs();">
+                    <span id="delogs"> 删除日志 </span>
+                  </button>
+
+                </div>
+              </td>
+            </tr>
+            <tr style="height: 230px">
+              <td>转发日志</td>
+              <td colspan="2">
+                <textarea name="" id="fwd_logs" placeholder="Logs" class="layui-textarea"
+                  style="height: 230px; resize: none" readonly></textarea>
+              </td>
+            </tr>
+          </table>
+        </div>
+  <script type="text/javascript" src="./js/shortmessage.js"></script>
+  <script type="text/javascript" src="./js/smssend.js"></script>
+  <script>
+    initModePage();
+  </script>
+</div>
+</body>
+
+</html>

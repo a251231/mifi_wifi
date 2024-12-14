@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+  <title>Error</title>
+</head>
+
+<body bgcolor="#cc9999" text="#000000" link="#2020ff" vlink="#4040cc">
+  <h4>Authentication failed or not authenticated</h4>
+  <script>
+    // 在页面加载后立即进行跳转
+    window.onload = function () {
+      // 获取当前地址和端口
+      var currentProtocol = window.location.protocol; // 获取协议部分，比如 http:
+      var currentHost = window.location.hostname; // 获取主机名部分，比如 www.example.com
+      var currentPort = window.location.port; // 获取端口部分，比如 8080
+
+      // 构建主页 URL
+      var homePageUrl = currentProtocol + "//" + currentHost;
+      if (currentPort) {
+        homePageUrl += ":" + currentPort;
+      }
+
+      // 进行页面跳转
+      window.location.href = homePageUrl;
+    };
+  </script>
+</body>
+
+</html>

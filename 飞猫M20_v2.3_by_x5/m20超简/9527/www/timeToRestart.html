@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="./lib/layui/css/layui.css">
+    <script src="./lib/layui/layui.all.js"></script>
+    <title>定时重启 - timeToRestart</title>
+</head>
+<style>
+    table.detail td,
+    table.detail th {
+        vertical-align: middle;
+    }
+</style>
+<script>
+    window.onload = function () {
+
+
+        layui.use(['form', 'laydate'], function () {
+            var form = layui.form;
+            var laydate = layui.laydate;
+            form.render();
+            getSysTime();
+            laydate.render({
+                elem: '#time2rboot',
+                type: 'time',
+                format: 'HH:mm',
+            });
+            form.on('checkbox(all)', function (data) {
+                var isChecked = data.elem.checked;
+                var checkboxes = document.querySelectorAll('input[name="weekdays"]');
+                checkboxes.forEach(function (checkbox) {
+                    checkbox.checked = isChecked;
+                });
+                form.render('checkbox');
+            });
+            getRboot();
+            setInterval(getSysTime, 1000);
+        });
+    };
+    var baseURL_8181 = "http://" + window.location.hostname + ":8181/";
+    function saveReboot() {
+        var cronExpression = "-";
+        var isRebootEl = document.getElementById('isReboot_id');
+
+        if (isRebootEl.checked) {
+            var rebootTime = document.getElementById('time2rboot').value;
+            if (!rebootTime) {
+                layer.msg("重启时间不能为空！");
+                return;
+            }
+            var selectedDays = [];
+            var checkboxes = document.querySelectorAll('input[name="weekdays"]:checked');
+            checkboxes.forEach(function (checkbox) {
+                selectedDays.push(checkbox.value);
+            });
+
+            if (selectedDays.length === 0) {
+                layer.msg("请选择重启日期！");
+                return;
+            }
+            var timeParts = rebootTime.split(':');
+            var cronHour = timeParts[0];
+            var cronMinute = timeParts[1];
+            cronExpression = `${cronMinute} ${cronHour} * * ${selectedDays.join(',')}`;
+
+        }
+        const postData = {
+            reboot: isRebootEl.checked ? 1 : 0,
+            cron_expr: cronExpression.trim()
+        };
+
+        fetch(baseURL_8181 + "api/reboot/set", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(postData),
+        })
+            .then(response => response.json())
+            .then(data => {
+                layer.msg(data.msg === 1 ? "已保存" : "已关闭定时重启");
+            })
+            .catch(error => {
+
+            });
+    }
+    function parseCronExpression(cronExpr) {
+        try {
+            const parts = cronExpr.split(' ');
+            if (parts.length < 6) {
+                throw new Error("Invalid Cron Expression");
+            }
+            const minute = parts[0];
+            const hour = parts[1];
+            const weekdays = parts[4].split(',');
+            const timeInput = document.getElementById('time2rboot');
+            if (timeInput) {
+                timeInput.value = `${hour.padStart(2, '0')}:${minute.padStart(2, '0')}`;
+            }
+            const checkboxes = document.querySelectorAll('input[name="weekdays"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = weekdays.includes(checkbox.value);
+            });
+            layui.use('form', function () {
+                const form = layui.form;
+                form.render('checkbox');
+            });
+        } catch (error) {
+
+            layer.msg("解析失败！");
+        }
+    }
+
+    function getRboot() {
+        let RebootEl = document.getElementById('isReboot_id');
+        fetch(baseURL_8181 + "api/reboot/get")
+            .then(response => response.json())
+            .then(data => {
+                if (data.success === 1) {
+                    const cronExpr = data.msg;
+                    parseCronExpression(cronExpr);
+                    RebootEl.checked = true
+                } else {
+                    RebootEl.checked = false
+                }
+                layui.use('form', function () {
+                    var form = layui.form;
+                    form.render('checkbox');   
+                });
+            })
+            .catch(error => {
+
+            });
+    }
+    function getSysTime() {
+        fetch(baseURL_8181 + "api/timestamp")
+            .then(response => response.json())
+            .then(data => {
+                const timestamp = data.timestamp;
+                const date = new Date(timestamp * 1000);
+                const year = date.getFullYear();
+                const month = (date.getMonth() + 1).toString().padStart(2, '0');
+                const day = date.getDate().toString().padStart(2, '0');
+                const hours = date.getHours().toString().padStart(2, '0');
+                const minutes = date.getMinutes().toString().padStart(2, '0');
+                const seconds = date.getSeconds().toString().padStart(2, '0');
+                const formattedTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+                document.getElementById('sys_time').textContent = formattedTime;
+            })
+            .catch(error => {
+
+            });
+    }
+
+</script>
+
+<body>
+    <div class="layui-form">
+
+        <table>
+            <tr>
+                <th style="width: 25%;">系统时间</th>
+                <td style="height: 60px;">
+                    <span id="sys_time"></span>
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 25%;">启用重启</th>
+                <td style="height: 60px;">
+                    <input type="checkbox" name="AAA" id="isReboot_id" lay-skin="switch">
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 25%;">重启时间</th>
+                <td style="height: 60px;">
+                    <div class="layui-inline">
+                        <div class="layui-input-inline">
+                            <input type="text" class="layui-input" id="time2rboot" placeholder="HH:mm">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 25%;">重启日期</th>
+                <td style="height: 60px;">
+                    <input type="checkbox" lay-filter="all" lay-skin="primary" title="全选">
+                    <input type="checkbox" name="weekdays" value="1" lay-skin="primary" title="周一">
+                    <input type="checkbox" name="weekdays" value="2" lay-skin="primary" title="周二">
+                    <input type="checkbox" name="weekdays" value="3" lay-skin="primary" title="周三">
+                    <input type="checkbox" name="weekdays" value="4" lay-skin="primary" title="周四">
+                    <input type="checkbox" name="weekdays" value="5" lay-skin="primary" title="周五">
+                    <input type="checkbox" name="weekdays" value="6" lay-skin="primary" title="周六">
+                    <input type="checkbox" name="weekdays" value="0" lay-skin="primary" title="周日">
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 25%;">&nbsp;</th>
+                <td style="height: 60px;">
+                    <input type="button" class="layui-btn layui-btn-radius" value="保存" onclick="saveReboot()" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

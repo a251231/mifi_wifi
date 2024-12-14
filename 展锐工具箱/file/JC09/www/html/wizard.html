@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MIFI</title>
+    <script type="text/javascript" src="../js/config.js"></script>
+
+    <link href="../css/wizard.css" type="text/css" rel="stylesheet">
+
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/menu.js"></script>
+    <script type="text/javascript" src="../js/ajax_calls.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/i18n.js"></script>
+    <script type="text/javascript" src="../js/md5.js"></script>
+    <script type="text/javascript" src="../js/settings.js"></script>
+    <script type="text/javascript" src="../js/layui.js"></script>
+    <script type="text/javascript" src="../js/network.js"></script>
+    <script type="text/javascript" src="../js/wifi.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/includeLang.js"></script>
+
+    <style type="text/css">
+        /*清除password密码输入框的明文图标，此伪类仅在ie中有效*/
+        input::-ms-reveal {
+            display: none;
+        }
+
+        /*清除text文本输入框的清除图标，此伪类仅在ie中有效*/
+        input::-ms-clear {
+            display: none;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var LOCAL_HOST_IP = "/";
+        var _xmlName = "";
+        var REMOTE_HOST_IP = "/";
+
+        $(document).ready(function () {
+            document.title = DEFAULT_BUILD_VERSION
+            if (DISPLAY_WIFI_2G == "block") {
+                for (let i = 1; i <= MAX_CONNECT_WIFI_2G; i++) {
+                    let option = document.createElement("option");
+                    option.text = i;
+                    option.value = i;
+                    document.getElementById("wizard_max_connect2G").appendChild(option);
+                }
+            }
+            if (DISPLAY_WIFI_5G == "block") {
+                for (let i = 1; i <= MAX_CONNECT_WIFI_5G; i++) {
+                    let option = document.createElement("option");
+                    option.text = i;
+                    option.value = i;
+                    document.getElementById("wizard_max_connect5G").appendChild(option);
+                }
+            }
+            // stone_getXMLCfg("setupWizardGet", setupWizardInfo);
+            // stone_getXMLCfg("internetconn", setupInternetconn);
+            // stone_getXMLCfg("both_wifi_info", setupWifiInfo);
+            setWizardText();
+
+            document.getElementById("network_mode").style.display = DISPLAY_NETWORK_BASIC_MODE == "block" ? "flex" : "none";
+        });
+
+        function setWizardText() {
+            document.getElementById("zRouter").innerHTML = I18N("j", "zRouter");
+            // document.getElementById("zWizard").innerHTML = I18N("j", "zWizard");
+            document.getElementById("zLogOut").innerHTML = I18N("j", "zLogOut");
+            document.getElementById("zmUser").innerHTML = I18N("j", "zUser");
+            document.getElementById("zmNetwork").innerHTML = I18N("j", "zNetwork");
+            document.getElementById("zmWLAN").innerHTML = I18N("j", "zWLAN");
+            document.getElementById("zmGuide").innerHTML = I18N("j", "zGuide");
+            document.getElementById("zmFinish").innerHTML = I18N("j", "zFinish");
+            document.getElementById("zNewName").innerHTML = I18N("j", "zNewName");
+            document.getElementById("zNewPsd").innerHTML = I18N("j", "zNewPsd");
+            document.getElementById("zRePsd").innerHTML = I18N("j", "zRePsd");
+            document.getElementById("zNetType").innerHTML = I18N("j", "zNetType");
+            document.getElementById("zNetwork").innerHTML = I18N("j", "zNetwork2");
+            document.getElementById("zSwitch1").innerHTML = I18N("j", SWITCH_WIFI_2G == 1 ? "zSwitch2" : ((DISPLAY_WIFI_2G == "block" && DISPLAY_WIFI_5G == "block") ? "zSwitch12G" : "zSwitch1"));
+            document.getElementById("zHide1").innerHTML = I18N("j", "zHide1");
+            document.getElementById("zSSID1").innerHTML = I18N("j", "zSSID");
+            document.getElementById("zSecurity1").innerHTML = I18N("j", "zSecurity");
+            document.getElementById("zPassword1").innerHTML = I18N("j", "zPassword");
+            document.getElementById("zChannel1").innerHTML = I18N("j", "wChannel1");
+            document.getElementById("zConnected1").innerHTML = I18N("j", "zConnected");
+            document.getElementById("z2Gwifi").style.display = DISPLAY_WIFI_2G;
+            document.getElementById("zSwitch2").innerHTML = I18N("j", SWITCH_WIFI_5G == 1 ? "zSwitch2" : ((DISPLAY_WIFI_2G == "block" && DISPLAY_WIFI_5G == "block") ? "zSwitch15G" : "zSwitch1"));
+            document.getElementById("zHide2").innerHTML = I18N("j", "zHide2");
+            document.getElementById("zSSID2").innerHTML = I18N("j", "zSSID");
+            document.getElementById("zSecurity2").innerHTML = I18N("j", "zSecurity");
+            document.getElementById("zPassword2").innerHTML = I18N("j", "zPassword");
+            document.getElementById("zChannel2").innerHTML = I18N("j", "wChannel2");
+            document.getElementById("zConnected2").innerHTML = I18N("j", "zConnected");
+            document.getElementById("z5Gwifi").style.display = DISPLAY_WIFI_5G;
+            document.getElementById("zGuideIntroduce").innerHTML = I18N("j", "zGuideIntroduce");
+            document.getElementById("zMicrowaveOven").innerHTML = I18N("j", "zMicrowaveOven");
+            document.getElementById("zBluetoothDevice").innerHTML = I18N("j", "zBluetoothDevice");
+            document.getElementById("zCordlessTelephone").innerHTML = I18N("j", "zCordlessTelephone");
+            document.getElementById("zOthers").innerHTML = I18N("j", "zOthers");
+            document.getElementById("zBabyMonitor").innerHTML = I18N("j", "zBabyMonitor");
+            document.getElementById("zFinishIntroduce").innerHTML = I18N("j", "zFinishIntroduce");
+            document.getElementById("zConfirm").innerHTML = I18N("j", "zConfirm");
+            document.getElementById("zExit").innerHTML = I18N("j", "zExit");
+            document.getElementById("zBack").innerHTML = I18N("j", "zBack");
+            document.getElementById("zContinue").innerHTML = I18N("j", "zContinue");
+            document.getElementById("wizard_hide_2G").style.display = HIDE_WIFI_2G;
+            document.getElementById("wizard_hide_5G").style.display = HIDE_WIFI_5G;
+            document.getElementById("wizard_channel_2G").style.display = DISPLAY_WIFI_CHANNEL_2G;
+            document.getElementById("wizard_channel_5G").style.display = DISPLAY_WIFI_CHANNEL_5G;
+        }
+
+        var id = 1;
+        function fore() {
+
+            id = id + 1;
+            switch (id) {
+                case 2:
+                    if (!checkUsnPsd()) {
+                        id = id - 1;
+                        break;
+                    }
+
+                    document.getElementById("second").style.display = "block";
+                    document.getElementById("first").style.display = "none";
+                    document.getElementById("wizard_back").style.display = "block";
+                    document.getElementById("group2").style.backgroundImage = "url(../images/wizard/arrow02_highlight.png)"
+                    document.getElementById("group1").style.backgroundImage = "url(../images/wizard/arrow01.png)"
+                    $(".word3").css("color", "rgba(181, 189, 201, 1)");
+                    $(".word4").css("color", "rgba(255, 255, 255, 1)");
+
+                    stone_getXMLCfg("internetconn", setupInternetconn);
+                    break;
+                case 3:
+                    if (!submitNetwork()) {
+                        id = id - 1;
+                        break;
+                    }
+                    document.getElementById("second").style.display = "none";
+                    document.getElementById("third").style.display = "block";
+                    document.getElementById("group2").style.backgroundImage = "url(../images/wizard/arrow02.png)"
+                    document.getElementById("group3").style.backgroundImage = "url(../images/wizard/arrow03_highlight.png)"
+                    $(".word4").css("color", "rgba(181, 189, 201, 1)");
+                    $(".word5").css("color", "rgba(255, 255, 255, 1)");
+
+                    if (DISPLAY_WIFI_2G == "block") {
+                        $.ajax({
+                            type: "GET",
+                            'beforeSend': function (xhr) {
+                                xhr.setRequestHeader("Authorization", getAuthHeader("GET"));
+                            },
+                            url: LOCAL_HOST_IP + 'jsonp_24g_wifi_info',
+                            dataType: "jsonp",
+                            data: { act_mode: SWITCH_WIFI_2G },
+                            async: false,
+                            success: function (data) {
+                                setupWifiInfo(data, 0);
+                            }
+                        });
+                    }
+                    if (DISPLAY_WIFI_5G == "block") {
+                        $.ajax({
+                            type: "GET",
+                            'beforeSend': function (xhr) {
+                                xhr.setRequestHeader("Authorization", getAuthHeader("GET"));
+                            },
+                            url: LOCAL_HOST_IP + 'jsonp_5g_wifi_info',
+                            dataType: "jsonp",
+                            data: { act_mode: SWITCH_WIFI_5G },
+                            async: false,
+                            success: function (data) {
+                                setupWifiInfo(data, 1);
+                            }
+                        });
+                    }
+                    break;
+                case 4:
+                    if (!checkWifiInfo()) {
+                        id = id - 1;
+                        break;
+                    }
+                    document.getElementById("third").style.display = "none";
+                    document.getElementById("fourth").style.display = "block";
+                    document.getElementById("group3").style.backgroundImage = "url(../images/wizard/arrow03.png)"
+                    document.getElementById("group4").style.backgroundImage = "url(../images/wizard/arrow04_highlight.png)"
+                    $(".word5").css("color", "rgba(181, 189, 201, 1)");
+                    $(".word6").css("color", "rgba(255, 255, 255, 1)");
+                    break;
+                case 5:
+                    document.getElementById("fourth").style.display = "none";
+                    document.getElementById("fifth").style.display = "block";
+                    document.getElementById("foot").style.display = "none";
+                    document.getElementById("group4").style.backgroundImage = "url(../images/wizard/arrow04.png)"
+                    document.getElementById("group5").style.backgroundImage = "url(../images/wizard/arrow05_highlight.png)"
+                    $(".word6").css("color", "rgba(181, 189, 201, 1)");
+                    $(".word7").css("color", "rgba(255, 255, 255, 1)");
+                    break;
+            }
+
+        }
+
+        function back() {
+            id = id - 1;
+            switch (id) {
+                case 0:
+                    id = id + 1;
+                    break;
+                case 1:
+                    $("#wizard_username").val("");
+                    $("#wizard_new_psd").val("");
+                    $("#wizard_new_second").val("");
+
+                    document.getElementById("second").style.display = "none";
+                    document.getElementById("first").style.display = "block";
+                    document.getElementById("wizard_back").style.display = "none";
+                    document.getElementById("group2").style.backgroundImage = "url(../images/wizard/arrow02.png)"
+                    document.getElementById("group1").style.backgroundImage = "url(../images/wizard/arrow01_highlight.png)"
+                    $(".word4").css("color", "rgba(181, 189, 201, 1)");
+                    $(".word3").css("color", "rgba(255, 255, 255, 1)");
+                    break;
+                case 2:
+                    stone_getXMLCfg("internetconn", setupInternetconn);
+                    document.getElementById("second").style.display = "block";
+                    document.getElementById("third").style.display = "none";
+                    document.getElementById("group3").style.backgroundImage = "url(../images/wizard/arrow03.png)"
+                    document.getElementById("group2").style.backgroundImage = "url(../images/wizard/arrow02_highlight.png)"
+                    $(".word5").css("color", "rgba(181, 189, 201, 1)");
+                    $(".word4").css("color", "rgba(255, 255, 255, 1)");
+                    break;
+                case 3:
+                    if (DISPLAY_WIFI_2G == "block") {
+                        $.ajax({
+                            type: "GET",
+                            'beforeSend': function (xhr) {
+                                xhr.setRequestHeader("Authorization", getAuthHeader("GET"));
+                            },
+                            url: LOCAL_HOST_IP + 'jsonp_24g_wifi_info',
+                            dataType: "jsonp",
+                            data: { act_mode: SWITCH_WIFI_2G },
+                            async: false,
+                            success: function (data) {
+                                setupWifiInfo(data, 0);
+                            }
+                        });
+                    }
+                    if (DISPLAY_WIFI_5G == "block") {
+                        $.ajax({
+                            type: "GET",
+                            'beforeSend': function (xhr) {
+                                xhr.setRequestHeader("Authorization", getAuthHeader("GET"));
+                            },
+                            url: LOCAL_HOST_IP + 'jsonp_5g_wifi_info',
+                            dataType: "jsonp",
+                            data: { act_mode: SWITCH_WIFI_5G },
+                            async: false,
+                            success: function (data) {
+                                setupWifiInfo(data, 1);
+                            }
+                        });
+                    }
+                    document.getElementById("third").style.display = "block";
+                    document.getElementById("fourth").style.display = "none";
+                    document.getElementById("group4").style.backgroundImage = "url(../images/wizard/arrow04.png)"
+                    document.getElementById("group3").style.backgroundImage = "url(../images/wizard/arrow03_highlight.png)"
+                    $(".word6").css("color", "rgba(181, 189, 201, 1)");
+                    $(".word5").css("color", "rgba(255, 255, 255, 1)");
+                    break;
+                case 4:
+                    document.getElementById("fourth").style.display = "block";
+                    document.getElementById("fifth").style.display = "none";
+                    document.getElementById("group5").style.backgroundImage = "url(../images/wizard/arrow05.png)"
+                    document.getElementById("group4").style.backgroundImage = "url(../images/wizard/arrow04_highlight.png)"
+                    $(".word7").css("color", "rgba(181, 189, 201, 1)");
+                    $(".word6").css("color", "rgba(255, 255, 255, 1)");
+                    break;
+            }
+        }
+
+        var g_simStatus;
+        function setupInternetconn(content) {
+            var xml = content;
+            console.log("setupInternetconn xml:", xml);
+
+            g_simStatus = $(xml).find("issim").text();
+            if (g_simStatus == "false") {
+                document.getElementById("wizard_mobileEnable").check = false;
+                document.getElementById("wizard_mobileEnable").disabled = true;
+                document.getElementById("wizard_netType").disabled = true;
+                setLabelValue("wizard_mobileStatus", I18N("j", "noSIM"));
+                return;
+            } else {
+                document.getElementById("wizard_mobileEnable").disabled = false;
+                document.getElementById("wizard_netType").disabled = false;
+                setLabelValue("wizard_mobileStatus", "");
+            }
+
+            var mobileEnable = $(xml).find("isDataOpen").text() == "true" ? 1 : 0;
+            var netType = $(xml).find("netType").text();
+
+            if (mobileEnable === 1) {
+                document.getElementById("wizard_mobileEnable").checked = true;
+            } else {
+                document.getElementById("wizard_mobileEnable").checked = false;
+            }
+            $("#wizard_netType").val(netType);
+        }
+
+        var wifiPasswd2G = ""
+        var wifiPasswd5G = ""
+        function setupWifiInfo(content, index) {
+            var xml = content;
+            var arrayChannel2G = [0,5,6,7,8,9,10,11];
+            var arrayChannel5G = [0,36,40,44,48,149,153,157,161];
+            var arrayChannelSelect = [0];
+            console.log("setupWifiInfo xml:", xml);
+            if (index == 0) {
+                var wifiMax2G = parseInt($(xml).find("wifi24GMaxcount").text());
+                var wifiChannel2G = parseInt($(xml).find("wifi24GChannel").text());
+                var wifiStatus2G = $(xml).find("wifi24Gsta").text() == 'true' ? "ON" : "OFF";
+                var wifiHide2G = $(xml).find("wifi24GHide").text() == 'true' ? "ON" : "OFF";
+                var wifiSsid2G = $(xml).find("wifi24Ghotname").text();
+                wifiPasswd2G = $(xml).find("wifi24GPassword").text();
+                var wifiSecurity2G = parseInt($(xml).find("wifi24Gsafetype").text());
+
+                if (wifiStatus2G === "ON") {
+                    document.getElementById("wizardWifiStatus2G").checked = true;
+                } else {
+                    document.getElementById("wizardWifiStatus2G").checked = false;
+                }
+
+                if (wifiHide2G === "ON") {
+                    document.getElementById("wizardWifiHide2G").checked = true;
+                } else {
+                    document.getElementById("wizardWifiHide2G").checked = false;
+                }
+
+                if (SWITCH_WIFI_2G == 1 && wifiStatus2G == "ON") {
+                    arrayChannelSelect = arrayChannel5G;
+                } else if (SWITCH_WIFI_2G == 1 && wifiStatus2G == "OFF") {
+                    arrayChannelSelect = arrayChannel2G;
+                } else {
+                    arrayChannelSelect = arrayChannel2G;
+                }
+
+                if (document.getElementById("wizard_channel2G").options.length == 0) {
+                    for (let i = 0; i < arrayChannelSelect.length; i++) {
+                        let option = document.createElement("option");
+
+                        if (i == 0) {
+                            option.text = "auto";
+                            option.value = 0;
+                        } else {
+                            option.text = arrayChannelSelect[i];
+                            option.value = arrayChannelSelect[i];
+                        }
+                        document.getElementById("wizard_channel2G").appendChild(option);
+                    }
+                }
+
+                $("#wizard_ssid2G").val(wifiSsid2G);
+                if (wifiSecurity2G == 0) {
+                    $("#wizard_password2G").val("");
+                    $("#wizard_password2G").css("background-color", "rgba(230, 230, 230)");
+                    $("#wizard_password2G").attr("disabled", "disabled");
+                } else {
+                    $("#wizard_password2G").val(wifiPasswd2G);
+                    $("#wizard_password2G").css("background-color", "");
+                    $("#wizard_password2G").removeAttr("disabled");
+                }
+                $("#wizard_security2G").val(wifiSecurity2G);
+                $("#wizard_max_connect2G").val(wifiMax2G);
+                $("#wizard_channel2G").val(wifiChannel2G);
+            } else {
+                var wifiMax5G = parseInt($(xml).find("wifi5GMaxcount").text());
+                var wifiChannel5G = parseInt($(xml).find("wifi5GChannel").text());
+                var wifiStatus5G = $(xml).find("wifi5Gsta").text() == 'true' ? "ON" : "OFF";
+                var wifiHide5G = $(xml).find("wifi5GHide").text() == 'true' ? "ON" : "OFF";
+                var wifiSsid5G = $(xml).find("wifi5Ghotname").text();
+                wifiPasswd5G = $(xml).find("wifi5GPassword").text();
+                var wifiSecurity5G = parseInt($(xml).find("wifi5Gsafetype").text());
+
+                if (wifiStatus5G === "ON") {
+                    document.getElementById("wizardWifiStatus5G").checked = true;
+                } else {
+                    document.getElementById("wizardWifiStatus5G").checked = false;
+                }
+                if (wifiHide5G === "ON") {
+                    document.getElementById("wizardWifiHide5G").checked = true;
+                } else {
+                    document.getElementById("wizardWifiHide5G").checked = false;
+                }
+
+                if (SWITCH_WIFI_5G == 1 && wifiStatus5G == "ON") {
+                    arrayChannelSelect = arrayChannel5G;
+                } else if (SWITCH_WIFI_5G == 1 && wifiStatus5G == "OFF") {
+                    arrayChannelSelect = arrayChannel2G;
+                } else {
+                    arrayChannelSelect = arrayChannel5G;
+                }
+
+                if (document.getElementById("wizard_channel5G").options.length == 0) {
+                    for (let i = 0; i < arrayChannelSelect.length; i++) {
+                        let option = document.createElement("option");
+
+                        if (i == 0) {
+                            option.text = "auto";
+                            option.value = 0;
+                        } else {
+                            option.text = arrayChannelSelect[i];
+                            option.value = arrayChannelSelect[i];
+                        }
+                        document.getElementById("wizard_channel5G").appendChild(option);
+                    }
+                }
+
+                $("#wizard_ssid5G").val(wifiSsid5G);
+                if (wifiSecurity5G == 0) {
+                    $("#wizard_password5G").val("");
+                    $("#wizard_password5G").css("background-color", "rgba(230, 230, 230)");
+                    $("#wizard_password5G").attr("disabled", "disabled");
+                } else {
+                    $("#wizard_password5G").val(wifiPasswd5G);
+                    $("#wizard_password5G").css("background-color", "");
+                    $("#wizard_password5G").removeAttr("disabled");
+                }
+                $("#wizard_security5G").val(wifiSecurity5G);
+                $("#wizard_max_connect5G").val(wifiMax5G);
+                $("#wizard_channel5G").val(wifiChannel5G);
+            }
+        }
+
+        var wizardUsername, wizardPassword;
+        function checkUsnPsd() {
+            var name = $("#wizard_username").val();
+            if ($.trim(name) === "") {
+                alert(I18N("j", "usernameEmpty"));
+                return false;
+            }
+            if (name.indexOf(" ") !== -1) {
+                alert(I18N("j", "usernameSpace"));
+                return false;
+            }
+            if (!isNumberOrLetter(name)) {
+                alert(I18N("j", "userNameCompliant"));
+                return false;
+            }
+            if (name.length > 20 || name.length < 4) {
+                alert(I18N("j", "usernameLength"));
+                return false;
+            }
+            wizardUsername = name;
+            var psd1 = $("#wizard_new_psd").val();
+            var psd2 = $("#wizard_new_second").val();
+            if ($.trim(psd1) === "" || $.trim(psd2) === "") {
+                alert(I18N("j", "psdEmpty"));
+                return false;
+            }
+            if (psd1.indexOf(" ") !== -1 || psd2.indexOf(" ") !== -1) {
+                alert(I18N("j", "psdSpace"));
+                return false;
+            }
+            if (!isNumberOrLetter(psd1) || !isNumberOrLetter(psd2)) {
+                alert(I18N("j", "psdCharacters"));
+                return false;
+            }
+
+            if ($.trim(psd1).length < 4 || $.trim(psd1).length > 20 || $.trim(psd2).length < 4 || $.trim(psd2).length > 20) {
+                alert(I18N("j", "numLength"));
+                return false;
+            }
+
+            if ($.trim(psd1) === $.trim(psd2)) {
+                wizardPassword = psd1;
+            } else {
+                alert(I18N("j", "psdInconsistent"));
+                return false;
+            }
+
+            var modifyparam = {
+                "username": wizardUsername,
+                "password": wizardPassword
+            };
+
+            var url = LOCAL_HOST_IP + "quickSetUser";
+            var response = false;
+            $.ajax({
+                url: url,
+                dataType: "jsonp",
+                data: { modifyparam: JSON.stringify(modifyparam) },
+                async: false,
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", getAuthHeader("GET"));
+                    xhr.setRequestHeader("Expires", "-1");
+                    xhr.setRequestHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+                    xhr.setRequestHeader("Pragma", "no-cache");
+                },
+                success: function (data) {
+                    console.log("data = ", data);
+                    var state = data.state;
+                    console.log("state " + state);
+                    if (state === 1) {
+                        response = true;
+                    } else {
+                        alert(I18N("j", "setFail"));
+                    }
+                }
+            });//.responseText;
+
+            return response;
+        }
+
+        function submitNetwork() {
+            if (g_simStatus == "false") {
+                return true;
+            }
+
+            var mobileEnable = 0;
+            if ($('#wizard_mobileEnable').is(':checked')) {
+                mobileEnable = 1;
+            } else {
+                mobileEnable = 0;
+            }
+            var netType = parseInt($("#wizard_netType").val());
+
+            var changeNetwork =
+            {
+                "isdataopen": mobileEnable,
+                "type": netType
+            }
+
+            var url = LOCAL_HOST_IP + "changeNetwork";
+            var response = false;
+            $.ajax({
+                url: url,
+                dataType: "jsonp",
+                data: { changeNetwork: JSON.stringify(changeNetwork) },
+                async: false,
+                cache: false,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", getAuthHeader("GET"));
+                    xhr.setRequestHeader("Expires", "-1");
+                    xhr.setRequestHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+                    xhr.setRequestHeader("Pragma", "no-cache");
+                },
+                success: function (data) {
+                    console.log("data = ", data);
+                    var state = data.state;
+                    console.log("state " + state);
+                    if (state === 1) {
+                        response = true;
+                    } else {
+                        alert(I18N("j", "setFail"));
+                    }
+                }
+            });
+
+            return response;
+        }
+
+        var status2G, status5G;
+        var hide2G, hide5G;
+        var channel2G, channel5G;
+        var ssid2G, ssid5G;
+        var passwd2G, passwd5G;
+        var security2G, security5G;
+        var max2G, max5G;
+        function checkWifiInfo() {
+
+            if (DISPLAY_WIFI_2G == "block") {
+                if ($('#wizardWifiStatus2G').is(':checked')) {
+                    status2G = 1
+                } else {
+                    status2G = 0
+                }
+                if ($('#wizardWifiHide2G').is(':checked')) {
+                    hide2G = 1
+                } else {
+                    hide2G = 0
+                }
+
+                ssid2G = $.trim($('#wizard_ssid2G').val());
+                passwd2G = $.trim($('#wizard_password2G').val());
+                security2G = $.trim($('#wizard_security2G').val());
+                max2G = $.trim($('#wizard_max_connect2G').val());
+                channel2G = $.trim($('#wizard_channel2G').val());
+
+                if (ssid2G === "") {
+                    alert(I18N("j", "ssidEmpty"));
+                    return false;
+                }
+
+                if (ssid2G.indexOf(" ") !== -1) {
+                    alert(I18N("j", "ssidSpace"));
+                    return false;
+                }
+
+                if (!checkword(ssid2G) || (ssid2G.indexOf("\"") !== -1) || (ssid2G.indexOf("\'") !== -1)) {
+                    alert(I18N("j", "ssidCharacters"));
+                    return false;
+                }
+
+                if (ssid2G.length > 32 || ssid2G.length < 1) {
+                    alert(I18N("j", "ssidLength"));
+                    return false;
+                }
+
+                if (security2G > 0) {
+
+                    if (passwd2G === "") {
+                        alert(I18N("j", "psdEmpty"));
+                        return false;
+                    }
+
+                    if (passwd2G.indexOf(" ") !== -1) {
+                        alert(I18N("j", "psdSpace"));
+                        return false;
+                    }
+
+                    if (!checkword(passwd2G) || (passwd2G.indexOf("\"") !== -1) || (passwd2G.indexOf("\'") !== -1)) {
+                        alert(I18N("j", "psdCharacters"));
+                        return false;
+                    }
+
+                    if (passwd2G.length > 32 || passwd2G.length < 8) {
+                        alert(I18N("j", "psdLength"));
+                        return false;
+                    }
+                }
+            }
+
+            if (DISPLAY_WIFI_5G == "block") {
+                if ($('#wizardWifiStatus5G').is(':checked')) {
+                    status5G = 1
+                } else {
+                    status5G = 0
+                }
+                if ($('#wizardWifiHide5G').is(':checked')) {
+                    hide5G = 1
+                } else {
+                    hide5G = 0
+                }
+
+                ssid5G = $.trim($('#wizard_ssid5G').val());
+                passwd5G = $.trim($('#wizard_password5G').val());
+                security5G = $.trim($('#wizard_security5G').val());
+                max5G = $.trim($('#wizard_max_connect5G').val());
+                channel5G = $.trim($('#wizard_channel5G').val());
+
+                if (ssid5G === "") {
+                    alert(I18N("j", "ssidEmpty"));
+                    return false;
+                }
+
+                if (ssid5G.indexOf(" ") !== -1) {
+                    alert(I18N("j", "ssidSpace"));
+                    return false;
+                }
+
+                if (!checkword(ssid5G) || (ssid5G.indexOf("\"") !== -1) || (ssid5G.indexOf("\'") !== -1)) {
+                    alert(I18N("j", "ssidCharacters"));
+                    return false;
+                }
+
+                if (ssid5G.length > 32 || ssid5G.length < 1) {
+                    alert(I18N("j", "ssidLength"));
+                    return false;
+                }
+
+                if (security5G > 0) {
+                    if (passwd5G === "") {
+                        alert(I18N("j", "psdEmpty"));
+                        return false;
+                    }
+
+                    if (passwd5G.indexOf(" ") !== -1) {
+                        alert(I18N("j", "psdSpace"));
+                        return false;
+                    }
+
+                    if (!checkword(passwd5G) || (passwd5G.indexOf("\"") !== -1) || (passwd5G.indexOf("\'") !== -1)) {
+                        alert(I18N("j", "psdCharacters"));
+                        return false;
+                    }
+
+                    if (passwd5G.length > 32 || passwd5G.length < 8) {
+                        alert(I18N("j", "psdLength"));
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        function setupWizardSet() {
+
+            var state2 = 1;
+            var state5 = 1;
+
+            if (DISPLAY_WIFI_2G == "block") {
+                var info2G =
+                {
+                    "username": ssid2G,
+                    "password": passwd2G,
+                    "wifitype": parseInt(security2G),
+                    "wifimode": SWITCH_WIFI_2G,
+                    "wifimodeaction": status2G,
+                    "wifihide": hide2G,
+                    "wifichannel": channel2G,
+                    "maxcount": max2G
+                }
+                $.ajax({
+                    url: LOCAL_HOST_IP + "24g_wifi_info_set",
+                    dataType: "jsonp",
+                    data: { '24g_wifi_info_set': JSON.stringify(info2G) },
+                    async: false,
+                    cache: false,
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("Authorization", getAuthHeader("GET"));
+                        xhr.setRequestHeader("Expires", "-1");
+                        xhr.setRequestHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+                        xhr.setRequestHeader("Pragma", "no-cache");
+                    },
+                    success: function (content) {
+                        console.log("issucess state " + content);
+                        var obj = content;
+                        state2 = obj.state;
+                    }
+                });
+
+            }
+
+            if (DISPLAY_WIFI_5G == "block") {
+                var info5G =
+                {
+                    "username": ssid5G,
+                    "password": passwd5G,
+                    "wifitype": parseInt(security5G),
+                    "wifimode": SWITCH_WIFI_5G,
+                    "wifimodeaction": status5G,
+                    "wifihide": hide5G,
+                    "wifichannel": channel5G,
+                    "maxcount": max5G
+                }
+                $.ajax({
+                    url: LOCAL_HOST_IP + "5g_wifi_info_set",
+                    dataType: "jsonp",
+                    data: { '5g_wifi_info_set': JSON.stringify(info5G) },
+                    async: false,
+                    cache: false,
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("Authorization", getAuthHeader("GET"));
+                        xhr.setRequestHeader("Expires", "-1");
+                        xhr.setRequestHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+                        xhr.setRequestHeader("Pragma", "no-cache");
+                    },
+                    success: function (content) {
+                        console.log("issucess state " + content);
+                        var obj = content;
+                        state5 = obj.state;
+                    }
+                });
+            }
+
+            if (state2 == 1 && state5 == 1) {
+                alert(I18N("j", "setWizardSuccess"));
+                logOut();
+            } else {
+                alert(I18N("j", "setFail"));
+            }
+        }
+
+        var show2G = false
+        function wizardShow2GPassword() {
+            if (show2G) {
+                document.getElementById("wizard_password2G").type = "password";
+                document.getElementById("wizardShow2GPassword").src = "../images/login/login_password_no.png";
+                show2G = false;
+            } else {
+                document.getElementById("wizard_password2G").type = "text";
+                document.getElementById("wizardShow2GPassword").src = "../images/login/login_password_yes.png";
+                show2G = true;
+            }
+        }
+
+        var show5G = false
+        function wizardShow5GPassword() {
+            if (show5G) {
+                document.getElementById("wizard_password5G").type = "password";
+                document.getElementById("wizardShow5GPassword").src = "../images/login/login_password_no.png";
+                show5G = false;
+            } else {
+                document.getElementById("wizard_password5G").type = "text";
+                document.getElementById("wizardShow5GPassword").src = "../images/login/login_password_yes.png";
+                show5G = true;
+            }
+        }
+
+        function security2GChange() {
+            if ($('#wizard_security2G').val() == 0) {
+                $("#wizard_password2G").val("");
+                $("#wizard_password2G").css("background-color", "rgba(230, 230, 230)");
+                $("#wizard_password2G").attr("disabled", "disabled");
+            } else {
+                $("#wizard_password2G").val(wifiPasswd2G);
+                $("#wizard_password2G").css("background-color", "");
+                $("#wizard_password2G").removeAttr("disabled");
+            }
+        }
+
+        function security5GChange() {
+            if ($('#wizard_security5G').val() == 0) {
+                $("#wizard_password5G").val("");
+                $("#wizard_password5G").css("background-color", "rgba(230, 230, 230)");
+                $("#wizard_password5G").attr("disabled", "disabled");
+            } else {
+                $("#wizard_password5G").val(wifiPasswd5G);
+                $("#wizard_password5G").css("background-color", "");
+                $("#wizard_password5G").removeAttr("disabled");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="app" style="position: relative;width: 1024px;margin: auto">
+        <div id="header">
+            <div class="title_bar" style="display: flex; border:0; margin: auto;position: relative">
+                <div style="margin-left: 46px; margin-top:38px; margin-bottom: 38px;display: flex">
+                    <!-- <img src="../images/main/nav_top_logo@2x.png" style="width: 120px; height: 24px"> -->
+                    <div class="title_text" id="zRouter">Mobile router</div>
+                </div>
+                <div
+                    style="margin-top: 20px; margin-bottom: 20px;margin-right:35px; position: absolute;right: 0; display: flex">
+                    <!-- <div id="setting_wizard" style="text-align: center">
+                        <img src="../images/main/nav_top_icon_setting_normal.png">
+                        <div class="title_text2" id="zWizard">Wizard</div>
+                    </div> -->
+                    <div id="exit_login" style="margin-left: 30px; text-align: center" onclick="logOut()">
+                        <img src="../images/main/nav_top_icon_exit_normal.png">
+                        <div class="title_text2" id="zLogOut">Log out</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mod5">
+            <div id="group1" class="group1"><span class="word3" id="zmUser">User</span></div>
+            <div id="group2" class="group2"><span class="word4" id="zmNetwork">Network</span></div>
+            <div id="group3" class="group3"><span class="word5" id="zmWLAN">WLAN</span></div>
+            <div id="group4" class="group4"><span class="word6" id="zmGuide">Guide</span></div>
+            <div id="group5" class="group5"><span class="word7" id="zmFinish">Finish</span></div>
+        </div>
+        <div id="first">
+            <br>
+            <br>
+            <br>
+            <div class="mod6">
+                <span class="info1" id="zNewName">New Router Username</span>
+                <input id="wizard_username" class="block1" maxlength="20">
+            </div>
+            <br>
+            <div class="mod7">
+                <span class="word8" style="width: 180px;height: 36px;line-height: 36px;text-align: right;"
+                    id="zNewPsd">New Router Password</span>
+                <input id="wizard_new_psd" class="section4" type="password" maxlength="20">
+            </div>
+            <br>
+            <div class="mod8">
+                <span class="txt3" id="zRePsd">Re-enter Password</span>
+                <input id="wizard_new_second" class="main1" type="password" maxlength="20">
+            </div>
+        </div>
+        <div id="second" style="display: none">
+            <br>
+            <br>
+            <br>
+            <div class="layer4" style="display: none">
+                <span class="work" id="zNetwork">Network</span>
+                <div class="pg_dc" style="width: 180px;">
+                    <label class="switch">
+                        <input type="checkbox" id="wizard_mobileEnable">
+                        <div class="slider round"></div>
+                    </label>
+                    <div id="wizard_mobileStatus" class="global_font"
+                        style="float: right; line-height: 36px;margin-left: 20px;font-size: 12px;color: #868686"></div>
+                </div>
+            </div>
+            <br>
+            <div class="layer3" id="network_mode">
+                <span class="net" id="zNetType">Network Type</span>
+                <select id="wizard_netType" class="choiceNum">
+                    <option value=0 selected>5G/4G/3G</option>
+                    <option value=1>5G NSA/SA</option>
+                    <option value=2>5G SA only</option>
+                    <option value=3>4G/3G</option>
+                    <option value=4>4G only</option>
+                </select>
+            </div>
+        </div>
+        <div id="third" style="display: none">
+            <div style="margin: auto;width: 400px">
+                <div id="z2Gwifi" style="display: none">
+                    <div class="wifi_switch flex-row">
+                        <span class="switch_txt" id="zSwitch1">2.4G&nbsp;switch</span>
+                        <div class="pg_dc">
+                            <label class="switch">
+                                <input type="checkbox" id="wizardWifiStatus2G">
+                                <div class="slider round"></div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="wifi_switch flex-row" id="wizard_hide_2G">
+                        <span class="switch_txt" id="zHide1">Hide</span>
+                        <div class="pg_dc">
+                            <label class="switch">
+                                <input type="checkbox" id="wizardWifiHide2G">
+                                <div class="slider round"></div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="confs">
+                        <div class="confs flex-row">
+                            <span class="mywifi_txt" id="zSSID1">SSID</span>
+                            <input id="wizard_ssid2G" type="text" class="wifi_conf_input" maxlength="32">
+                        </div>
+                        <div class="confs flex-row">
+                            <span class="mywifi_txt" id="zSecurity1">Security</span>
+                            <select id="wizard_security2G" class="wifi_conf_input" style="width: 274px" onclick="security2GChange()">
+                                <option value=0> NONE </option>
+                                <!--<option value=1> WPA-PSK </option>-->
+                                <option value=2> WPA2-PSK </option>
+                            </select>
+                        </div>
+                        <div class="confs flex-row" style="width: 380px;position: relative;">
+                            <span class="mywifi_txt" id="zPassword1">Password</span>
+                            <div class="pwd" style="width: 260px">
+                                <input id="wizard_password2G" class="wifi_pass_input" type="password" maxlength="32">
+                                <img style="display: block" id="wizardShow2GPassword" class="eye"
+                                    onclick="wizardShow2GPassword()" src="../images/login/login_password_no.png">
+                            </div>
+                        </div>
+                        <div class="confs flex-row" id="wizard_channel_2G">
+                            <span class="mywifi_txt" id="zChannel1">Channel</span>
+                            <select id="wizard_channel2G" class="wifi_conf_input" style="width: 274px">
+                            </select>
+                        </div>
+                        <div class="confs flex-row">
+                            <span class="mywifi_txt" id="zConnected1">Maximum Connected</span>
+                            <select id="wizard_max_connect2G" class="wifi_conf_input" style="width: 274px">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div id="z5Gwifi">
+                    <div class="wifi_switch flex-row">
+                        <span class="switch_txt" id="zSwitch2">5G&nbsp;switch</span>
+                        <div class="pg_dc">
+                            <label class="switch">
+                                <input type="checkbox" id="wizardWifiStatus5G">
+                                <div class="slider round"></div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="wifi_switch flex-row" id="wizard_hide_5G">
+                        <span class="switch_txt" id="zHide2">Hide</span>
+                        <div class="pg_dc">
+                            <label class="switch">
+                                <input type="checkbox" id="wizardWifiHide5G">
+                                <div class="slider round"></div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="confs">
+                        <div class="confs flex-row">
+                            <span class="mywifi_txt" id="zSSID2">SSID</span>
+                            <input id="wizard_ssid5G" type="text" class="wifi_conf_input" maxlength="32">
+                        </div>
+                        <div class="confs flex-row">
+                            <span class="mywifi_txt" id="zSecurity2">Security</span>
+                            <select id="wizard_security5G" class="wifi_conf_input" style="width: 274px" onclick="security5GChange()">
+                                <option value=0> NONE </option>
+                                <!--<option value=1> WPA-PSK </option>-->
+                                <option value=2> WPA2-PSK </option>
+                            </select>
+                        </div>
+                        <div class="confs flex-row" style="width: 380px;position: relative;">
+                            <span class="mywifi_txt" id="zPassword2">Password</span>
+                            <div class="pwd" style="width: 260px">
+                                <input id="wizard_password5G" class="wifi_pass_input" type="password" maxlength="32">
+                                <img style="display: block" id="wizardShow5GPassword" class="eye"
+                                    onclick="wizardShow5GPassword()" src="../images/login/login_password_no.png">
+                            </div>
+                        </div>
+                        <div class="confs flex-row" id="wizard_channel_5G">
+                            <span class="mywifi_txt" id="zChannel2">Channel</span>
+                            <select id="wizard_channel5G" class="wifi_conf_input" style="width: 274px">
+                            </select>
+                        </div>
+                        <div class="confs flex-row">
+                            <span class="mywifi_txt" id="zConnected2">Maximum Connected</span>
+                            <select id="wizard_max_connect5G" class="wifi_conf_input" style="width: 274px">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="fourth" style="display: none">
+            <span class="advice" id="zGuideIntroduce">
+                It is recommended not to place a wireless router near a microwave oven, cordless home phone, baby
+                monitor, Bluetooth device (such as headset or Bluetooth keyboard or mouse), and any other wireless
+                networking device.
+            </span>
+            <div class="outer flex-col">
+                <div class="group11 flex-row justify-between">
+                    <div class="ImageText11 flex-col">
+                        <div class="section14 flex-row justify-between">
+                            <div class="section5 flex-col"></div>
+                            <div class="TextGroup11 flex-col">
+                                <span class="word17" id="zMicrowaveOven">Microwave Oven</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ImageText12 flex-col">
+                        <div class="layer11 flex-row justify-between">
+                            <div class="section6 flex-col"></div>
+                            <div class="TextGroup2 flex-col">
+                                <span class="word8" id="zBluetoothDevice" style="font-size: 14px">Bluetooth
+                                    device</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="group12 flex-row justify-between">
+                    <div class="ImageText3 flex-col">
+                        <div class="mod11 flex-row justify-between">
+                            <div class="block11 flex-col"></div>
+                            <div class="TextGroup3 flex-col">
+                                <span class="info12" id="zCordlessTelephone">Cordless telephone</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ImageText4 flex-col">
+                        <div class="outer4 flex-row justify-between">
+                            <div class="main4 flex-col"></div>
+                            <div class="TextGroup4 flex-col">
+                                <span class="info14" id="zOthers">Others</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="group13 flex-row">
+                    <div class="ImageText5 flex-col">
+                        <div class="group14 flex-row justify-between">
+                            <div class="block2 flex-col"></div>
+                            <div class="TextGroup5 flex-col">
+                                <span class="info14" id="zBabyMonitor">Baby monitor</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="fifth" style="display: none">
+            <div class="ImageText1">
+                <div class="bd6 flex-col justify-between">
+                    <div class="main"></div>
+                    <div class="TextGroup1">
+                        <span class="set" id="zFinishIntroduce">Congratulations on your setup, go to use it!</span>
+                    </div>
+                </div>
+            </div>
+            <div class="lay" onclick="setupWizardSet()"><span class="sure" id="zConfirm">Confirm</span></div>
+        </div>
+        <div class="mod9" id="foot">
+            <div class="bd1" onclick="quitWizard()"><span class="info2" id="zExit">Exit</span></div>
+            <div id="wizard_back" class="bd2" onclick="back()" style="display: none"><span class="word10"
+                    id="zBack">Back</span></div>
+            <div class="bd3" onclick="fore()"><span class="info3" id="zContinue">Continue</span></div>
+        </div>
+        <div id="footer"></div>
+    </div>
+
+</body>
+
+</html>

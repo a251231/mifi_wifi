@@ -1,0 +1,58 @@
+<div style="width: 950px; margin: auto; position: relative">
+    <div style="margin-top: 100px"></div>
+    <div id="main_icon" style="display: flex; width:704px; margin: auto">
+        <div id="home_icon_internet" style='width: 128px;height: 128px;text-align: center;background-image: url("../images/main/home_icon_internet_normal.png")'
+            onclick="checkMainHtml('network')">
+            <div class="home_icon_text" id="hInternet"> My Internet</div>
+        </div>
+        <div style="width: 160px;height: 128px;text-align: center;position: relative">
+            <div style="position: absolute;bottom: 80px;left: 20px;right: 20px;text-align: center">
+                <span id="mobile_connType" class="info_data_text" style="font-size: 15px;">4G</span>
+                <img id="mobile_signal" class="img" src="../images/main/ethernet_select.png" style="width: 20px;height: 20px;margin-top:-7px"/>
+            </div>
+            <div style="width: 120px;height: 26px;text-align: center;position: absolute;top: 51px;left: 20px;right: 20px">
+                <div id="status_connect" style="width: 120px;height: 1px;margin-top: 13px;background: #D8D8D8;display: block"></div>
+                <img id="status_unconnect" src="../images/main/home_iconn_unconnect.png" style="display: none">
+            </div>
+            <div id="mobile_provider" class="home_connType_text" style="position: absolute;top: 80px;left: 20px;right: 20px;align-items: flex-end">
+                Ethernet
+            </div>
+        </div>
+        <div id="home_icon_router" style='width: 128px;height: 128px;text-align: center;background-image: url("../images/main/home_icon_router_normal.png")'
+             onclick="checkMainHtml('settings')">
+            <div class="home_icon_text" id="hRouter"> My Router</div>
+        </div>
+        <div style="width: 160px;height: 128px;text-align: center;position: relative">
+            <div id="wifi_ssid" class="home_g_text" style="position: absolute;bottom: 80px;left: 20px;right: 20px"></div>
+            <div class="text_lan" style='background-image: url("../images/main/home_LAN_bg.png");width: 120px;height: 26px;text-align: center;position: absolute;top: 51px;left: 20px;right: 20px'>
+                LAN
+            </div>
+            <div id="wifi_ssid_5G" class="home_g_text" style="position: absolute;top: 80px;left: 20px;right: 20px"></div>
+        </div>
+        <div id="home_icon_terminal" style='width: 128px;height: 128px;text-align: center;position: relative; background-image: url("../images/main/home_icon_terminal_normal.png")'
+             onclick="checkMainHtml('clientList')">
+            <div id="client_num" style="color: #3572BB;position: absolute;top: 40px;width: 128px;text-align: center">1</div>
+            <div class="home_icon_text" id="hClients">Clients</div>
+        </div>
+    </div>
+    <div style="margin-top: 90px"></div>
+    <div style="width: 602px;height: 140px;background: #F9FBFF;border: 1px solid #F2F0F0;border-radius: 6px;margin: auto;position: relative">
+        <div style="display: flex;height: 75px;justify-content: center;position: absolute;top: 38px;left: 0;right: 0">
+            <!-- <div style="width: 200px;text-align: center">
+                <div class="info_title_text" style="margin-top: 10px" id="hWanUpTime">Wan Up Time</div>
+                <div id="wan_up_time" class="info_data_text"></div>
+            </div>
+            <div class="vertical_line"></div> -->
+            <div style="width: 200px;text-align: center">
+                <div class="info_title_text" style="margin-top: 10px" id="hSysUpTime">System Up Time</div>
+                <div id="system_up_time" class="info_data_text"></div>
+            </div>
+            <div class="vertical_line"></div>
+            <div style="width: 200px;text-align: center">
+                <div class="info_title_text" style="margin-top: 10px" id="hWanIpAdds">WAN IP Address</div>
+                <div id="wan_ip" class="info_data_text"></div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 100px"></div>
+</div>

@@ -1,0 +1,81 @@
+[2024-10-30 12:31:53:014] StartDevNtfThread
+[2024-10-30 12:31:53:014] EnumProc() is started.
+[2024-10-30 12:31:53:014] DevHound is started, ID = 15232
+[2024-10-30 12:31:53:014] HoundThreadProc start!
+[2024-10-30 12:36:04:738] SendToUpLayer port = 73 Removed
+[2024-10-30 12:36:04:738] SendToUpLayer port = 74 Removed
+[2024-10-30 12:36:04:738] SendToUpLayer port = 75 Removed
+[2024-10-30 12:36:04:738] USB port 73 removed out.
+[2024-10-30 12:36:04:739] SendToUpLayer port = 76 Removed
+[2024-10-30 12:36:04:739] [hDiagPhone = 0x25C0048] Port = 73, Set Remove Event!
+[2024-10-30 12:36:04:739] SendToUpLayer port = 77 Removed
+[2024-10-30 12:36:04:739] USB port 74 removed out.
+[2024-10-30 12:36:04:739] SendToUpLayer port = 78 Removed
+[2024-10-30 12:36:04:739] [hDiagPhone = 0x25C0048] Port = 74, Set Remove Event!
+[2024-10-30 12:36:04:739] SendToUpLayer port = 79 Removed
+[2024-10-30 12:36:04:739] USB port 75 removed out.
+[2024-10-30 12:36:04:739] [hDiagPhone = 0x25C0048] Port = 75, Set Remove Event!
+[2024-10-30 12:36:04:739] USB port 76 removed out.
+[2024-10-30 12:36:04:739] [hDiagPhone = 0x25C0048] Port = 76, Set Remove Event!
+[2024-10-30 12:36:04:739] USB port 77 removed out.
+[2024-10-30 12:36:04:739] [hDiagPhone = 0x25C0048] Port = 77, Set Remove Event!
+[2024-10-30 12:36:04:739] USB port 78 removed out.
+[2024-10-30 12:36:04:739] [hDiagPhone = 0x25C0048] Port = 78, Set Remove Event!
+[2024-10-30 12:36:04:739] USB port 79 removed out.
+[2024-10-30 12:36:04:739] [hDiagPhone = 0x25C0048] Port = 79, Set Remove Event!
+[2024-10-30 12:44:20:049] SendToUpLayer port = 60 PlugIn
+[2024-10-30 12:44:20:049] USB port 60 plugged in.
+[2024-10-30 12:44:20:049] [hDiagPhone = 0x25C0048] Port = 60, Set PlugIn Event!
+[2024-10-30 12:44:20:051] SendToUpLayer port = 59 PlugIn
+[2024-10-30 12:44:20:051] USB port 59 plugged in.
+[2024-10-30 12:44:20:051] [hDiagPhone = 0x25C0048] Port = 59, Set PlugIn Event!
+[2024-10-30 12:45:28:047] SendToUpLayer port = 60 Removed
+[2024-10-30 12:45:28:047] USB port 60 removed out.
+[2024-10-30 12:45:28:047] [hDiagPhone = 0x25C0048] Port = 60, Set Remove Event!
+[2024-10-30 12:45:28:132] SendToUpLayer port = 59 Removed
+[2024-10-30 12:45:28:132] USB port 59 removed out.
+[2024-10-30 12:45:28:132] [hDiagPhone = 0x25C0048] Port = 59, Set Remove Event!
+[2024-10-30 12:45:55:610] SendToUpLayer port = 60 PlugIn
+[2024-10-30 12:45:55:610] USB port 60 plugged in.
+[2024-10-30 12:45:55:610] [hDiagPhone = 0x25C0048] Port = 60, Set PlugIn Event!
+[2024-10-30 12:45:55:612] SendToUpLayer port = 59 PlugIn
+[2024-10-30 12:45:55:612] USB port 59 plugged in.
+[2024-10-30 12:45:55:612] [hDiagPhone = 0x25C0048] Port = 59, Set PlugIn Event!
+[2024-10-30 12:46:20:605] SendToUpLayer port = 60 Removed
+[2024-10-30 12:46:20:605] USB port 60 removed out.
+[2024-10-30 12:46:20:606] [hDiagPhone = 0x25C0048] Port = 60, Set Remove Event!
+[2024-10-30 12:46:20:649] SendToUpLayer port = 59 Removed
+[2024-10-30 12:46:20:649] USB port 59 removed out.
+[2024-10-30 12:46:20:649] [hDiagPhone = 0x25C0048] Port = 59, Set Remove Event!
+[2024-10-30 12:47:52:492] SendToUpLayer port = 60 PlugIn
+[2024-10-30 12:47:52:492] USB port 60 plugged in.
+[2024-10-30 12:47:52:492] [hDiagPhone = 0x25C0048] Port = 60, Set PlugIn Event!
+[2024-10-30 12:47:52:494] SendToUpLayer port = 59 PlugIn
+[2024-10-30 12:47:52:494] USB port 59 plugged in.
+[2024-10-30 12:47:52:494] [hDiagPhone = 0x25C0048] Port = 59, Set PlugIn Event!
+[2024-10-30 12:48:28:116] SendToUpLayer port = 60 Removed
+[2024-10-30 12:48:28:116] USB port 60 removed out.
+[2024-10-30 12:48:28:116] [hDiagPhone = 0x25C0048] Port = 60, Set Remove Event!
+[2024-10-30 12:48:28:151] SendToUpLayer port = 59 Removed
+[2024-10-30 12:48:28:151] USB port 59 removed out.
+[2024-10-30 12:48:28:151] [hDiagPhone = 0x25C0048] Port = 59, Set Remove Event!
+[2024-10-30 12:48:40:230] SendToUpLayer port = 60 PlugIn
+[2024-10-30 12:48:40:230] USB port 60 plugged in.
+[2024-10-30 12:48:40:230] [hDiagPhone = 0x25C0048] Port = 60, Set PlugIn Event!
+[2024-10-30 12:48:40:232] SendToUpLayer port = 59 PlugIn
+[2024-10-30 12:48:40:233] USB port 59 plugged in.
+[2024-10-30 12:48:40:233] [hDiagPhone = 0x25C0048] Port = 59, Set PlugIn Event!
+[2024-10-30 12:51:57:087] SendToUpLayer port = 60 Removed
+[2024-10-30 12:51:57:087] USB port 60 removed out.
+[2024-10-30 12:51:57:087] [hDiagPhone = 0x25C0048] Port = 60, Set Remove Event!
+[2024-10-30 12:51:57:142] SendToUpLayer port = 59 Removed
+[2024-10-30 12:51:57:142] USB port 59 removed out.
+[2024-10-30 12:51:57:142] [hDiagPhone = 0x25C0048] Port = 59, Set Remove Event!
+[2024-10-30 12:52:03:659] RegDiagEvent()
+[2024-10-30 12:52:03:659] UnRegister, hDiagPhone = 0x025C0048
+[2024-10-30 12:52:03:660] DiagPhone Found, erased.
+[2024-10-30 12:52:03:660] StopDevNtfThread()
+[2024-10-30 12:52:03:668] HoundThreadProc stopped!
+[2024-10-30 12:52:03:668] DevHound stopped!
+[2024-10-30 12:52:03:668] DevHound is stopped
+[2024-10-30 12:52:03:668] EnumProc() is stopped.
