@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ea6c8dd-bc6b-49c9-a29a-de747cddbd42" name="更改" comment="备份">
-      <change afterPath="$PROJECT_DIR$/飞猫原系统M20_MF09L_V2.3_Build_20241129原版系统/SPD_Driver_R4.20.4201.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Revert_____This_reverts_commit_75c70605828f4eea3b9944b50ac04697c6d77fe4_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024_12_14_7_30____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2024_12_14_下午7_30_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/飞猫M20V2.3_Build_20241129_x5补全包/m20增加功能.md" beforeDir="false" afterPath="$PROJECT_DIR$/飞猫M20V2.3_Build_20241129_x5补全包/m20增加功能.md" afterDir="false" />
-    </list>
+    <list default="true" id="0ea6c8dd-bc6b-49c9-a29a-de747cddbd42" name="更改" comment="备份" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,7 +70,7 @@
       <workItem from="1734175733037" duration="845000" />
       <workItem from="1734176600266" duration="162000" />
       <workItem from="1734176771645" duration="217000" />
-      <workItem from="1734248714913" duration="532000" />
+      <workItem from="1734248714913" duration="869000" />
     </task>
     <task id="LOCAL-00001" summary="备份1">
       <option name="closed" value="true" />
@@ -119,7 +112,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734249131963</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="备份">
+      <option name="closed" value="true" />
+      <created>1734249280682</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1734249280682</updated>
+    </task>
+    <task id="LOCAL-00007" summary="备份">
+      <option name="closed" value="true" />
+      <created>1734249292893</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1734249292893</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
