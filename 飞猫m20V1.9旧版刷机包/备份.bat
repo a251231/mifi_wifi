@@ -1,0 +1,1 @@
+spd_dump --wait 600 exec_addr 0x3f28 fdl .\data\udx710_fdl1 0x28007000 fdl .\data\udx710_fdl2 0x9efffe00 exec read_part read_part system 0 ubi42m .\data\bf\system.bin read_part m_webui 0 ubi10m .\data\bf\m_webui.bin read_part userdata 0 0x22E0000 .\data\userdata.bin reset
